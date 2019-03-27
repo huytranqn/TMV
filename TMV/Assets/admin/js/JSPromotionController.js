@@ -1,7 +1,10 @@
-﻿
-var grantController = {
+﻿var config = {
+    page: 1,
+    filter: ''
+};
+var PromotionController = {
     init: function () {
-        grantController.registerEvent();
+        PromotionController.registerEvent();
     },
     registerEvent: function () {
         //change status
@@ -11,10 +14,10 @@ var grantController = {
 
             var id = btn.data('id');
             var text = btn.text() === "Kích hoạt" ? "khóa" : "kích hoạt";
-            if (confirm("Bạn muốn " + text + " phân quyền này?")) {
+            if (confirm("Bạn muốn " + text + " khuyến mãi này?")) {
                 $.ajax({
                     type: 'POST',
-                    url: '/Admin/Grant/ChangeStatus',
+                    url: '/Admin/Promotion/ChangeStatus',
                     data: { id: id },
                     dataType: 'json',
                     success: function (response) {
@@ -42,10 +45,10 @@ var grantController = {
 
             var id = btn.data('id');
 
-            if (confirm("Bạn thực sự muốn xóa phân quyền này?")) {
+            if (confirm("Bạn thực sự muốn xóa khuyến mãi này?")) {
                 $.ajax({
                     type: 'POST',
-                    url: '/Admin/Grant/Delete',
+                    url: '/Admin/Promotion/Delete',
                     data: { id: id },
                     dataType: 'json',
                     success: function (response) {
@@ -59,28 +62,6 @@ var grantController = {
                 });
             };
         });
-
-        //sửa dữ liệu
-        $('.edit').off('keypress').on('keypress', function (e) {
-            if (e.which == 13) {
-                var id = $(this).data("id");
-                var value = $(this).val();
-                $.ajax({
-                    url: "/Admin/Grant/EditName",
-                    type: "POST",
-                    data: {
-                        id: id,
-                        name: value,
-                    },
-                    success: function (data) {
-                        if (data) {
-                            alert("Update Success!");
-                        }
-                    }
-                });
-            }
-        });
     },
-
 };
-grantController.init();
+PromotionController.init();

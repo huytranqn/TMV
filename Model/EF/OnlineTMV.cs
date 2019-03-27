@@ -4,6 +4,7 @@ namespace Model.EF
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using System.Collections.Generic;
 
     public partial class OnlineTMV : DbContext
     {
@@ -13,11 +14,12 @@ namespace Model.EF
         }
 
         public virtual DbSet<HT_NHANVIEN> HT_NHANVIEN { get; set; }
-        public virtual DbSet<Introduce> Introduces { get; set; }
-        public virtual DbSet<Promotion> Promotions { get; set; }
+        public virtual DbSet<INTRODUCE> INTRODUCE { get; set; }
+        public virtual DbSet<Promotion> PROMOTION { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            
         }
     }
 }

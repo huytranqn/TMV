@@ -6,18 +6,24 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Introduce")]
-    public partial class Introduce
+    [Table("INTRODUCE")]
+    public partial class INTRODUCE
     {
         [Key]
         public int InID { get; set; }
 
         [Column(TypeName = "ntext")]
         [Required]
-        public string Contents { get; set; }
+        public string InTitle { get; set; }
 
         [Column(TypeName = "ntext")]
         [Required]
-        public string Image { get; set; }
+        public string InContent { get; set; }
+
+        public DateTime? CreateAt { get; set; }
+
+        public DateTime? UpdateAt { get; set; }
+
+        public bool isActive { get; set; }
     }
 }

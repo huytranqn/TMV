@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace TMV.Areas.Admin.Controllers
 {
-    public class KhuyenmaiController : BaseController
+    public class IntroduceController : Controller
     {
-        // GET: Admin/Khuyenmai
+        // GET: Admin/Introduce
         public ActionResult Index()
         {
             return View();

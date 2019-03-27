@@ -12,7 +12,6 @@ namespace Model.DTO
         public UserSession()
         {
             UserName = "";
-            //GrantID = false;
         }
         public UserSession(string username)
         {
@@ -22,7 +21,8 @@ namespace Model.DTO
 
 
         public string UserName { get; set; }
-        //public bool GrantID { get; set; }
+
+         //public bool GrantID { get; set; }
     }
 }
 
