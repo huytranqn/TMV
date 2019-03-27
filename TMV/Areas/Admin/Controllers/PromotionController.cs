@@ -26,12 +26,6 @@ namespace TMV.Areas.Admin.Controllers
             return View(model);
 
         }
-        //public static MvcHtmlString FixedTextAreaFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression)
-        //{
-        //    return new MvcHtmlString(htmlHelper.TextAreaFor(expression)
-        //        .ToHtmlString()
-        //        .Replace(">&#13;&#10;", ">" + Environment.NewLine));
-        //}
 
         public ActionResult Create()
         {
@@ -49,7 +43,7 @@ namespace TMV.Areas.Admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm sản phẩm thất bại!");
+                    ModelState.AddModelError("", "Thêm khuyến mãi thất bại!");
                 }
             }
             return View();
