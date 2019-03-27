@@ -16,7 +16,7 @@ namespace TMV
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                defaults: new { controller = "Home", action = "About", id = UrlParameter.Optional },
                 namespaces: new string[] { "TMV.Controllers" }
 
             );

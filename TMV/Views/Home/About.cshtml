@@ -1,7 +1,333 @@
-﻿@{
-    ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿
+@{
+    ViewBag.Title = "Liên Hệ";
+    Layout = null;
 
-<p>Use this area to provide additional information.</p>
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Liên Hệ</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Dr PRO template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">
+    <link href="~/Assets/display/js/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/display/js/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/display/js/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/display/js/plugins/OwlCarousel2-2.2.1/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/display/css/about.css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/display/css/about_responsive.css">
+</head>
+<body>
+
+    <div class="super_container">
+
+        <!-- Header -->
+
+        <header class="header trans_400">
+            <div class="header_content d-flex flex-row align-items-center jusity-content-start trans_400">
+
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="#">
+                        <div>Dr<span>PRO</span></div>
+                        <div>Phẫu thuật thẩm mỹ</div>
+                    </a>
+                </div>
+
+                <!-- Main Navigation -->
+                <nav class="main_nav">
+                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                        <li><a href="index.html">Trang Chủ</a></li>
+                        <li class="active"><a href="about.html">Giới thiệu</a></li>
+                    </ul>
+                </nav>
+                <div class="header_extra d-flex flex-row align-items-center justify-content-end ml-auto">
+
+                    <!-- Work Hourse -->
+                    <div class="work_hours">Thứ 2 - Thứ 7: 8:00am - 9:00pm</div>
+
+                    <!-- Header Phone -->
+                    <div class="header_phone">0399002999</div>
+
+                    <!-- Appointment Button -->
+                    <div class="button button_1 header_button"><a href="#">Tạo cuộc hẹn</a></div>
+
+                    <!-- Header Social -->
+                    <div class="social header_social">
+                        <ul class="d-flex flex-row align-items-center justify-content-start">
+                            <li><a href="https://www.instagram.com/huytrankb/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.facebook.com/tranlegiaminhhuy"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Hamburger -->
+                    <div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Menu -->
+        <!-- Home -->
+
+        <div class="home d-flex flex-column align-items-start justify-content-end">
+            <!-- <div class="background_image" style="background-image:url(images/about.jpg)"></div> -->
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="~/Assets/display/images/about.jpg" data-speed="0.8"></div>
+            <div class="home_overlay"><img src="~/Assets/display/images/home_overlay.png" alt=""></div>
+            <div class="home_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="home_content">
+                                <div class="home_title">Về chúng tôi</div>
+                                <div class="home_text">Trung tâm phẫu thuật thẩm mỹ chuyên nghiệp.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Intro -->
+
+        <div class="intro">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Intro Content -->
+                    <div class="col-lg-8">
+                        <div class="intro_content">
+                            <div class="section_title_container">
+                                <div class="section_subtitle"> Dr Pro</div>
+                                <div class="section_title"><h2>Chào mừng đến với chúng tôi</h2></div>
+                            </div>
+                            <div class="intro_text">
+                                <p>Bạn sẽ được phục vụ một cách chuyên nghiệp với chuẩn quốc tế dựa trên công nghệ tiên tiến .</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Intro Image -->
+                    <div class="col-lg-3 offset-lg-1">
+                        <div class="intro_image"><img src="~/Assets/display/images/intro_1.jpg" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <!-- Call to action -->
+
+        <div class="cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="cta_container d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+                            <div class="cta_content">
+                                <div class="cta_title">Liên hệ với chung tôi!</div>
+                                <div class="cta_text">Để được giải đáp thắc mắc của bạn.</div>
+                            </div>
+                            <div class="cta_phone ml-lg-auto">0399002999</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team -->
+
+        <div class="team">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="section_title_container text-center">
+                            <div class="section_subtitle">Dr Pro</div>
+                            <div class="section_title"><h2>Đội ngũ nhân viên</h2></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row team_row">
+
+                    <!-- Team Item -->
+                    <div class="col-lg-4 team_col">
+                        <div class="team_item text-center d-flex flex-column aling-items-center justify-content-end">
+                            <div class="team_image"><img src="~/Assets/display/images/team_1.jpg" alt=""></div>
+                            <div class="team_content text-center">
+                                <div class="team_name"><a href="#">Michael Smith</a></div>
+                                <div class="team_title">BS Phẩu thuật thẩm mỹ</div>
+                                <div class="team_text">
+                                    <p>Có nhiều năm kinh nghiệm trong nghề.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Item -->
+                    <div class="col-lg-4 team_col">
+                        <div class="team_item text-center d-flex flex-column aling-items-center justify-content-end">
+                            <div class="team_image"><img src="~/Assets/display/images/team_2.jpg" alt=""></div>
+                            <div class="team_content text-center">
+                                <div class="team_name"><a href="#">Samantha Doe</a></div>
+                                <div class="team_title">BS Nghiên cứu</div>
+                                <div class="team_text">
+                                    <p>Phát triển phương pháp làm đẹp từ thiên nhiên.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team Item -->
+                    <div class="col-lg-4 team_col">
+                        <div class="team_item text-center d-flex flex-column aling-items-center justify-content-end">
+                            <div class="team_image"><img src="~/Assets/display/images/team_3.jpg" alt=""></div>
+                            <div class="team_content text-center">
+                                <div class="team_name"><a href="#">James Carl</a></div>
+                                <div class="team_title">BS Chăm sóc</div>
+                                <div class="team_text">
+                                    <p>Chăm sóc sức khỏe của bạn sau khi phẫu thuật.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter -->
+
+        <div class="newsletter">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="~/Assets/display/images/newsletter.jpg" data-speed="0.8"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="newsletter_title">Theo dõi bản tin của chúng tôi</div>
+                    </div>
+                </div>
+                <div class="row newsletter_row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="newsletter_form_container">
+                            <form action="#" id="newsleter_form" class="newsletter_form">
+                                <input type="email" class="newsletter_input" placeholder="Nhập E-mail" required="required">
+                                <button class="newsletter_button">Đăng Ký</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+
+        <footer class="footer">
+            <div class="footer_content">
+                <div class="container">
+                    <div class="row">
+
+                        <!-- Footer About -->
+                        <div class="col-lg-3 footer_col">
+                            <div class="footer_about">
+                                <div class="footer_logo">
+                                    <a href="#">
+                                        <div>Dr<span>PRO</span></div>
+                                        <div>Phẫu thuật thẩm mỹ</div>
+                                    </a>
+                                </div>
+                                <div class="footer_about_text">
+                                    <p>Vì hạnh phúc của mỗi con người.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer Contact Info -->
+                        <div class="col-lg-3 footer_col">
+                            <div class="footer_contact">
+                                <div class="footer_title">Thông Tin liên hệ</div>
+                                <ul class="contact_list">
+                                    <li>0399002999</li>
+                                    <li>harukikb@gmail.com</li>
+                                    <li>honghanhpretty20@gmail.com</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Footer Locations -->
+                        <div class="col-lg-3 footer_col">
+                            <div class="footer_location">
+                                <div class="footer_title">Địa Chỉ</div>
+                                <ul class="locations_list">
+                                    <li>
+                                        <div class="location_title">Nhà Riêng</div>
+                                        <div class="location_text">60/6A Nguyễn Xuân Nhì</div>
+                                    </li>
+                                    <li>
+                                        <div class="location_title">Công Ty</div>
+                                        <div class="location_text">69 Lê Hồng Phong</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Footer Opening Hours -->
+                        <div class="col-lg-3 footer_col">
+                            <div class="opening_hours">
+                                <div class="footer_title">Giờ mở cửa</div>
+                                <ul class="opening_hours_list">
+                                    <li class="d-flex flex-row align-items-start justify-content-start">
+                                        <div>Thứ 2:</div>
+                                        <div class="ml-auto">8:00am - 9:00pm</div>
+                                    </li>
+                                    <li class="d-flex flex-row align-items-start justify-content-start">
+                                        <div>Thứ 3:</div>
+                                        <div class="ml-auto">8:00am - 9:00pm</div>
+                                    </li>
+                                    <li class="d-flex flex-row align-items-start justify-content-start">
+                                        <div>Thứ 4:</div>
+                                        <div class="ml-auto">8:00am - 9:00pm</div>
+                                    </li>
+                                    <li class="d-flex flex-row align-items-start justify-content-start">
+                                        <div>Thứ 5:</div>
+                                        <div class="ml-auto">8:00am - 9:00pm</div>
+                                    </li>
+                                    <li class="d-flex flex-row align-items-start justify-content-start">
+                                        <div>Thứ 6:</div>
+                                        <div class="ml-auto">8:00am - 7:00pm</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/popper.js"></script>
+    <script src="~/Content/bootstrap.min.js"></script>
+    <script src="~/Assets/display/js/plugins/greensock/TweenMax.min.js"></script>
+    <script src="~/Assets/display/js/plugins/greensock/TimelineMax.min.js"></script>
+    <script src="~/Assets/display/js/plugins/scrollmagic/ScrollMagic.min.js"></script>
+    <script src="~/Assets/display/js/plugins/greensock/animation.gsap.min.js"></script>
+    <script src="~/Assets/display/js/plugins/greensock/ScrollToPlugin.min.js"></script>
+    <script src="~/Assets/display/js/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="~/Assets/display/js/plugins/easing/easing.js"></script>
+    <script src="~/Assets/display/js/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="~/Assets/display/js/about.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+
+</body>
+</html>
+

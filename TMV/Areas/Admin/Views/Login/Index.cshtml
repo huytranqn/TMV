@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="~/Assets/admin/dist/css/AdminLTE.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="~/Assets/admin/plugins/iCheck/square/blue.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -33,22 +34,22 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-box-body">
-            <p class="login-box-msg">Đăng nhập ngay</p>
+            <p class="login-box-msg" style="font-family: 'Pacifico'">ĐĂNG NHẬP</p>
             @using (Html.BeginForm("Login", "Login", FormMethod.Post))
             {
                 @Html.ValidationSummary(false, "", new { @class = "text-danger" });
                 <fieldset>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.UserName)
+                        Tên Đăng Nhập
                         @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @autofocus = "autofocus" })
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Password)
+                        Mật Khẩu
                         @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
                     </div>
 
                     <!-- Change this to a button or input when using this as a form -->
-                    <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
+                    <button type="submit" class="btn btn-lg btn-success btn-block">Đăng nhập</button>
                 </fieldset>
             }
         </div>
