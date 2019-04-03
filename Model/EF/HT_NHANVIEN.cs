@@ -8,6 +8,13 @@ namespace Model.EF
 
     public partial class HT_NHANVIEN
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public HT_NHANVIEN()
+        {
+            KH_BANHANG = new HashSet<KH_BANHANG>();
+            KH_TRAHANG = new HashSet<KH_TRAHANG>();
+        }
+
         [Key]
         [StringLength(50)]
         public string TEN_DANGNHAP { get; set; }
@@ -27,5 +34,13 @@ namespace Model.EF
         public int? MA_BOPHAN { get; set; }
 
         public bool? HOAT_DONG { get; set; }
+
+        public virtual HT_BOPHAN HT_BOPHAN { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KH_BANHANG> KH_BANHANG { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KH_TRAHANG> KH_TRAHANG { get; set; }
     }
 }

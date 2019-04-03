@@ -13,14 +13,14 @@ using System.Web.Routing;
 
 namespace TMV.Areas.Admin.Controllers
 {
-    public class PromotionController : BaseController
+    public class App_khuyenmaiController : BaseController
     {
         protected override bool DisableAsyncSupport => base.DisableAsyncSupport;
         #region ActionResult
-        // GET: Admin/Promotion
+        // GET: Admin/App_khuyenmai
         public ActionResult Index(string searchString, int page = 1)
         {
-            var dao = new PromotionDao();
+            var dao = new APP_KHUYENMAIDAO();
             var model = dao.ListAllPaging(searchString, page);
             ViewBag.SearchString = searchString;
             return View(model);
@@ -33,11 +33,11 @@ namespace TMV.Areas.Admin.Controllers
         }
 
         [HttpPost, ValidateInput(false)]
-        public ActionResult Create(Promotion model)
+        public ActionResult Create(APP_KHUYENMAI model)
         {
             if (ModelState.IsValid)
             {
-                if (PromotionDao.Instance.insert(model))
+                if (APP_KHUYENMAIDAO.Instance.insert(model))
                 {
                     return RedirectToAction("Index");
                 }
@@ -51,16 +51,16 @@ namespace TMV.Areas.Admin.Controllers
 
         public ActionResult Edit(int id)
         {
-            var product = PromotionDao.Instance.getByID(id);
-            return View(product);
+            var app_khuyenmai = APP_KHUYENMAIDAO.Instance.getByID(id);
+            return View(app_khuyenmai);
         }
 
         [HttpPost, ValidateInput(false)]
-        public ActionResult Edit(Promotion model)
+        public ActionResult Edit(APP_KHUYENMAI model)
         {
             if (ModelState.IsValid)
             {
-                if (PromotionDao.Instance.Update(model))
+                if (APP_KHUYENMAIDAO.Instance.Update(model))
                 {
                     return RedirectToAction("Index");
                 }
@@ -80,7 +80,7 @@ namespace TMV.Areas.Admin.Controllers
             bool result = false;
             try
             {
-                result = PromotionDao.Instance.changeStatus(id);
+                result = APP_KHUYENMAIDAO.Instance.changeStatus(id);
             }
             catch (Exception ex)
             {
@@ -91,7 +91,7 @@ namespace TMV.Areas.Admin.Controllers
         }
         public JsonResult Delete(int id)
         {
-            var result = PromotionDao.Instance.delete(id);
+            var result = APP_KHUYENMAIDAO.Instance.delete(id);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 

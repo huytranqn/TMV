@@ -1,11 +1,9 @@
-﻿@model IEnumerable<Model.EF.Promotion>
-@using PagedList.Mvc;
+﻿@model IEnumerable<Model.EF.APP_KHUYENMAI>
 
 @{
-    ViewBag.Title = "Quản lý khyến mãi";
+    ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
 @section Script_footer{
     <script src="~/Assets/admin/js/JSPromotionController.js"></script>
 }
@@ -14,7 +12,7 @@
     <h1>Quản lý khuyến mãi</h1>
     <ol class="breadcrumb">
         <li><a href="/Admin"><i class="fa fa-dashboard"></i>Trang chủ</a></li>
-        <li><a href="/Admin/Promotion">Khuyến mãi</a></li>
+        <li><a href="/Admin/App_khuyenmai">Khuyến mãi</a></li>
         <li class="active">Danh sách khuyến mãi</li>
     </ol>
 }
@@ -24,7 +22,7 @@
 
             <div class="box-header">
                 <h3 class="box-title">Danh sách khuyến mãi</h3>
-                @using (Html.BeginForm("Index", "Promotion", FormMethod.Get))
+                @using (Html.BeginForm("Index", "APP_KHUYENMAI", FormMethod.Get))
                 {
                     <div class="box-tools pull-right">
                         <div class="input-group input-group-sm col-md-4 pull-right col-xs-offset-1">
@@ -34,7 +32,7 @@
                             </div>
                         </div>
                         <div class="pull-right">
-                            <a href="/Admin/Promotion/Create" class="btn btn-info btn-sm"> <i class="fa  fa-plus"></i> Thêm mới</a>
+                            <a href="/Admin/App_khuyenmai/Create" class="btn btn-info btn-sm"> <i class="fa  fa-plus"></i> Thêm mới</a>
                         </div>
                     </div>
                 }
@@ -53,9 +51,6 @@
                             Ngày tạo
                         </th>
                         <th>
-                            Ngày chỉnh sửa
-                        </th>
-                        <th>
                             Trạng thái
                         </th>
 
@@ -65,26 +60,23 @@
                     @foreach (var item in Model)
                     {
                         string classkh = "";
-                        if (item.isActive) { classkh = "label label-success"; } else { classkh = "label label-danger"; }
+                        if (item.TRANG_THAI) { classkh = "label label-success"; } else { classkh = "label label-danger"; }
                         string stringkh = "";
-                        if (item.isActive) { stringkh = "Kích hoạt"; } else { stringkh = "Khóa"; }
-                        <tr id="row_@item.ProID">
+                        if (item.TRANG_THAI) { stringkh = "Kích hoạt"; } else { stringkh = "Khóa"; }
+                        <tr id="row_@item.ID_KHUYENMAI">
                             <td>
-                                @Html.DisplayFor(modelItem => item.ProID)
+                                @Html.DisplayFor(modelItem => item.ID_KHUYENMAI)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.ProTitle)
+                                @Html.DisplayFor(modelItem => item.MOTA_VANTAT)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.CreateAt)
+                                @Html.DisplayFor(modelItem => item.NGAY_TAO)
                             </td>
+                            <td> <a href="#" data-id="@item.ID_KHUYENMAI " class="btn-status @classkh">@stringkh</a> </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.UpdateAt)
-                            </td>
-                            <td> <a href="#" data-id="@item.ProID " class="btn-status @classkh">@stringkh</a> </td>
-                            <td>
-                                @Html.ActionLink("Sửa", "Edit", new { id = item.ProID }) |
-                                <a href="#" data-id="@item.ProID " class="btn-delete">Xóa</a>
+                                @Html.ActionLink("Sửa", "Edit", new { id = item.ID_KHUYENMAI }) |
+                                <a href="#" data-id="@item.ID_KHUYENMAI " class="btn-delete">Xóa</a>
                             </td>
                         </tr>
                     }
@@ -105,4 +97,3 @@
     </div>
     <!-- /.box -->
 </div>
-

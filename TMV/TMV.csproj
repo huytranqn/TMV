@@ -144,9 +144,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\App_khuyenmaiController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\PromotionController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -8375,9 +8375,6 @@
     <Content Include="Areas\Admin\Views\Shared\LeftMenu.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Promotion\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Promotion\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Promotion\Edit.cshtml" />
     <Content Include="Assets\display\js\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Assets\display\js\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="Assets\display\js\plugins\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
@@ -8412,6 +8409,9 @@
     <Content Include="Assets\display\js\plugins\font-awesome-4.7.0\scss\_stacked.scss" />
     <Content Include="Assets\display\js\plugins\font-awesome-4.7.0\scss\_variables.scss" />
     <Content Include="Assets\display\js\plugins\jquery-datepicker\package.json" />
+    <Content Include="Areas\Admin\Views\App_khuyenmai\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\App_khuyenmai\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\App_khuyenmai\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -8440,6 +8440,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Service\" />
     <Folder Include="Assets\display\fonts\" />
     <Folder Include="Models\" />
   </ItemGroup>

@@ -7,7 +7,7 @@ using PagedList;
 
 namespace Model.DAO
 {
-    public class PromotionDao
+    public class APP_KHUYENMAIDAO
     {
         /**
       * Constants
@@ -18,20 +18,20 @@ namespace Model.DAO
          * @description -- init
          */
 
-        public PromotionDao()
+        public APP_KHUYENMAIDAO()
         {
             db = new OnlineTMV();
         }
 
-        private static PromotionDao instance;
+        private static APP_KHUYENMAIDAO instance;
 
-        public static PromotionDao Instance
+        public static APP_KHUYENMAIDAO Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new PromotionDao();
+                    instance = new APP_KHUYENMAIDAO();
                 }
                 return instance;
             }
@@ -43,9 +43,9 @@ namespace Model.DAO
          * @param _key: int -- is field ProdID
          */
 
-        public Promotion getByID(int _key)
+        public APP_KHUYENMAI getByID(int _key)
         {
-            return db.PROMOTION.SingleOrDefault(obj => obj.ProID == _key);
+            return db.APP_KHUYENMAI.SingleOrDefault(obj => obj.ID_KHUYENMAI == _key);
         }
 
         /**
@@ -53,10 +53,10 @@ namespace Model.DAO
          * @param _prod: Promotion -- is a transion object
         */
 
-        public bool hasProcuct(Promotion _pro)
+        public bool hasProcuct(APP_KHUYENMAI _pro)
         {
-            var product = db.PROMOTION.SingleOrDefault(obj => obj.ProID == _pro.ProID);
-            return product != default(Promotion) ? true : false;
+            var product = db.APP_KHUYENMAI.SingleOrDefault(obj => obj.ID_KHUYENMAI == _pro.ID_KHUYENMAI);
+            return product != default(APP_KHUYENMAI) ? true : false;
         }
 
         /**
@@ -64,12 +64,12 @@ namespace Model.DAO
          * @param _request: Promotion -- entity object
          */
 
-        public bool insert(Promotion _request)
+        public bool insert(APP_KHUYENMAI _request)
         {
             if (!hasProcuct(_request))
             {
-                _request.CreateAt = DateTime.Now;
-                db.PROMOTION.Add(_request);
+                _request.NGAY_TAO = DateTime.Now;
+                db.APP_KHUYENMAI.Add(_request);
                 db.SaveChanges();
                 return true;
             }
@@ -85,7 +85,7 @@ namespace Model.DAO
         {
             //if (hasReference(_key))
             //    return false;
-            db.PROMOTION.Remove(getByID(_key));
+            db.APP_KHUYENMAI.Remove(getByID(_key));
             db.SaveChanges();
             return true;
         }
@@ -97,11 +97,10 @@ namespace Model.DAO
 
         public bool changeStatus(int _key)
         {
-            var promotion = getByID(_key);
-            promotion.isActive = !promotion.isActive;
-            promotion.UpdateAt = DateTime.Now;
+            var app_khuyenmai = getByID(_key);
+            app_khuyenmai.TRANG_THAI = !app_khuyenmai.TRANG_THAI;
             db.SaveChanges();
-            return promotion.isActive;
+            return app_khuyenmai.TRANG_THAI;
         }
 
         /**
@@ -109,13 +108,12 @@ namespace Model.DAO
          * @param _request: PromotionRequestDto -- is the data transmitted down from the display screen
          */
 
-        public bool Update(Promotion _request)
+        public bool Update(APP_KHUYENMAI _request)
         {
-            var promotion = getByID(_request.ProID);
-            promotion.ProTitle = _request.ProTitle;
-            promotion.ProContent = _request.ProContent;
-            promotion.UpdateAt = DateTime.Now;
-            promotion.isActive = _request.isActive;
+            var app_khuyenmai = getByID(_request.ID_KHUYENMAI);
+            app_khuyenmai.MOTA_VANTAT = _request.MOTA_VANTAT;
+            app_khuyenmai.MOTA_CHITIET = _request.MOTA_CHITIET;
+            app_khuyenmai.TRANG_THAI = _request.TRANG_THAI;
             db.SaveChanges();
             return true;
         }
@@ -130,14 +128,14 @@ namespace Model.DAO
         //}
 
 
-        public IEnumerable<Promotion> ListAllPaging(string searchString, int page)
+        public IEnumerable<APP_KHUYENMAI> ListAllPaging(string searchString, int page)
         {
-            IQueryable<Promotion> model = db.PROMOTION;
+            IQueryable<APP_KHUYENMAI> model = db.APP_KHUYENMAI;
             if (!string.IsNullOrEmpty(searchString))
             {
-                model = model.Where(x => x.ProTitle.Contains(searchString) || x.ProContent.Contains(searchString));
+                model = model.Where(x => x.MOTA_VANTAT.Contains(searchString) || x.MOTA_CHITIET.Contains(searchString));
             }
-            return model.OrderByDescending(x => x.CreateAt).ToPagedList(page, Constants.PageSize);
+            return model.OrderByDescending(x => x.NGAY_TAO).ToPagedList(page, Constants.PageSize);
 
         }
 
@@ -146,13 +144,13 @@ namespace Model.DAO
          * @param _search: string -- is search key
          */
 
-        public IEnumerable<Promotion> getObjectList(string _search, int page, out int totalRows, out int totalPages)
+        public IEnumerable<APP_KHUYENMAI> getObjectList(string _search, int page, out int totalRows, out int totalPages)
         {
-            var model = db.PROMOTION.OrderBy(p => p.CreateAt).ToList();
+            var model = db.APP_KHUYENMAI.OrderBy(p => p.NGAY_TAO).ToList();
 
             if (_search != null)
             {
-                model = model.Where(obj => obj.ProTitle.Contains(_search)).ToList();
+                model = model.Where(obj => obj.MOTA_VANTAT.Contains(_search)).ToList();
             }
 
             totalRows = model.Count();
@@ -201,12 +199,12 @@ namespace Model.DAO
 
         public List<string> ListName(string keyword)
         {
-            return db.PROMOTION.Where(x => x.ProTitle.Contains(keyword)).Select(x => x.ProTitle).ToList();
+            return db.APP_KHUYENMAI.Where(x => x.MOTA_VANTAT.Contains(keyword)).Select(x => x.MOTA_VANTAT).ToList();
         }
-        public List<Promotion> Search(string search_kw, ref int totalRecord, int pageIndex = 1)
+        public List<APP_KHUYENMAI> Search(string search_kw, ref int totalRecord, int pageIndex = 1)
         {
-            var model = db.PROMOTION.Where(x => x.ProTitle.Contains(search_kw)).ToList();
-            totalRecord = db.PROMOTION.Where(x => x.ProTitle.Contains(search_kw)).Count();//nghi nó bằng 0 chỗ này
+            var model = db.APP_KHUYENMAI.Where(x => x.MOTA_VANTAT.Contains(search_kw)).ToList();
+            totalRecord = db.APP_KHUYENMAI.Where(x => x.MOTA_VANTAT.Contains(search_kw)).Count();//nghi nó bằng 0 chỗ này
             model = model.Skip((pageIndex - 1) * Constants.PageSize).Take(Constants.PageSize).ToList();
             return model;
         }

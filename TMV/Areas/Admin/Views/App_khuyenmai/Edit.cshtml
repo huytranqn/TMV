@@ -1,77 +1,70 @@
-﻿@model Model.EF.Promotion
+﻿@model Model.EF.APP_KHUYENMAI
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
 @section header{
-    <h1>Thêm mới sản phẩm</h1>
+    <h1>Cập nhật thông tin khuyến mãi</h1>
     <ol class="breadcrumb">
         <li><a href="/Admin"><i class="fa fa-dashboard"></i>Trang chủ</a></li>
-        <li><a href="/Admin/Promotion">Khuyến mãi</a></li>
-        <li class="active">Thêm mới</li>
+        <li><a href="/Admin/APP_KHUYENMAI">Khuyến mãi</a></li>
+        <li class="active">Cập nhật</li>
     </ol>
 }
+
 @section Script_footer{
     <script>
-        $('#btnSelectImage').on('click', function (e) {
-            e.preventDefault();
-            var finder = new CKFinder();
-            finder.selectActionFunction = function (url) {
-                $('#txtImage').val(url);
-            };
-            finder.popup();
-        });
+
         var editor = CKEDITOR.replace("txtContent", {
             customConfig: '/assets/admin/plugins/ckeditor/config.js',
         });
     </script>
 }
+
 <div class="row">
     <!-- left column -->
     <div class="col-md-6 col-md-offset-3">
         <!-- general form elements -->
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Thông tin khuyến mãi</h3>
+                <h3 class="box-title">Thông tin sản phẩm</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            @using (Html.BeginForm("Create", "Promotion", FormMethod.Post))
+            @using (Html.BeginForm("Edit", "APP_KHUYENMAI", FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.ID_KHUYENMAI)
                 <div class="box-body">
                     <div class="form-group">
-                        @Html.LabelFor(model => model.ProTitle)
-                        @Html.TextBoxFor(model => model.ProTitle, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.ProTitle, "", new { @class = "text-danger" })
+                        @Html.LabelFor(model => model.MOTA_VANTAT)
+                        @Html.TextBoxFor(model => model.MOTA_VANTAT, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MOTA_VANTAT, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.ProContent) <span class="text-danger">*</span>
-                        @Html.TextAreaFor(model => model.ProContent, new { @class = "form-control", @id = "txtContent" })
-                        @Html.ValidationMessageFor(model => model.ProContent, "", new { @class = "text-danger" })
+                        @Html.LabelFor(model => model.MOTA_CHITIET)
+                        @Html.TextAreaFor(model => model.MOTA_CHITIET, new { @class = "form-control", @id = "txtContent" })
+                        @Html.ValidationMessageFor(model => model.MOTA_CHITIET, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.isActive)
+                        @Html.LabelFor(model => model.TRANG_THAI)
                         <div class="checkbox">
                             <label>
-                                @Html.CheckBoxFor(model => model.isActive)
+                                @Html.CheckBoxFor(model => model.TRANG_THAI)
                                 Kích hoạt
                             </label>
-                            @Html.ValidationMessageFor(model => model.isActive, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(model => model.TRANG_THAI, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
-                <!-- /.box-body -->
-
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Lưu</button>
                     @Html.ActionLink("Hủy", "Index", new object { }, new { @class = "btn btn-default col-md-offset-1" })
                 </div>
             }
         </div>
-        <!-- /.box -->
     </div>
 </div>
-

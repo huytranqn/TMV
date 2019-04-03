@@ -17,7 +17,7 @@ var PromotionController = {
             if (confirm("Bạn muốn " + text + " khuyến mãi này?")) {
                 $.ajax({
                     type: 'POST',
-                    url: '/Admin/Promotion/ChangeStatus',
+                    url: '/Admin/App_khuyenmai/ChangeStatus',
                     data: { id: id },
                     dataType: 'json',
                     success: function (response) {
@@ -48,7 +48,7 @@ var PromotionController = {
             if (confirm("Bạn thực sự muốn xóa khuyến mãi này?")) {
                 $.ajax({
                     type: 'POST',
-                    url: '/Admin/Promotion/Delete',
+                    url: '/Admin/App_khuyenmai/Delete',
                     data: { id: id },
                     dataType: 'json',
                     success: function (response) {
