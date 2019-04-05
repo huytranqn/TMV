@@ -59,6 +59,10 @@
     <Compile Include="Common\Constant.cs" />
     <Compile Include="Common\Encode\Encrypt.cs" />
     <Compile Include="DAO\APP_KHUYENMAIDAO.cs" />
+    <Compile Include="DAO\DichvuDao.cs" />
+    <Compile Include="DAO\GioithieuDao.cs" />
+    <Compile Include="DAO\Loaidichvu.cs" />
+    <Compile Include="DAO\Nhomdichvu.cs" />
     <Compile Include="DAO\UserDao.cs" />
     <Compile Include="DTO\UserSession.cs" />
     <Compile Include="EF\APP_CHITIET_SINHNHAT_KHACHHANG.cs" />

@@ -17,6 +17,6 @@ namespace Model.EF
         [Column(TypeName = "ntext")]
         public string NOIDUNG_CHITIET { get; set; }
 
-        public bool? TRANG_THAI { get; set; }
+        public bool TRANG_THAI { get; set; }
     }
 }

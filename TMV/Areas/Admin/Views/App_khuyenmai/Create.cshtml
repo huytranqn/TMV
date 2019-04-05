@@ -13,24 +13,10 @@
         <li class="active">Thêm mới</li>
     </ol>
 }
-@section Script_footer{
-    <script>
-        $('#btnSelectImage').on('click', function (e) {
-            e.preventDefault();
-            var finder = new CKFinder();
-            finder.selectActionFunction = function (url) {
-                $('#txtImage').val(url);
-            };
-            finder.popup();
-        });
-        var editor = CKEDITOR.replace("txtContent", {
-            customConfig: '/assets/admin/plugins/ckeditor/config.js',
-        });
-    </script>
-}
+
 <div class="row">
     <!-- left column -->
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-12 col-md-offset-0">
         <!-- general form elements -->
         <div class="box box-primary">
             <div class="box-header with-border">

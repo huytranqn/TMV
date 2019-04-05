@@ -146,8 +146,11 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\App_khuyenmaiController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DichvuController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GioithieuController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhomDVController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -8412,6 +8415,9 @@
     <Content Include="Areas\Admin\Views\App_khuyenmai\Index.cshtml" />
     <Content Include="Areas\Admin\Views\App_khuyenmai\Create.cshtml" />
     <Content Include="Areas\Admin\Views\App_khuyenmai\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Dichvu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Dichvu\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Dichvu\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -8440,7 +8446,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\Service\" />
+    <Folder Include="Areas\Admin\Views\NhomDV\" />
     <Folder Include="Assets\display\fonts\" />
     <Folder Include="Models\" />
   </ItemGroup>
