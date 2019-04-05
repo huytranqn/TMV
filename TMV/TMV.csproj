@@ -8418,6 +8418,9 @@
     <Content Include="Areas\Admin\Views\Dichvu\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Dichvu\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Dichvu\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Gioithieu\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Gioithieu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Gioithieu\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

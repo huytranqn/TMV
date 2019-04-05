@@ -1,82 +1,120 @@
-﻿@model IEnumerable<Model.EF.DM_DICHVU>
+﻿@model PagedList.IPagedList<Model.EF.DM_DICHVU>
+@using PagedList.Mvc;
 
-    @{
+@{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-    }
+}
 
-    <h2>Index</h2>
+@section Script_footer{
+    <script src="~/Assets/admin/js/JSDichvuController.js"></script>
+}
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DM_LOAIDV.TEN_LOAIDV)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TEN_DICHVU)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GIA_DICHVU)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GIA_KHUYENMAI)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.THOIGIAN_LAMVIEC)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.THU_TU)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NGUNG_KINHDOANH)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HINH_ANH)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MOTA_CHITIET)
-            </th>
-            <th></th>
-        </tr>
+@section header{
+    <h1>Quản lý dịch vụ</h1>
+    <ol class="breadcrumb">
+        <li><a href="/Admin"><i class="fa fa-dashboard"></i>Trang chủ</a></li>
+        <li><a href="/Admin/App_khuyenmai">Dịch Vụ</a></li>
+        <li class="active">Danh sách dịch vụ</li>
+    </ol>
+}
 
-        @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DM_LOAIDV.TEN_LOAIDV)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TEN_DICHVU)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GIA_DICHVU)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GIA_KHUYENMAI)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.THOIGIAN_LAMVIEC)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.THU_TU)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NGUNG_KINHDOANH)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HINH_ANH)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MOTA_CHITIET)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.MA_DICHVU }) |
-                @Html.ActionLink("Details", "Details", new { id=item.MA_DICHVU }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.MA_DICHVU })
-            </td>
-        </tr>
-        }
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Danh sách dịch vụ</h3>
+                @using (Html.BeginForm("Index", "Dichvu", FormMethod.Get))
+                {
+                    <div class="box-tools pull-right">
+                        <div class="input-group input-group-sm col-md-4 pull-right col-xs-offset-1">
+                            <input type="text" class="form-control pull-right" value="@ViewBag.SearchString" name="searchString" placeholder="Tìm kiếm" />
+                            <div class="input-group-btn">
+                                <button type="submit" id="btn-search" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="pull-right">
+                            <a href="/Admin/Dichvu/Create" class="btn btn-info btn-sm"> <i class="fa  fa-plus"></i> Thêm mới</a>
+                        </div>
+                    </div>
+                }
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <th>
+                            STT
+                        </th>
+                        <th>
+                            Tên dịch vụ
+                        </th>
+                        <th>
+                            Hình ảnh
+                        </th>
+                        <th>
+                            Giá dịch vụ
+                        </th>
+                        <th>
+                            Giá khuyến mãi
+                        </th>
+                        <th>
+                            Thời gian
+                        </th>
+                        <th>
+                            Ngừng Kinh Doanh
+                        </th>
 
-    </table>
+                        <th>Công cụ</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        string classkh = "";
+                        if (item.NGUNG_KINHDOANH) { classkh = "label label-success"; } else { classkh = "label label-danger"; }
+                        string stringkh = "";
+                        if (item.NGUNG_KINHDOANH) { stringkh = "Kích hoạt"; } else { stringkh = "Khóa"; }
+                        <tr id="row_@item.MA_DICHVU">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MA_DICHVU)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TEN_DICHVU)
+                            </td>
+                            <td>
+                                <img src="@Html.DisplayFor(modelItem => item.HINH_ANH)" width="100px" height="100px" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GIA_DICHVU)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GIA_KHUYENMAI)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.THOIGIAN_LAMVIEC)
+                            </td>
+                            <td> <a href="#" data-id="@item.MA_DICHVU " class="btn-status @classkh">@stringkh</a> </td>
+                            <td>
+                                @Html.ActionLink("Sửa", "Edit", new { id = item.MA_DICHVU }) |
+                                <a href="#" data-id="@item.MA_DICHVU " class="btn-delete">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <p>Tổng khuyến mãi: <span id="totalRows">@Model.Count()</span></p>
+                    </div>
+                    <div class="col-xs-6"><ul id="pagination" class=" pagination-sm no-margin pull-right"></ul></div>
+                </div>
+            </div>
+            <!-- /.box-footer -->
+        </div>
+    </div>
+    <!-- /.box -->
+</div>
