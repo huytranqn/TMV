@@ -13,21 +13,16 @@
         <li class="active">Thêm mới</li>
     </ol>
 }
+
 @section Script_footer{
     <script>
-        $('#btnSelectImage').on('click', function (e) {
-            e.preventDefault();
-            var finder = new CKFinder();
-            finder.selectActionFunction = function (url) {
-                $('#txtImage').val(url);
-            };
-            finder.popup();
-        });
+
         var editor = CKEDITOR.replace("txtContent", {
             customConfig: '/assets/admin/plugins/ckeditor/config.js',
         });
     </script>
 }
+
 <div class="row">
     <!-- left column -->
     <div class="col-md-12 col-md-offset-0">
@@ -40,36 +35,36 @@
             <!-- form start -->
             @using (Html.BeginForm("Create", "Gioithieu", FormMethod.Post))
             {
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="box-body">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.MOTA_VANTAT)
-                    @Html.TextBoxFor(model => model.MOTA_VANTAT, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.MOTA_VANTAT, "", new { @class = "text-danger" })
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.NOIDUNG_CHITIET) <span class="text-danger">*</span>
-                    @Html.TextAreaFor(model => model.NOIDUNG_CHITIET, new { @class = "form-control", @id = "txtContent" })
-                    @Html.ValidationMessageFor(model => model.NOIDUNG_CHITIET, "", new { @class = "text-danger" })
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.TRANG_THAI)
-                    <div class="checkbox">
-                        <label>
-                            @Html.CheckBoxFor(model => model.TRANG_THAI)
-                            Kích hoạt
-                        </label>
-                        @Html.ValidationMessageFor(model => model.TRANG_THAI, "", new { @class = "text-danger" })
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="box-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MOTA_VANTAT)
+                        @Html.TextBoxFor(model => model.MOTA_VANTAT, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MOTA_VANTAT, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NOIDUNG_CHITIET) <span class="text-danger">*</span>
+                        @Html.TextAreaFor(model => model.NOIDUNG_CHITIET, new { @class = "form-control", @id = "txtContent" })
+                        @Html.ValidationMessageFor(model => model.NOIDUNG_CHITIET, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TRANG_THAI)
+                        <div class="checkbox">
+                            <label>
+                                @Html.CheckBoxFor(model => model.TRANG_THAI)
+                                Kích hoạt
+                            </label>
+                            @Html.ValidationMessageFor(model => model.TRANG_THAI, "", new { @class = "text-danger" })
+                        </div>
                     </div>
                 </div>
-            </div>
- <!-- /.box-body -->
+                <!-- /.box-body -->
 
-            <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Lưu</button>
-                @Html.ActionLink("Hủy", "Index", new object { }, new { @class = "btn btn-default col-md-offset-1" })
-            </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                    @Html.ActionLink("Hủy", "Index", new object { }, new { @class = "btn btn-default col-md-offset-1" })
+                </div>
             }
         </div>
         <!-- /.box -->

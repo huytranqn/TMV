@@ -1,0 +1,57 @@
+﻿@model Model.EF.APP_CHITIET_SINHNHAT_KHACHHANG
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    <h1>Cập nhật thông tin sinh nhật</h1>
+    <ol class="breadcrumb">
+        <li><a href="/Admin"><i class="fa fa-dashboard"></i>Trang chủ</a></li>
+        <li><a href="/Admin/ChitietSNKH">Chi tiết sinh nhật</a></li>
+        <li class="active">Cập nhật</li>
+    </ol>
+}
+
+<div class="row">
+    <!-- left column -->
+    <div class="col-md-12 col-md-offset-0">
+        <!-- general form elements -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Thông tin sinh nhật</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            @using (Html.BeginForm("Edit", "ChitietSNKH", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.ID_CHITIET_SINHNHAT)
+                <div class="box-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ID_SINHNHAT)
+                        @Html.DropDownListFor(model => model.ID_SINHNHAT, ViewBag.ID_SINHNHAT as SelectList, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ID_SINHNHAT, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MA_KHACHHANG)
+                        @Html.DropDownListFor(model => model.MA_KHACHHANG, ViewBag.MA_KHACHHANG as SelectList, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MA_KHACHHANG, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                            @Html.LabelFor(model => model.GHI_CHU) <span class="text-danger">*</span>
+                            @Html.TextAreaFor(model => model.GHI_CHU, new { @class = "form-control", @id = "txtContent" })
+                            @Html.ValidationMessageFor(model => model.GHI_CHU, "", new { @class = "text-danger" })
+                     </div>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                    @Html.ActionLink("Hủy", "Index", new object { }, new { @class = "btn btn-default col-md-offset-1" })
+                </div>
+
+            }
+        </div>
+    </div>
+</div>

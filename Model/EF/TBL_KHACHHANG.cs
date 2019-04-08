@@ -27,6 +27,7 @@ namespace Model.EF
         public string MA_KHACHHANG { get; set; }
 
         [StringLength(500)]
+        [Display(Name ="Tên Khách Hàng")]
         public string HO_TEN { get; set; }
 
         [StringLength(500)]

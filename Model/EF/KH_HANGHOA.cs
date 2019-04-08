@@ -1,4 +1,4 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -22,33 +22,45 @@ namespace Model.EF
 
         [Required]
         [StringLength(250)]
+        [Display(Name ="Tên Hàng Hóa")]
         public string TEN_HANGHOA { get; set; }
 
+        [Display(Name = "Đơn Gía")]
         public double DON_GIA { get; set; }
 
         [StringLength(500)]
+        [Display(Name = "Mô Tả")]
         public string MO_TA { get; set; }
 
+        [Display(Name = "Đơn Vị Tính")]
         public int ID_DVT { get; set; }
 
         [StringLength(500)]
+        [Display(Name = "Hình Ảnh")]
         public string HINH_ANH { get; set; }
 
         [StringLength(500)]
+        [Display(Name = "Ghi Chú")]
         public string GHI_CHU { get; set; }
 
+        [Display(Name = "Trạng Thái")]
         public bool TRANG_THAI { get; set; }
 
+        [Display(Name = "Nhóm Hang Hóa")]
         public int ID_NHOMHH { get; set; }
 
+        [Display(Name = "Thứ Tự")]
         public int THU_TU { get; set; }
 
+        [Display(Name = "Nhà Cung Cấp")]
         public int? ID_NCC { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "Mã Vạch")]
         public string MA_VACH { get; set; }
 
         [Column(TypeName = "ntext")]
+        [Display(Name = "Mô Tả Chi Tiết")]
         public string MOTA_CHITIET { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

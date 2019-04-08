@@ -5,6 +5,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+
 @section header{
     <h1>Thêm mới sản phẩm</h1>
     <ol class="breadcrumb">
@@ -12,6 +13,15 @@
         <li><a href="/Admin/APP_KHUYENMAI">Khuyến mãi</a></li>
         <li class="active">Thêm mới</li>
     </ol>
+}
+
+@section Script_footer{
+    <script>
+
+        var editor = CKEDITOR.replace("txtContent", {
+            customConfig: '/assets/admin/plugins/ckeditor/config.js',
+        });
+    </script>
 }
 
 <div class="row">

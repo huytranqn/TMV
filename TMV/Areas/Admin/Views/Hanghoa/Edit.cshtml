@@ -1,0 +1,119 @@
+﻿@model Model.EF.KH_HANGHOA
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    <h1>Cập nhật thông tin sinh nhật</h1>
+    <ol class="breadcrumb">
+        <li><a href="/Admin"><i class="fa fa-dashboard"></i>Trang chủ</a></li>
+        <li><a href="/Admin/Hanghoa">Chi tiết hàng hóa</a></li>
+        <li class="active">Cập nhật</li>
+    </ol>
+}
+
+@section Script_footer{
+    <script>
+        $('#btnSelectImage').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#txtImage').val(url);
+            };
+            finder.popup();
+        });
+        var editor = CKEDITOR.replace("txtContent", {
+            customConfig: '/Assets/admin/plugins/ckfinder/config.js',
+    });
+    </script>
+
+}
+
+<div class="row">
+    <!-- left column -->
+    <div class="col-md-12 col-md-offset-0">
+        <!-- general form elements -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Thông tin hàng hóa</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            @using (Html.BeginForm("Edit", "ChitietSNKH", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.MA_HANGHOA)
+                @Html.HiddenFor(model => model.HINH_ANH)
+                <div class="box-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.THU_TU)
+                        @Html.TextBoxFor(model => model.THU_TU, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.THU_TU, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TEN_HANGHOA)
+                        @Html.TextBoxFor(model => model.TEN_HANGHOA, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TEN_HANGHOA, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HINH_ANH)
+                        <div>
+                            <img src="@Html.DisplayFor(model=>model.HINH_ANH)" width="100%" />
+                        </div>
+                        @Html.ValidationMessageFor(model => model.HINH_ANH, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.HINH_ANH, new { @class = "form-control", @id = "txtImage" })
+                        <a id="btnSelectImage" href="#">Chọn Ảnh</a>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DON_GIA)
+                        @Html.TextBoxFor(model => model.DON_GIA, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DON_GIA, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MO_TA)
+                        @Html.TextBoxFor(model => model.MO_TA, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MO_TA, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ID_DVT)
+                        @Html.DropDownListFor(model => model.ID_DVT, ViewBag.ID_DVT as SelectList, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ID_DVT, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ID_NHOMHH)
+                        @Html.DropDownListFor(model => model.ID_NHOMHH, ViewBag.ID_NHOMHH as SelectList, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ID_NHOMHH, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ID_NCC)
+                        @Html.DropDownListFor(model => model.ID_NCC, ViewBag.ID_NCC as SelectList, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ID_NCC, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.GHI_CHU) <span class="text-danger">*</span>
+                        @Html.TextAreaFor(model => model.GHI_CHU, new { @class = "form-control", @id = "txtContent" })
+                        @Html.ValidationMessageFor(model => model.GHI_CHU, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MOTA_CHITIET) <span class="text-danger">*</span>
+                        @Html.TextAreaFor(model => model.MOTA_CHITIET, new { @class = "form-control", @id = "txtContent" })
+                        @Html.ValidationMessageFor(model => model.MOTA_CHITIET, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MA_VACH)
+                        @Html.TextBoxFor(model => model.MA_VACH, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MA_VACH, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                    @Html.ActionLink("Hủy", "Index", new object { }, new { @class = "btn btn-default col-md-offset-1" })
+                </div>
+            }
+        </div>
+    </div>
+</div>

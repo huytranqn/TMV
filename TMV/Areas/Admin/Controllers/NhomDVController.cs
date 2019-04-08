@@ -19,8 +19,8 @@ namespace TMV.Areas.Admin.Controllers
         #region ActionResult
         public ActionResult Index(string searchString, int page = 1)
         {
-            var dao = new NhomdichvuDao();
-            var model = dao.ListAllPaging(searchString, page);
+            var nhomdichvu = new NhomdichvuDao();
+            var model = nhomdichvu.ListAllPaging(searchString, page);
             ViewBag.SearchString = searchString;
             return View(model);
 
@@ -42,7 +42,7 @@ namespace TMV.Areas.Admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm khuyến mãi thất bại!");
+                    ModelState.AddModelError("", "Thêm nhóm dịch vụ thất bại!");
                 }
             }
             return View();
@@ -50,8 +50,8 @@ namespace TMV.Areas.Admin.Controllers
 
         public ActionResult Edit(int id)
         {
-            var app_khuyenmai = NhomdichvuDao.Instance.getByID(id);
-            return View(app_khuyenmai);
+            var nhomdicvu = NhomdichvuDao.Instance.getByID(id);
+            return View(nhomdicvu);
         }
 
         [HttpPost, ValidateInput(false)]

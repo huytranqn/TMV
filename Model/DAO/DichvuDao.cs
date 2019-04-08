@@ -83,8 +83,8 @@ namespace Model.DAO
 
         public bool delete(int _key)
         {
-            //if (hasReference(_key))
-            //    return false;
+            if (hasReference(_key))
+                return false;
             db.DM_DICHVU.Remove(getByID(_key));
             db.SaveChanges();
             return true;
@@ -110,10 +110,15 @@ namespace Model.DAO
 
         public bool Update(DM_DICHVU _request)
         {
-            var app_khuyenmai = getByID(_request.MA_DICHVU);
-            app_khuyenmai.TEN_DICHVU = _request.TEN_DICHVU;
-            app_khuyenmai.MOTA_CHITIET = _request.MOTA_CHITIET;
-            app_khuyenmai.NGUNG_KINHDOANH = _request.NGUNG_KINHDOANH;
+            var dichvu = getByID(_request.MA_DICHVU);
+            dichvu.TEN_DICHVU = _request.TEN_DICHVU;
+            dichvu.MOTA_CHITIET = _request.MOTA_CHITIET;
+            dichvu.NGUNG_KINHDOANH = _request.NGUNG_KINHDOANH;
+            dichvu.GIA_DICHVU = _request.GIA_DICHVU;
+            dichvu.GIA_KHUYENMAI = _request.GIA_KHUYENMAI;
+            dichvu.HINH_ANH = _request.HINH_ANH;
+            dichvu.MA_DICHVU = _request.MA_DICHVU;
+            dichvu.THOIGIAN_LAMVIEC=_request.THOIGIAN_LAMVIEC;
             db.SaveChanges();
             return true;
         }
@@ -173,16 +178,16 @@ namespace Model.DAO
         //    //return db.Promotion.OrderByDescending(x => x.CreatedAt).Take(top).ToList();
         //}
 
-        //private bool hasReference(int _key)
-        //{
-        //    var promotion = getByID(_key);
-        //    if (promotion != default(Promotion))
-        //    {
-        //        object count_one = db.Order.Where(obj => obj.ProID == _key).ToList().Count;
-        //        return count_one > Constants.zeroNumber;
-        //    }
-        //    return Constants.falseValue;
-        //}
+        private bool hasReference(int _key)
+        {
+            var dichvu = getByID(_key);
+            if (dichvu != default(DM_DICHVU))
+            {
+                var count_one = db.DM_LOAIDV.Where(obj => obj.MA_LOAIDV == _key).ToList().Count;
+                return count_one > Constants.zeroNumber;
+            }
+            return Constants.falseValue;
+        }
         //public List<Promotion> ListRelatePromotion(int productID)
         //{
         //    var product = db.PROMOTION.Find(productID);

@@ -1,0 +1,101 @@
+﻿@model PagedList.IPagedList<Model.EF.DM_NHOMDV>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Script_footer{
+    <script src="~/Assets/admin/js/JSNhomdichvuController.js"></script>
+}
+
+@section header{
+    <h1>Quản lý nhóm dịch vụ</h1>
+    <ol class="breadcrumb">
+        <li><a href="/Admin"><i class="fa fa-dashboard"></i>Trang chủ</a></li>
+        <li><a href="/Admin/Nhomdichvu">Nhóm dịch Vụ</a></li>
+        <li class="active">Danh sách nhóm dịch vụ</li>
+    </ol>
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Danh sách nhóm dịch vụ</h3>
+                @using (Html.BeginForm("Index", "Nhomdichvu", FormMethod.Get))
+                {
+                    <div class="box-tools pull-right">
+                        <div class="input-group input-group-sm col-md-4 pull-right col-xs-offset-1">
+                            <input type="text" class="form-control pull-right" value="@ViewBag.SearchString" name="searchString" placeholder="Tìm kiếm" />
+                            <div class="input-group-btn">
+                                <button type="submit" id="btn-search" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="pull-right">
+                            <a href="/Admin/Nhomdichvu/Create" class="btn btn-info btn-sm"> <i class="fa  fa-plus"></i> Thêm mới</a>
+                        </div>
+                    </div>
+                }
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <th>
+                            STT
+                        </th>
+                        <th>
+                            Tên nhóm dịch vụ
+                        </th>
+                        <th>
+                            Khu dịch vụ
+                        </th>
+                        <th>
+                            Hình ảnh
+                        </th>
+                        <th>Công cụ</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+
+                        <tr id="row_@item.MA_NHOMDV">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MA_NHOMDV)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TEN_NHOMDV)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.KHU_DV)
+                            </td>
+                            <td>
+                                <img src="@Html.DisplayFor(modelItem => item.HINH_ANH)" width="100px" height="100px" />
+                            </td>
+                            <td>
+                                @Html.ActionLink("Sửa", "Edit", new { id = item.MA_NHOMDV }) |
+                                <a href="#" data-id="@item.MA_NHOMDV " class="btn-delete">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <p>Tổng khuyến mãi: <span id="totalRows">@Model.Count()</span></p>
+                    </div>
+                    <div class="col-xs-6"><ul id="pagination" class=" pagination-sm no-margin pull-right"></ul></div>
+                </div>
+            </div>
+            <!-- /.box-footer -->
+        </div>
+    </div>
+    <!-- /.box -->
+</div>
+

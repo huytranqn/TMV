@@ -16,9 +16,16 @@
 
 @section Script_footer{
     <script>
-
+        $('#btnSelectImage').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#txtImage').val(url);
+            };
+            finder.popup();
+        });
         var editor = CKEDITOR.replace("txtContent", {
-            customConfig: '/assets/admin/plugins/ckeditor/config.js',
+            customConfig: '/Assets/admin/plugins/ckfinder/config.js',
         });
     </script>
 }
@@ -50,8 +57,9 @@
                         <div>
                             <img src="@Html.DisplayFor(model=>model.HINH_ANH)" width="100%" />
                         </div>
-                        @Html.TextBoxFor(model => model.HINH_ANH, new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.HINH_ANH, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.HINH_ANH, new { @class = "form-control", @id = "txtImage" })
+                        <a id="btnSelectImage" href="#">Chọn Ảnh</a>
                     </div>
 
                     <div class="form-group">

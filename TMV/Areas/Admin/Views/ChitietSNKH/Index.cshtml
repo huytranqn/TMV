@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Model.EF.APP_CHITIET_SINHNHAT_KHACHHANG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Script_footer{
+    <script src="~/Assets/admin/js/JSChitetSNKHController.js"></script>
+}
+
+@section header{
+    <h1>Quản lý sinh nhật</h1>
+    <ol class="breadcrumb">
+        <li><a href="/Admin"><i class="fa fa-dashboard"></i>Trang chủ</a></li>
+        <li><a href="/Admin/Gioithieu">Sinh Nhật</a></li>
+        <li class="active">Danh sách sinh nhật</li>
+    </ol>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Danh sách sinh nhật</h3>
+                @using (Html.BeginForm("Index", "ChitietSNKH", FormMethod.Get))
+                {
+                    <div class="box-tools pull-right">
+                        <div class="input-group input-group-sm col-md-4 pull-right col-xs-offset-1">
+                            <input type="text" class="form-control pull-right" value="@ViewBag.SearchString" name="searchString" placeholder="Tìm kiếm" />
+                            <div class="input-group-btn">
+                                <button type="submit" id="btn-search" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="pull-right">
+                            <a href="/Admin/ChitietSNKH/Create" class="btn btn-info btn-sm"> <i class="fa  fa-plus"></i> Thêm mới</a>
+                        </div>
+                    </div>
+                }
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <th>
+                            Nội Dung
+                        </th>
+                        <th>
+                            Khách Hàng
+                        </th>
+                        <th>
+                            Ghi Chú
+                        </th>
+
+                        <th>Công cụ</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr id="row_@item.ID_CHITIET_SINHNHAT">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.APP_SINHNHAT_KHACHHANG.NOI_DUNG)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TBL_KHACHHANG.HO_TEN)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GHI_CHU)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Sửa", "Edit", new { id = item.ID_CHITIET_SINHNHAT}) |
+                                <a href="#" data-id="@item.ID_CHITIET_SINHNHAT " class="btn-delete">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <p>Tổng khuyến mãi: <span id="totalRows">@Model.Count()</span></p>
+                    </div>
+                    <div class="col-xs-6"><ul id="pagination" class=" pagination-sm no-margin pull-right"></ul></div>
+                </div>
+            </div>
+            <!-- /.box-footer -->
+        </div>
+    </div>
+    <!-- /.box -->
+</div>

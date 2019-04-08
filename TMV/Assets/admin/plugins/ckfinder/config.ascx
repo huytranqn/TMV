@@ -32,7 +32,7 @@
         LicenseKey = "AKSQJ4T3PQWJY9DXH21RK7ALL8HQBUBN";
 
         // The base URL used to reach files in CKFinder through the browser.
-        BaseUrl = "/assets/Data/Images/";
+        BaseUrl = "/display/uploads/";
 
         // The phisical directory in the server where the file will end up. If
         // blank, CKFinder attempts to resolve BaseUrl.
