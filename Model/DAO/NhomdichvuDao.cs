@@ -117,10 +117,10 @@ namespace Model.DAO
 
         public bool Update(DM_NHOMDV _request)
         {
-            var gioithieu = getByID(_request.MA_NHOMDV);
-            gioithieu.TEN_NHOMDV = _request.TEN_NHOMDV;
-            gioithieu.KHU_DV = _request.KHU_DV;
-            gioithieu.HINH_ANH = _request.HINH_ANH;
+            var nhomdichvu = getByID(_request.MA_NHOMDV);
+            nhomdichvu.TEN_NHOMDV = _request.TEN_NHOMDV;
+            nhomdichvu.KHU_DV = _request.KHU_DV;
+            nhomdichvu.HINH_ANH = _request.HINH_ANH;
             db.SaveChanges();
             return true;
         }

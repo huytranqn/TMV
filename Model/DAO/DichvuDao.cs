@@ -49,6 +49,17 @@ namespace Model.DAO
             return db.DM_DICHVU.SingleOrDefault(obj => obj.MA_DICHVU == _key);
         }
 
+        //public DM_DICHVU getByForeign(int _key1)
+        //{
+        //    return db.DM_DICHVU.(obj => obj.MA_LOAIDV == _key1);
+        //}
+
+        //public bool deleteForeign(int _key1)
+        //{
+        //    db.DM_DICHVU.Remove(getByForeign(_key1));
+        //    db.SaveChanges();
+        //    return true;
+        //}
         /**
          * @description -- check exits product in table Promotion
          * @param _prod: Promotion -- is a transion object
@@ -89,6 +100,8 @@ namespace Model.DAO
             db.SaveChanges();
             return true;
         }
+
+
 
         /**
          * @description -- change status active
@@ -213,5 +226,17 @@ namespace Model.DAO
             model = model.Skip((pageIndex - 1) * Constants.PageSize).Take(Constants.PageSize).ToList();
             return model;
         }
+
+        //public DM_DICHVU getByForeign(int _key)
+        //{
+        //    return db.DM_DICHVU.SingleOrDefault(obj => obj.MA_LOAIDV == _key);
+        //}
+
+        //public bool deleteForeign(int _key)
+        //{
+        //    db.DM_DICHVU.Remove(getByForeign(_key));
+        //    db.SaveChanges();
+        //    return true;
+        //}
     }
 }

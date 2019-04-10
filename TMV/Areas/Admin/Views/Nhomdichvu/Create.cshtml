@@ -52,11 +52,10 @@
                     @Html.ValidationMessageFor(model => model.TEN_NHOMDV, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.KHU_DV) <span class="text-danger">*</span>
-                    @Html.TextAreaFor(model => model.KHU_DV, new { @class = "form-control", @id = "txtContent" })
+                    @Html.LabelFor(model => model.KHU_DV)
+                    @Html.TextBoxFor(model => model.KHU_DV, new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.KHU_DV, "", new { @class = "text-danger" })
                 </div>
-
                 <div class="form-group">
                     @Html.LabelFor(model => model.HINH_ANH)
                     @Html.TextBoxFor(model => model.HINH_ANH, new { @class = "form-control", @id = "txtImage" })

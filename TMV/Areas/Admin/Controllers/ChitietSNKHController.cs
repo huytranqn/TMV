@@ -13,7 +13,7 @@ using System.Web.Routing;
 
 namespace TMV.Areas.Admin.Controllers
 {
-    public class ChitietSNKHController : Controller
+    public class ChitietSNKHController : BaseController
     {
         // GET: Admin/ChitietSNKH
         #region ActionResult
@@ -47,8 +47,8 @@ namespace TMV.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Thêm khuyến mãi thất bại!");
                 }
             }
-            SetCategoryViewBag(model.ID_SINHNHAT);
-            SetCategoryViewBag1(model.MA_KHACHHANG);
+            SetCategoryViewBag();
+            SetCategoryViewBag1();
             return View();
         }
 
@@ -83,15 +83,15 @@ namespace TMV.Areas.Admin.Controllers
         {
             var dao = new SinhnhatKHDao();
             var listCategory = dao.GetListActive();
-            ViewBag.ID_SINHNHAT = new SelectList(listCategory, "ID_SINHNHAT", "NOI_DUNG", "Nội dung");
+            ViewBag.SINHNHAT = new SelectList(listCategory, "ID_SINHNHAT", "NOI_DUNG", selectedID);
         }
 
-        public void SetCategoryViewBag1(String makh=null)
+        public void SetCategoryViewBag1(string makh=null)
         {
             
             var dao = new KhachhangDao();
             var listCategory = dao.GetListActive();
-            ViewBag.MA_KHACHHANG = new SelectList(listCategory, "MA_KHACHHANG", "HO_TEN", "Họ Tên");
+            ViewBag.KHACHHANG = new SelectList(listCategory, "MA_KHACHHANG", "HO_TEN", makh);
         }
 
         #endregion

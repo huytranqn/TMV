@@ -65,7 +65,7 @@
     <Compile Include="DAO\GioithieuDao.cs" />
     <Compile Include="DAO\HanghoaDao.cs" />
     <Compile Include="DAO\KhachhangDao.cs" />
-    <Compile Include="DAO\Loaidichvu.cs" />
+    <Compile Include="DAO\LoaidichvuDao.cs" />
     <Compile Include="DAO\NhacungcapDao.cs" />
     <Compile Include="DAO\NhomdichvuDao.cs" />
     <Compile Include="DAO\NhomhanghoaDao.cs" />

@@ -1,5 +1,5 @@
-﻿@model IEnumerable<Model.EF.APP_CHITIET_SINHNHAT_KHACHHANG>
-
+﻿@model PagedList.IPagedList<Model.EF.APP_CHITIET_SINHNHAT_KHACHHANG>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -67,13 +67,14 @@
                                 @Html.DisplayFor(modelItem => item.GHI_CHU)
                             </td>
                             <td>
-                                @Html.ActionLink("Sửa", "Edit", new { id = item.ID_CHITIET_SINHNHAT}) |
+                                @Html.ActionLink("Sửa", "Edit", new { id = item.ID_CHITIET_SINHNHAT }) |
                                 <a href="#" data-id="@item.ID_CHITIET_SINHNHAT " class="btn-delete">Xóa</a>
                             </td>
                         </tr>
                     }
 
                 </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">

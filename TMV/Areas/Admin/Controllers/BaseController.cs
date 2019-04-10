@@ -8,6 +8,7 @@ namespace TMV.Areas.Admin.Controllers
     public class BaseController : System.Web.Mvc.Controller
     {
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
+
         {
             var session = (UserSession)Session[Constants.USER_SESSION];
             if (session == null)

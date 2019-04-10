@@ -44,7 +44,7 @@ namespace Model.DAO
          * @param _key: int -- is field ProdID
          */
 
-        public KH_HANGHOA getByID(String _key)
+        public KH_HANGHOA getByID(string _key)
         {
             return db.KH_HANGHOA.SingleOrDefault(obj => obj.MA_HANGHOA == _key);
         }
@@ -81,7 +81,7 @@ namespace Model.DAO
          * @param _key: int -- is field ProdID
          */
 
-        public bool delete(String _key)
+        public bool delete(string _key)
         {
             //if (hasReference(_key))
             //    return false;
@@ -95,7 +95,7 @@ namespace Model.DAO
          * @param _key: int -- is field ProdID
          */
 
-        public bool changeStatus(String _key)
+        public bool changeStatus(string _key)
         {
             var hanghoa = getByID(_key);
             hanghoa.TRANG_THAI = !hanghoa.TRANG_THAI;
@@ -181,7 +181,7 @@ namespace Model.DAO
         //    //return db.Promotion.OrderByDescending(x => x.CreatedAt).Take(top).ToList();
         //}
 
-        private bool hasReference(String _key)
+        private bool hasReference(string _key)
         {
             var dichvu = getByID(_key);
             if (dichvu != default(KH_HANGHOA))

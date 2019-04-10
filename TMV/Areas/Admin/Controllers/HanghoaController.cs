@@ -14,7 +14,7 @@ using System.Web.Routing;
 
 namespace TMV.Areas.Admin.Controllers
 {
-    public class HanghoaController : BaseController
+    public class HanghoaController : Controller
     {
         // GET: Admin/Hanghoa
         #region ActionResult
@@ -85,28 +85,28 @@ namespace TMV.Areas.Admin.Controllers
         {
             var dao = new DonvitinhDao();
             var listCategory = dao.GetListActive();
-            ViewBag.ID_DVT = new SelectList(listCategory, "ID_DVT", "TEN_DVT", selectedID);
+            ViewBag.DVT = new SelectList(listCategory, "ID_DVT", "TEN_DVT", selectedID);
         }
 
         public void SetCategoryViewBagNHOMHH(int? selectedID = null)
         {
             var dao = new NhomhanghoaDao();
             var listCategory = dao.GetListActive();
-            ViewBag.ID_NHOMHH = new SelectList(listCategory, "ID_NHOMHH", "TEN_NHOMHH", selectedID);
+            ViewBag.NHOMHH = new SelectList(listCategory, "ID_NHOMHH", "TEN_NHOMHH", selectedID);
         }
 
         public void SetCategoryViewBagNCC(int? selectedID = null)
         {
             var dao = new NhacungcapDao();
             var listCategory = dao.GetListActive();
-            ViewBag.ID_NCC = new SelectList(listCategory, "ID_NCC", "TEN_NCC", selectedID);
+            ViewBag.NCC = new SelectList(listCategory, "ID_NCC", "TEN_NCC", selectedID);
         }
 
 
         #endregion
 
         #region ActionResult
-        public JsonResult ChangeStatus(String id)
+        public JsonResult ChangeStatus(string id)
         {
             bool result = false;
             try
@@ -122,7 +122,7 @@ namespace TMV.Areas.Admin.Controllers
         }
 
 
-        public JsonResult Delete(String id)
+        public JsonResult Delete(string id)
         {
             var result = HanghoaDao.Instance.delete(id);
             return Json(result, JsonRequestBehavior.AllowGet);

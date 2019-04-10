@@ -13,7 +13,7 @@ using System.Web.Routing;
 
 namespace TMV.Areas.Admin.Controllers
 {
-    public class NhomdichvuController : Controller
+    public class NhomdichvuController : BaseController
     {
         // GET: Admin/Nhomdichvu
         #region ActionResult
@@ -71,14 +71,19 @@ namespace TMV.Areas.Admin.Controllers
             return View(model);
         }
 
+
+
         #endregion
 
         #region ActionResult
         public JsonResult Delete(int id)
         {
+           // var dichvu = DichvuDao.Instance.deleteForeign(id);
+            //var loaidichvu = LoaidichvuDao.Instance.deleteForeign(id);
             var result = NhomdichvuDao.Instance.Delete(id);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
         #endregion
     }
+
 }
