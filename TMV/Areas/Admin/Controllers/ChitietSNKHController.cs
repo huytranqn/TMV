@@ -81,6 +81,17 @@ namespace TMV.Areas.Admin.Controllers
             var result = ChitietSNKHDao.Instance.delete(id);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult Add(string mkh, int Select)
+        {
+            APP_CHITIET_SINHNHAT_KHACHHANG model = new APP_CHITIET_SINHNHAT_KHACHHANG();
+            model.MA_KHACHHANG = mkh;
+            model.ID_SINHNHAT = Select;
+            Noidung();
+            KhachHang();
+            var result = ChitietSNKHDao.Instance.insert(model);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
         #endregion
     }
 }

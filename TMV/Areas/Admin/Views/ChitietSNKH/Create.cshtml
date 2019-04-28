@@ -15,103 +15,156 @@
     </ol>
 }
 
-<div class="row">
-    <!-- left column -->
-    <div class="col-md-12 col-md-offset-0">
-        <!-- general form elements -->
-        <div class="box box-primary">
-            <div class="box-header with-border">
-                <h3 class="box-title">Thông tin sinh nhật</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            @using (Html.BeginForm("Create", "ChitietSNKH", FormMethod.Post))
-            {
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover table-bordered">
-                        <tr>
-                            <th>
-                                Chọn nội dung
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>
-                                @Html.DropDownList("Select", (IEnumerable<SelectListItem>)ViewBag.Sinhnhat as SelectList, new { @class = "form-control", @id = "abc" })
-                            </td>
-                        </tr>
-                    </table>
-                    <table class="table table-hover table-bordered">
-                        <tr>
-                            <th>
-                                Chọn khách hàng
-                            </th>
-                        </tr>
-                        <tr>
-                            <th>
-                                Họ Tên
-                            </th>
-                            <th>
-                                Số điện thoại
-                            </th>
-
-                            <th>
-                                Ngày Sinh
-                            </th>
-                            <th>
-                                Công cụ
-                            </th>
-                        </tr>
-
-                        @foreach (var item in ViewBag.Khachhang)
-                        {
-
-                            <tr id="@item.MA_KHACHHANG">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12 col-md-offset-0">
+            <!-- general form elements -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Thông tin sinh nhật</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                @using (Html.BeginForm("Create", "ChitietSNKH", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover table-bordered">
+                            <tr>
+                                <th>
+                                    Chọn nội dung
+                                </th>
+                            </tr>
+                            <tr>
                                 <td>
-                                    @item.HO_TEN
-                                </td>
-                                <td>
-                                    @item.DIEN_THOAI
-                                </td>
-                                <td>
-                                    @item.NGAY_SINH
-                                </td>
-                                <td>
-                                    <a href="#"class="btn-delete" data-id="@item.MA_KHACHHANG">Chọn</a>
+                                    @Html.DropDownList("Select", (IEnumerable<SelectListItem>)ViewBag.Sinhnhat as SelectList, new { @class = "form-control", @id = "abc" })
                                 </td>
                             </tr>
-                        }
+                        </table>
+                        <table class="table table-hover table-bordered">
+                            <tr>
+                                <th>
+                                    Chọn khách hàng
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Họ Tên
+                                </th>
+                                <th>
+                                    Số điện thoại
+                                </th>
 
-                    </table>
-                </div>
-                <div>
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Lưu</button>
-                        @Html.ActionLink("Hủy", "Index", new object { }, new { @class = "btn btn-default col-md-offset-1" })
+                                <th>
+                                    Ngày Sinh
+                                </th>
+                                <th>
+                                    Công cụ
+                                </th>
+                            </tr>
+
+                            @foreach (var item in ViewBag.Khachhang)
+                            {
+
+                                <tr id="@item.MA_KHACHHANG">
+                                    <td>
+                                        @item.HO_TEN
+                                    </td>
+                                    <td>
+                                        @item.DIEN_THOAI
+                                    </td>
+                                    <td>
+                                        @item.NGAY_SINH
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" value="@item.MA_KHACHHANG" name ="ma" class="checkbox">
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
                     </div>
-                </div>
-            }
-        </div>
-    </div>
-    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-<script>
-    $(function () {
-        $('.btn-delete').off().on('click', function () {
-            var idkh = $(this).data('id');
-            var idselect = $('#abc').val();
-            console.log(idkh, idselect);
-            $.ajax({
-                url: '@Url.Action("Create", "ChitietSNKH")',
-                type:'post',
-                data: { mkh: idkh, Select: idselect },
-                success: function () {
-                    window.location.replace("/Admin/ChitietSNKH");
-                },
-                error: function () {
-                    alert('Lỗi');
+                    <div>
+                        <div class="box-footer">
+                            @*<button type="submit" class="btn btn-primary">Lưu</button>*@
+                            <input type="button" class="btn-luu" value="Lưu"/>
+                            @Html.ActionLink("Hủy", "Index", new object { }, new { @class = "btn btn-default col-md-offset-1" })
+                        </div>
+                    </div>
                 }
-            });
-        });
-    });
-</script>
+            </div>
+        </div>
+        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript">
+            $('.btn-luu').off('click').on('click', function (e) {
+                    e.preventDefault();
+                    // Khai báo tham số
+                    var checkbox = document.getElementsByName('ma');
+                    var result = [];
+
+                    // Lặp qua từng checkbox để lấy giá trị cho vào mảng
+                    for (var i = 0; i < checkbox.length; i++) {
+                        if (checkbox[i].checked === true) {
+                            result.unshift(checkbox[i].value);
+                        }
+                    }
+                    for (var i = 0; i < result.length; i++) {
+                        var idselect = $('#abc').val();
+                        var mkh = result[i];
+                        $.ajax({
+                            type: 'GET', //Sử dụng kiểu gửi dữ liệu POST
+                            url: '/Admin/ChitietSNKH/Add', //gửi dữ liệu s
+                            data: {
+                                Select: idselect,
+                                mkh: mkh
+                            }, //dữ liệu sẽ được gửi
+                            success: function (data)  // Hàm thực thi khi nhận dữ liệu được từ server
+                            {
+                                if (response) {
+                                    //alert("Thêm thành công");
+                                }
+                            },
+                            error: function (response) {
+                                alert(response.message);
+                            }
+                        });
+                    }
+
+
+                });
+        </script>
+
+            @*//$(document).ready(function () {
+            //    //Lấy dữ liệu trên checkbox
+            //    $('.checkbox').off().on('checked', function () {
+            //        var idkh = $(this).data('id');
+            //        var arr = [];
+            //        arr.add[idkh];
+            //        //khai báo các biến dữ liệu gửi lên server
+            //        var idselect = $('#abc').val();
+            //        //khi nút submit được click
+            //        $('.btn-luu').on('click', function (e) {
+            //            for (i = 0; i <= arr.length; i++) {
+            //                $.ajax({
+            //                    type: 'GET', //Sử dụng kiểu gửi dữ liệu POST
+            //                    url: '/Admin/ChitietSNKH/Add', //gửi dữ liệu s
+            //                    data: {
+            //                        Select: idselect,
+            //                        mkh: arr[i]
+            //                    }, //dữ liệu sẽ được gửi
+            //                    success: function (data)  // Hàm thực thi khi nhận dữ liệu được từ server
+            //                    {
+            //                        if (data == 'false') {
+            //                            alert('Không có người dùng');
+            //                        } else {
+            //                            $('#content').html(data);
+            //                        }
+            //                    }
+            //                });
+            //                return false;
+            //            }
+            //        });  
+            //    });
+            //});*@
+        
