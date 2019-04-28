@@ -48,29 +48,33 @@
                             Khách Hàng
                         </th>
                         <th>
-                            Ghi Chú
+                            Ngày Sinh
                         </th>
-
+                        <th>
+                           Số Điện Thoại
+                        </th>
                         <th>Công cụ</th>
                     </tr>
 
                     @foreach (var item in Model)
                     {
-                        <tr id="row_@item.ID_CHITIET_SINHNHAT">
-                            <td>
-                                @Html.DisplayFor(modelItem => item.APP_SINHNHAT_KHACHHANG.NOI_DUNG)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.TBL_KHACHHANG.HO_TEN)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.GHI_CHU)
-                            </td>
-                            <td>
-                                @Html.ActionLink("Sửa", "Edit", new { id = item.ID_CHITIET_SINHNHAT }) |
-                                <a href="#" data-id="@item.ID_CHITIET_SINHNHAT " class="btn-delete">Xóa</a>
-                            </td>
-                        </tr>
+                    <tr id="row_@item.ID_CHITIET_SINHNHAT">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.APP_SINHNHAT_KHACHHANG.NOI_DUNG)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TBL_KHACHHANG.HO_TEN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TBL_KHACHHANG.NGAY_SINH)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TBL_KHACHHANG.DIEN_THOAI)
+                        </td>
+                        <td>
+                            <a href="#" data-id="@item.ID_CHITIET_SINHNHAT " class="btn-delete">Xóa</a>
+                        </td>
+                    </tr>
                     }
 
                 </table>

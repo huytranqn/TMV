@@ -341,6 +341,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhomDVController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TBL_KHACHHANGController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -8605,14 +8606,12 @@
     <Content Include="Areas\Admin\Views\App_khuyenmai\Create.cshtml" />
     <Content Include="Areas\Admin\Views\App_khuyenmai\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Dichvu\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Dichvu\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Dichvu\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Gioithieu\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Gioithieu\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Gioithieu\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ChitietSNKH\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ChitietSNKH\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\ChitietSNKH\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Nhomdichvu\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Nhomdichvu\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Nhomdichvu\Edit.cshtml" />
@@ -8625,6 +8624,11 @@
     <Content Include="Assets\admin\plugins\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Assets\admin\plugins\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Assets\admin\plugins\ckfinder\userfiles\.htaccess" />
+    <Content Include="Areas\Admin\Views\TBL_KHACHHANG\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TBL_KHACHHANG\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\TBL_KHACHHANG\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\TBL_KHACHHANG\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\TBL_KHACHHANG\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

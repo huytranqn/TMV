@@ -39,13 +39,22 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            @using (Html.BeginForm("Edit", "Product", FormMethod.Post))
+            @using (Html.BeginForm("Edit", "Dichvu", FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.MA_DICHVU)
-                @Html.HiddenFor(model => model.HINH_ANH)
+                @Html.HiddenFor(model => model.GIA_DICHVU)
+                @Html.HiddenFor(model => model.GIA_KHUYENMAI)
+                @Html.HiddenFor(model => model.THOIGIAN_LAMVIEC)
+                @Html.HiddenFor(model => model.THU_TU)
+                @Html.HiddenFor(model => model.NGUNG_KINHDOANH)
                 <div class="box-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MA_LOAIDV)
+                        @Html.DropDownListFor(model => model.MA_LOAIDV, ViewBag.CategoryID as SelectList, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MA_LOAIDV, "", new { @class = "text-danger" })
+                    </div>
                     <div class="form-group">
                         @Html.LabelFor(model => model.TEN_DICHVU)
                         @Html.TextBoxFor(model => model.TEN_DICHVU, new { @class = "form-control" })
@@ -54,12 +63,7 @@
 
                     <div class="form-group">
                         @Html.LabelFor(model => model.HINH_ANH)
-                        <div>
-                            <img src="@Html.DisplayFor(model=>model.HINH_ANH)" width="100%" />
-                        </div>
-                        @Html.ValidationMessageFor(model => model.HINH_ANH, "", new { @class = "text-danger" })
-                        @Html.TextBoxFor(model => model.HINH_ANH, new { @class = "form-control", @id = "txtImage" })
-                        <a id="btnSelectImage" href="#">Chọn Ảnh</a>
+                        <input type="file" name="fileUpLoad" />
                     </div>
 
                     <div class="form-group">
@@ -68,37 +72,6 @@
                         @Html.ValidationMessageFor(model => model.MOTA_CHITIET, "", new { @class = "text-danger" })
                     </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.GIA_DICHVU)
-                        @Html.TextBoxFor(model => model.GIA_DICHVU, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.GIA_DICHVU, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.GIA_KHUYENMAI)
-                        @Html.TextBoxFor(model => model.GIA_KHUYENMAI, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.GIA_KHUYENMAI, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.THOIGIAN_LAMVIEC)
-                        @Html.TextBoxFor(model => model.THOIGIAN_LAMVIEC, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.THOIGIAN_LAMVIEC, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.NGUNG_KINHDOANH)
-                        <div class="checkbox">
-                            <label>
-                                @Html.CheckBoxFor(model => model.NGUNG_KINHDOANH)
-                                Kích hoạt
-                            </label>
-                            @Html.ValidationMessageFor(model => model.NGUNG_KINHDOANH, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.MA_LOAIDV)
-                        @Html.DropDownListFor(model => model.MA_LOAIDV, ViewBag.CategoryID as SelectList, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.MA_LOAIDV, "", new { @class = "text-danger" })
-                    </div>
                 </div>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Lưu</button>

@@ -10,6 +10,7 @@ using System.IO;
 using System.Text;
 using System.Web.Mvc.Filters;
 using System.Web.Routing;
+using System.Linq;
 
 namespace TMV.Areas.Admin.Controllers
 {
@@ -26,16 +27,37 @@ namespace TMV.Areas.Admin.Controllers
 
         }
 
+        
+        public void KhachHang()
+        {
+            var dao = new ChitietSNKHDao();
+            var model = dao.Khachhang();
+            ViewBag.Khachhang = model;
+        }
+
+       
+        public void Noidung()
+        {
+            OnlineTMV db = new OnlineTMV();
+            List<APP_SINHNHAT_KHACHHANG> sn = db.APP_SINHNHAT_KHACHHANG.ToList();
+            SelectList sinhnhat = new SelectList(sn, "ID_SINHNHAT", "NOI_DUNG");
+            ViewBag.Sinhnhat = sinhnhat;
+        }
+
         public ActionResult Create()
         {
-            SetCategoryViewBag();
-            SetCategoryViewBag1();
+            OnlineTMV db = new OnlineTMV();
+            Noidung();
+            KhachHang();
             return View();
         }
 
         [HttpPost, ValidateInput(false)]
-        public ActionResult Create(APP_CHITIET_SINHNHAT_KHACHHANG model)
+        public ActionResult Create(string mkh, int Select)
         {
+            APP_CHITIET_SINHNHAT_KHACHHANG model = new APP_CHITIET_SINHNHAT_KHACHHANG();
+            model.MA_KHACHHANG = mkh;
+            model.ID_SINHNHAT = Select;
             if (ModelState.IsValid)
             {
                 if (ChitietSNKHDao.Instance.insert(model))
@@ -47,53 +69,10 @@ namespace TMV.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Thêm khuyến mãi thất bại!");
                 }
             }
-            SetCategoryViewBag();
-            SetCategoryViewBag1();
+            Noidung();
+            KhachHang();
             return View();
         }
-
-        public ActionResult Edit(int id)
-        {
-            var sn = ChitietSNKHDao.Instance.getByID(id);
-            SetCategoryViewBag(sn.ID_SINHNHAT);
-            SetCategoryViewBag1(sn.MA_KHACHHANG);
-            return View(sn);
-        }
-
-        [HttpPost, ValidateInput(false)]
-        public ActionResult Edit(APP_CHITIET_SINHNHAT_KHACHHANG model)
-        {
-            if (ModelState.IsValid)
-            {
-                if (ChitietSNKHDao.Instance.Update(model))
-                {
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Sửa sản phẩm thất bại!");
-                }
-            }
-            SetCategoryViewBag(model.ID_SINHNHAT);
-            SetCategoryViewBag1(model.MA_KHACHHANG);
-            return View(model);
-        }
-
-        public void SetCategoryViewBag(int? selectedID = null)
-        {
-            var dao = new SinhnhatKHDao();
-            var listCategory = dao.GetListActive();
-            ViewBag.SINHNHAT = new SelectList(listCategory, "ID_SINHNHAT", "NOI_DUNG", selectedID);
-        }
-
-        public void SetCategoryViewBag1(string makh=null)
-        {
-            
-            var dao = new KhachhangDao();
-            var listCategory = dao.GetListActive();
-            ViewBag.KHACHHANG = new SelectList(listCategory, "MA_KHACHHANG", "HO_TEN", makh);
-        }
-
         #endregion
 
         #region ActionResult

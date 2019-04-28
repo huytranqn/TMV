@@ -1,14 +1,16 @@
-﻿@model Model.EF.APP_CHITIET_SINHNHAT_KHACHHANG
+﻿
 
 @{
     ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
+
 @section header{
-    <h1>Thêm mới giới thiệu</h1>
+    <h1>Thêm mới sinh nhật</h1>
     <ol class="breadcrumb">
         <li><a href="/Admin"><i class="fa fa-dashboard"></i>Trang chủ</a></li>
-        <li><a href="/Admin/Gioithieu">Sinh Nhật</a></li>
+        <li><a href="/Admin/ChitietSNKH">Sinh Nhật</a></li>
         <li class="active">Thêm mới</li>
     </ol>
 }
@@ -27,32 +29,89 @@
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="box-body">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ID_SINHNHAT)
-                    @Html.DropDownListFor(model => model.ID_SINHNHAT, ViewBag.ID_SINHNHAT as SelectList, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.APP_SINHNHAT_KHACHHANG.ID_SINHNHAT, "", new { @class = "text-danger" })
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.MA_KHACHHANG)
-                    @Html.DropDownListFor(model => model.MA_KHACHHANG, ViewBag.MA_KHACHHANG as SelectList, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.TBL_KHACHHANG.MA_KHACHHANG, "", new { @class = "text-danger" })
-                </div>
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover table-bordered">
+                        <tr>
+                            <th>
+                                Chọn nội dung
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DropDownList("Select", (IEnumerable<SelectListItem>)ViewBag.Sinhnhat as SelectList, new { @class = "form-control", @id = "abc" })
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="table table-hover table-bordered">
+                        <tr>
+                            <th>
+                                Chọn khách hàng
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Họ Tên
+                            </th>
+                            <th>
+                                Số điện thoại
+                            </th>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.GHI_CHU) <span class="text-danger">*</span>
-                    @Html.TextAreaFor(model => model.GHI_CHU, new { @class = "form-control", @id = "txtContent" })
-                    @Html.ValidationMessageFor(model => model.GHI_CHU, "", new { @class = "text-danger" })
-                </div>
-            </div>
-                <!-- /.box-body -->
+                            <th>
+                                Ngày Sinh
+                            </th>
+                            <th>
+                                Công cụ
+                            </th>
+                        </tr>
 
-                <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Lưu</button>
-                    @Html.ActionLink("Hủy", "Index", new object { }, new { @class = "btn btn-default col-md-offset-1" })
+                        @foreach (var item in ViewBag.Khachhang)
+                        {
+
+                            <tr id="@item.MA_KHACHHANG">
+                                <td>
+                                    @item.HO_TEN
+                                </td>
+                                <td>
+                                    @item.DIEN_THOAI
+                                </td>
+                                <td>
+                                    @item.NGAY_SINH
+                                </td>
+                                <td>
+                                    <a href="#"class="btn-delete" data-id="@item.MA_KHACHHANG">Chọn</a>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+                <div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                        @Html.ActionLink("Hủy", "Index", new object { }, new { @class = "btn btn-default col-md-offset-1" })
+                    </div>
                 </div>
             }
         </div>
-        <!-- /.box -->
     </div>
-</div>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(function () {
+        $('.btn-delete').off().on('click', function () {
+            var idkh = $(this).data('id');
+            var idselect = $('#abc').val();
+            console.log(idkh, idselect);
+            $.ajax({
+                url: '@Url.Action("Create", "ChitietSNKH")',
+                type:'post',
+                data: { mkh: idkh, Select: idselect },
+                success: function () {
+                    window.location.replace("/Admin/ChitietSNKH");
+                },
+                error: function () {
+                    alert('Lỗi');
+                }
+            });
+        });
+    });
+</script>

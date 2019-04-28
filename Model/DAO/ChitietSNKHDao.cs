@@ -94,7 +94,7 @@ namespace Model.DAO
             var chitiet = getByID(_request.ID_CHITIET_SINHNHAT);
             chitiet.ID_SINHNHAT = _request.ID_SINHNHAT;
             chitiet.MA_KHACHHANG = _request.MA_KHACHHANG;
-            chitiet.GHI_CHU = _request.GHI_CHU;
+            //chitiet.GHI_CHU = _request.GHI_CHU;
             db.SaveChanges();
             return true;
         }
@@ -105,9 +105,17 @@ namespace Model.DAO
             IQueryable<APP_CHITIET_SINHNHAT_KHACHHANG> model = db.APP_CHITIET_SINHNHAT_KHACHHANG;
             if (!string.IsNullOrEmpty(searchString))
             {
-                model = model.Where(x => x.GHI_CHU.Contains(searchString) || x.MA_KHACHHANG.Contains(searchString));
+                model = model.Where(x =>x.MA_KHACHHANG.Contains(searchString));
             }
             return model.OrderByDescending(x => x.ID_CHITIET_SINHNHAT).ToPagedList(page, Constants.PageSize);
+
+        }
+        public IEnumerable<TBL_KHACHHANG> Khachhang()
+        {
+            var model = from kh in db.TBL_KHACHHANG
+                        where kh.NGAY_SINH.Value.Month==DateTimeOffset.Now.Month
+                        select kh;
+            return model.ToList();
 
         }
 

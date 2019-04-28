@@ -10,6 +10,7 @@ using System.IO;
 using System.Text;
 using System.Web.Mvc.Filters;
 using System.Web.Routing;
+using System.Web;
 
 namespace TMV.Areas.Admin.Controllers
 {
@@ -26,29 +27,6 @@ namespace TMV.Areas.Admin.Controllers
 
         }
 
-        public ActionResult Create()
-        {
-            SetCategoryViewBag();
-            return View();
-        }
-
-        [HttpPost, ValidateInput(false)]
-        public ActionResult Create(DM_DICHVU model)
-        {
-            if (ModelState.IsValid)
-            {
-                if (DichvuDao.Instance.insert(model))
-                {
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Thêm khuyến mãi thất bại!");
-                }
-            }
-            return View();
-        }
-
         public ActionResult Edit(int id)
         {
             var dichvu = DichvuDao.Instance.getByID(id);
@@ -57,8 +35,17 @@ namespace TMV.Areas.Admin.Controllers
         }
 
         [HttpPost, ValidateInput(false)]
-        public ActionResult Edit(DM_DICHVU model)
+        public ActionResult Edit(DM_DICHVU model, HttpPostedFileBase fileUpLoad)
         {
+            if (fileUpLoad != null && fileUpLoad.ContentLength > 0)
+            {
+                //tên file
+                string fileName = Path.GetFileName(fileUpLoad.FileName);
+                // đương dẫn
+                string path = Path.Combine(Server.MapPath("~/Assets/Data/Images"), fileName);
+                fileUpLoad.SaveAs(path);
+                model.HINH_ANH = "/Assets/Data/Images/" + fileName;
+            }
             if (ModelState.IsValid)
             {
                 if (DichvuDao.Instance.Update(model))
@@ -84,6 +71,7 @@ namespace TMV.Areas.Admin.Controllers
         #endregion
 
         #region ActionResult
+
         public JsonResult ChangeStatus(int id)
         {
             bool result = false;

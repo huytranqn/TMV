@@ -52,9 +52,7 @@ var DichvuController = {
                     data: { id: id },
                     dataType: 'json',
                     success: function (response) {
-                        if (response) {
-                            $('#row_' + id).remove();
-                        }
+                        window.location.replace("/Admin/Dichvu/");
                     },
                     error: function (response) {
                         alert(response.message);

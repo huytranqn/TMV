@@ -96,7 +96,9 @@ namespace Model.DAO
         {
             if (hasReference(_key))
                 return false;
-            db.DM_DICHVU.Remove(getByID(_key));
+            var dichvu = getByID(_key);
+            dichvu.HINH_ANH = "";
+            dichvu.MOTA_CHITIET = "";
             db.SaveChanges();
             return true;
         }
@@ -153,7 +155,7 @@ namespace Model.DAO
             {
                 model = model.Where(x => x.TEN_DICHVU.Contains(searchString) || x.MOTA_CHITIET.Contains(searchString));
             }
-            return model.OrderByDescending(x => x.THOIGIAN_LAMVIEC).ToPagedList(page, Constants.PageSize);
+            return model.OrderByDescending(x => x.MA_DICHVU).ToPagedList(page, Constants.PageSize);
 
         }
 

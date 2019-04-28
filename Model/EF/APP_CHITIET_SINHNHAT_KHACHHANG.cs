@@ -18,9 +18,9 @@
         [Display(Name = "Tên Khách Hàng")]
         public string MA_KHACHHANG { get; set; }
 
-        [StringLength(250)]
-        [Display(Name = "Ghi Chú")]
-        public string GHI_CHU { get; set; }
+        //[StringLength(250)]
+        //[Display(Name = "Ghi Chú")]
+        //public string GHI_CHU { get; set; }
 
         public virtual APP_SINHNHAT_KHACHHANG APP_SINHNHAT_KHACHHANG { get; set; }
 
