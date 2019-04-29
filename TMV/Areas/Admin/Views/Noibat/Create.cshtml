@@ -45,33 +45,48 @@
                         @Html.TextBoxFor(model => model.TENHINH_VIDEO, new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.TENHINH_VIDEO, "", new { @class = "text-danger" })
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" >
                         @Html.LabelFor(model => model.LOAI)
-                        <select class="form-control" data-val="true" id="LOAI" name="LOAI" onchange="genderChanged(this) ">
+                        <select class="form-control" data-val="true" id="LOAI" name="LOAI" onchange="genderChanged() ">
                             <option selected="selected" id="2" value="2" name="2">Video</option>
                             <option id="1" value="1" name="2">Hình Ảnh</option>
                         </select>
                     </div>
+                    <script type="text/javascript">
+                        function genderChanged() {
+                            var x = document.getElementById("LOAI").value;
+                            if (x == 1) {
+                                var p = document.createElement("p");
+                                p.innerHTML = '<input type="file" name="fileUpLoad" id="file" />';
 
-                    @*<script type="text/javascript">
-                         function genderChanged(obj) {
-                            var value = obj.value;
-                             if (value === 1) {
-                                 var p = document.createElement("div");
-                                 p.innerText = "<input type="file" name="fileUpLoad"/>";
-                                
+                                var parent = document.getElementById("loai");
+                                var child = document.getElementById("txtContent");
+                                //child.insertAdjacentHTML = ('afterend', '<input type="File" name="fileUpLoad"/>');
+                                //parent.removeChild(child);
+                                parent.replaceChild(p, child);
+                                //p.removeChild(child);
+                                //parent.insertAdjacentHTML = ('afterend', '<input type="File" name="fileUpLoad"/>');
+                                //p.insertAdjacentHTML = ('afterbegin', '<div class="form-group">@Html.LabelFor(model => model.HINHANH_VIDEO)<input type="file" name="fileUpLoad" /></div>');
                             }
-                         };
-                    </script>*@
-                    <div class="form-group" id="loai">
+                            @*if(x==2) {
+                                var p = document.createElement("p");
+                                p.innerHTML = '@Html.TextAreaFor(model => model.HINHANH_VIDEO, new { @class = "form-control", @id = "txtContent" })';
+                                var parent = document.getElementById("loai");
+                                var child = document.getElementById("file");
+                                parent.replaceChild(p, child);
+                            }*@
+                        };
+                    </script>
+                    <div class="form-group" id = "loai">
                         @Html.LabelFor(model => model.HINHANH_VIDEO)
                         @Html.TextAreaFor(model => model.HINHANH_VIDEO, new { @class = "form-control", @id = "txtContent" })
                         @Html.ValidationMessageFor(model => model.HINHANH_VIDEO, "", new { @class = "text-danger" })
                     </div>
-                    <div class="form-group">
+                    @*<div class="form-group">
                         @Html.LabelFor(model => model.HINHANH_VIDEO)
                         <input type="file" name="fileUpLoad" />
-                    </div>
+                    </div>*@
+
                     <div class="form-group">
                         @Html.LabelFor(model => model.TRANG_THAI)
                         <div class="checkbox">
