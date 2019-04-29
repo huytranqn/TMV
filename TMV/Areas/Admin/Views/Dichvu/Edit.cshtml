@@ -16,14 +16,6 @@
 
 @section Script_footer{
     <script>
-        $('#btnSelectImage').on('click', function (e) {
-            e.preventDefault();
-            var finder = new CKFinder();
-            finder.selectActionFunction = function (url) {
-                $('#txtImage').val(url);
-            };
-            finder.popup();
-        });
         var editor = CKEDITOR.replace("txtContent", {
             customConfig: '/Assets/admin/plugins/ckfinder/config.js',
         });
@@ -39,7 +31,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            @using (Html.BeginForm("Edit", "Dichvu", FormMethod.Post))
+            @using (Html.BeginForm("Edit", "Dichvu", FormMethod.Post, new { @enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })

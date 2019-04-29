@@ -24,7 +24,6 @@ namespace TMV.Areas.Admin.Controllers
             var model = dao.ListAllPaging(searchString, page);
             ViewBag.SearchString = searchString;
             return View(model);
-
         }
 
         

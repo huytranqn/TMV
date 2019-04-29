@@ -1,29 +1,29 @@
-﻿@model PagedList.IPagedList<Model.EF.APP_KHUYENMAI>
+﻿@model PagedList.IPagedList<Model.EF.APP_NOIBAT>
 @using PagedList.Mvc;
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
+
 @section Script_footer{
-    <script src="~/Assets/admin/js/JSPromotionController.js"></script>
+    <script src="~/Assets/admin/js/NoibatController.js"></script>
 }
 
 @section header{
-    <h1>Quản lý khuyến mãi</h1>
+    <h1>Quản lý nổi bật</h1>
     <ol class="breadcrumb">
         <li><a href="/Admin"><i class="fa fa-dashboard"></i>Trang chủ</a></li>
-        <li><a href="/Admin/App_khuyenmai">Khuyến mãi</a></li>
-        <li class="active">Danh sách khuyến mãi</li>
+        <li><a href="/Admin/Noibat">Nổi bật</a></li>
+        <li class="active">Danh sách nổi bật</li>
     </ol>
 }
 <div class="row">
     <div class="col-xs-12">
         <div class="box">
-
             <div class="box-header">
-                <h3 class="box-title">Danh sách khuyến mãi</h3>
-                @using (Html.BeginForm("Index", "APP_KHUYENMAI", FormMethod.Get))
+                <h3 class="box-title">Danh sách nổi bật</h3>
+                @using (Html.BeginForm("Index", "APP_NOIBAT", FormMethod.Get))
                 {
                     <div class="box-tools pull-right">
                         <div class="input-group input-group-sm col-md-4 pull-right col-xs-offset-1">
@@ -33,7 +33,7 @@
                             </div>
                         </div>
                         <div class="pull-right">
-                            <a href="/Admin/App_khuyenmai/Create" class="btn btn-info btn-sm"> <i class="fa  fa-plus"></i> Thêm mới</a>
+                            <a href="/Admin/Noibat/Create" class="btn btn-info btn-sm"> <i class="fa  fa-plus"></i> Thêm mới</a>
                         </div>
                     </div>
                 }
@@ -46,16 +46,17 @@
                             STT
                         </th>
                         <th>
-                            Tên khuyến mãi
+                            Tên
                         </th>
                         <th>
-                            Ngày tạo
+                            Hình ảnh/Video
                         </th>
                         <th>
-                            Trạng thái
+                            Loại
                         </th>
-
-                        <th>Công cụ</th>
+                        <th>
+                            Trạng Thái
+                        </th>
                     </tr>
 
                     @foreach (var item in Model)
@@ -64,38 +65,45 @@
                         if (item.TRANG_THAI) { classkh = "label label-success"; } else { classkh = "label label-danger"; }
                         string stringkh = "";
                         if (item.TRANG_THAI) { stringkh = "Kích hoạt"; } else { stringkh = "Khóa"; }
-                        <tr id="row_@item.ID_KHUYENMAI">
+
+                        //string hienthidau = "", hienthicuoi="" ;
+                        //if (item.LOAI == 1) { hienthidau = "<img src="; hienthicuoi = "width='100px' height='100px'/>"; }
+                        //else { hienthidau = "<iframe src="; hienthicuoi = "width = '250px' height = '150px' ></iframe>"; }
+
+                        <tr id="row_@item.ID_NOIBAT">
                             <td>
-                                @Html.DisplayFor(modelItem => item.ID_KHUYENMAI)
+                                @Html.DisplayFor(modelItem => item.ID_NOIBAT)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.MOTA_VANTAT)
+                                @Html.DisplayFor(modelItem => item.TENHINH_VIDEO)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.NGAY_TAO)
+                                <iframe src="@Html.DisplayFor(modelItem => item.HINHANH_VIDEO)" with="50%"></iframe>
                             </td>
-                            <td> <a href="#" data-id="@item.ID_KHUYENMAI " class="btn-status @classkh">@stringkh</a> </td>
                             <td>
-                                @Html.ActionLink("Sửa", "Edit", new { id = item.ID_KHUYENMAI }) |
-                                <a href="#" data-id="@item.ID_KHUYENMAI " class="btn-delete">Xóa</a>
+                                @Html.DisplayFor(modelItem => item.LOAI)
                             </td>
+                            <td> <a href="#" data-id="@item.ID_NOIBAT " class="btn-status @classkh">@stringkh</a> </td>
                         </tr>
                     }
-
                 </table>
                 @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
             </div>
-            <!-- /.box-body -->
-            <div class="box-footer clearfix">
-                <div class="row">
-                    <div class="col-xs-6">
-                        <p>Tổng khuyến mãi: <span id="totalRows">@Model.Count()</span></p>
-                    </div>
-                    <div class="col-xs-6"><ul id="pagination" class=" pagination-sm no-margin pull-right"></ul></div>
-                </div>
-            </div>
-            <!-- /.box-footer -->
+
+
         </div>
+        <!-- /.box-body -->
+        <div class="box-footer clearfix">
+            <div class="row">
+                <div class="col-xs-6">
+                    <p>Tổng nổi bật: <span id="totalRows">@Model.Count()</span></p>
+                </div>
+                <div class="col-xs-6"><ul id="pagination" class=" pagination-sm no-margin pull-right"></ul></div>
+            </div>
+        </div>
+        <!-- /.box-footer -->
     </div>
-    <!-- /.box -->
 </div>
+<!-- /.box -->
+</div>
+
