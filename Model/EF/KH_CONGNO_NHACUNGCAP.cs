@@ -20,6 +20,8 @@ namespace Model.EF
         [StringLength(250)]
         public string MO_TA { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         public virtual KH_NHA_CUNG_CAP KH_NHA_CUNG_CAP { get; set; }
     }
 }

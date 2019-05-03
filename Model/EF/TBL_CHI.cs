@@ -31,5 +31,7 @@ namespace Model.EF
 
         [StringLength(50)]
         public string M_NCC { get; set; }
+
+        public DateTime? MODIFIED { get; set; }
     }
 }

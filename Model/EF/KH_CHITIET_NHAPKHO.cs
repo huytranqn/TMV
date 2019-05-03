@@ -25,6 +25,8 @@ namespace Model.EF
 
         public double? TT_NHAP { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         public virtual KH_NHAP_KHO KH_NHAP_KHO { get; set; }
     }
 }

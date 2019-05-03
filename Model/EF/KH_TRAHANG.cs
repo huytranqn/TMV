@@ -53,6 +53,8 @@ namespace Model.EF
 
         public int? THU_TU { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         public virtual HT_NHANVIEN HT_NHANVIEN { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

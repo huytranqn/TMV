@@ -32,6 +32,8 @@ namespace Model.EF
         [StringLength(250)]
         public string GHI_CHU { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         public virtual KH_HANGHOA KH_HANGHOA { get; set; }
 
         public virtual KH_KHO KH_KHO { get; set; }

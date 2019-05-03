@@ -51,7 +51,10 @@
                             Ngày Sinh
                         </th>
                         <th>
-                           Số Điện Thoại
+                            Số Điện Thoại
+                        </th>
+                        <th>
+                            Ngày Tạo
                         </th>
                         <th>Công cụ</th>
                     </tr>
@@ -72,6 +75,9 @@
                             @Html.DisplayFor(modelItem => item.TBL_KHACHHANG.DIEN_THOAI)
                         </td>
                         <td>
+                            @Html.DisplayFor(modelItem => item.MODIFIED)
+                        </td>
+                        <td>
                             <a href="#" data-id="@item.ID_CHITIET_SINHNHAT " class="btn-delete">Xóa</a>
                         </td>
                     </tr>
@@ -84,7 +90,7 @@
             <div class="box-footer clearfix">
                 <div class="row">
                     <div class="col-xs-6">
-                        <p>Tổng khuyến mãi: <span id="totalRows">@Model.Count()</span></p>
+                        <p>Tổng sinh nhật: <span id="totalRows">@Model.Count()</span></p>
                     </div>
                     <div class="col-xs-6"><ul id="pagination" class=" pagination-sm no-margin pull-right"></ul></div>
                 </div>

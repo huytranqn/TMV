@@ -1,4 +1,4 @@
-﻿namespace Model.EF
+namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -12,14 +12,13 @@
         public int ID_GIOITHIEU { get; set; }
 
         [StringLength(500)]
-        [Display(Name ="Tiêu Đề")]
         public string MOTA_VANTAT { get; set; }
 
         [Column(TypeName = "ntext")]
-        [Display(Name = "Nội Dung")]
         public string NOIDUNG_CHITIET { get; set; }
 
-        [Display(Name = "Trạng Thái")]
         public bool TRANG_THAI { get; set; }
+
+        public DateTime? MODIFIED { get; set; }
     }
 }

@@ -22,6 +22,8 @@ namespace Model.EF
         [StringLength(500)]
         public string LY_DO { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         public virtual TBL_KHACHHANG TBL_KHACHHANG { get; set; }
     }
 }

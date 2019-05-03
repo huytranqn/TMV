@@ -64,6 +64,7 @@ namespace Model.DAO
             if (!hasProcuct(_request))
             {
                 db.APP_CHITIET_SINHNHAT_KHACHHANG.Add(_request);
+                _request.MODIFIED = DateTime.Now;
                 db.SaveChanges();
                 return true;
             }

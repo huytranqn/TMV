@@ -40,11 +40,6 @@
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="box-body">
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.TENHINH_VIDEO)
-                        @Html.TextBoxFor(model => model.TENHINH_VIDEO, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.TENHINH_VIDEO, "", new { @class = "text-danger" })
-                    </div>
                     <div class="form-group" >
                         @Html.LabelFor(model => model.LOAI)
                         <select class="form-control" data-val="true" id="LOAI" name="LOAI" onchange="genderChanged()" ondurationchange="">

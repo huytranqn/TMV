@@ -35,6 +35,8 @@ namespace Model.EF
 
         public int? SL_CONLAI { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         public virtual KH_BANHANG KH_BANHANG { get; set; }
 
         public virtual KH_HANGHOA KH_HANGHOA { get; set; }

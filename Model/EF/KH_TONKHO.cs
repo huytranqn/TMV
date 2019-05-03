@@ -22,6 +22,8 @@ namespace Model.EF
 
         public DateTime? NGAY_KTTON { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         public virtual KH_HANGHOA KH_HANGHOA { get; set; }
 
         public virtual KH_KHO KH_KHO { get; set; }

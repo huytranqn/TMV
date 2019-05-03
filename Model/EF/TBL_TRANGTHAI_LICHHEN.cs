@@ -23,6 +23,8 @@ namespace Model.EF
 
         public int THU_TU { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_LICHHEN> TBL_LICHHEN { get; set; }
     }

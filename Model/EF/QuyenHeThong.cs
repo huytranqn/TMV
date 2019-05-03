@@ -14,5 +14,7 @@ namespace Model.EF
 
         [StringLength(50)]
         public string TenQuyen { get; set; }
+
+        public DateTime? MODIFIED { get; set; }
     }
 }

@@ -51,6 +51,10 @@ namespace Model.EF
 
         public int? TRANGTHAI_PHIEU { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
+        public bool? LOAI_BANHANG { get; set; }
+
         public virtual HT_NHANVIEN HT_NHANVIEN { get; set; }
 
         public virtual TBL_KHACHHANG TBL_KHACHHANG { get; set; }

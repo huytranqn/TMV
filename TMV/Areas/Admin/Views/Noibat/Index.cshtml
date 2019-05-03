@@ -9,6 +9,12 @@
 @section Script_footer{
     <script src="~/Assets/admin/js/NoibatController.js"></script>
 }
+<style>
+    img{
+        width:100% ;
+        height:100% ;
+    }
+</style>
 
 @section header{
     <h1>Quản lý nổi bật</h1>
@@ -46,13 +52,13 @@
                             STT
                         </th>
                         <th>
-                            Tên
-                        </th>
-                        <th>
                             Hình ảnh/Video
                         </th>
                         <th>
                             Loại
+                        </th>
+                        <th>
+                            Ngày Tạo
                         </th>
                         <th>
                             Trạng Thái
@@ -70,21 +76,21 @@
                         //if (item.LOAI == 1) { hienthidau = "<img src="; hienthicuoi = "width='100px' height='100px'/>"; }
                         //else { hienthidau = "<iframe src="; hienthicuoi = "width = '250px' height = '150px' ></iframe>"; }
 
-                        <tr id="row_@item.ID_NOIBAT">
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ID_NOIBAT)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.TENHINH_VIDEO)
-                            </td>
-                            <td>
-                                <iframe src="@Html.DisplayFor(modelItem => item.HINHANH_VIDEO)" with="50%"></iframe>
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.LOAI)
-                            </td>
-                            <td> <a href="#" data-id="@item.ID_NOIBAT " class="btn-status @classkh">@stringkh</a> </td>
-                        </tr>
+                    <tr id="row_@item.ID_NOIBAT">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID_NOIBAT)
+                        </td>
+                        <td>
+                            <iframe style="width: 50%" src="@Html.DisplayFor(modelItem => item.HINHANH_VIDEO)"></iframe>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LOAI)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MODIFIED)
+                        </td>
+                        <td> <a href="#" data-id="@item.ID_NOIBAT " class="btn-status @classkh">@stringkh</a> </td>
+                    </tr>
                     }
                 </table>
                 @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))

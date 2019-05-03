@@ -16,5 +16,7 @@ namespace Model.EF
         public double? GIA_MAX { get; set; }
 
         public int? SO_DIEM { get; set; }
+
+        public DateTime? MODIFIED { get; set; }
     }
 }

@@ -13,7 +13,7 @@ using System.Web.Routing;
 
 namespace TMV.Areas.Admin.Controllers
 {
-    public class GioithieuController : Controller
+    public class GioithieuController : BaseController
     {
         // GET: Admin/Gioithieu
         #region ActionResult

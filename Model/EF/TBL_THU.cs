@@ -33,5 +33,7 @@ namespace Model.EF
         public string M_KH { get; set; }
 
         public bool? LOAI { get; set; }
+
+        public DateTime? MODIFIED { get; set; }
     }
 }

@@ -15,5 +15,7 @@ namespace Model.EF
         public string TEN_CK { get; set; }
 
         public int? THU_TU { get; set; }
+
+        public DateTime? MODIFIED { get; set; }
     }
 }

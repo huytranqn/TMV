@@ -53,7 +53,7 @@ namespace Model.DAO
             IQueryable<APP_NOIBAT> model = db.APP_NOIBAT;
             if (!string.IsNullOrEmpty(searchString))
             {
-                model = model.Where(x => x.TENHINH_VIDEO.Contains(searchString));
+                model = model.Where(x => x.HINHANH_VIDEO.Contains(searchString));
             }
             return model.OrderByDescending(x => x.ID_NOIBAT).ToPagedList(page, Constants.PageSize);
 
@@ -75,6 +75,7 @@ namespace Model.DAO
             if (!hasProcuct(_request))
             {
                 db.APP_NOIBAT.Add(_request);
+                _request.MODIFIED = DateTime.Now;
                 db.SaveChanges();
                 return true;
             }

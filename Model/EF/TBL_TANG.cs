@@ -20,6 +20,8 @@ namespace Model.EF
         [StringLength(500)]
         public string TEN_TANG { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_PHONG> TBL_PHONG { get; set; }
     }

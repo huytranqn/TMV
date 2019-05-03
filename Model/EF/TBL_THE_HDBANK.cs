@@ -17,5 +17,7 @@ namespace Model.EF
 
         [StringLength(50)]
         public string NGAY_PHATHANH { get; set; }
+
+        public DateTime? MODIFIED { get; set; }
     }
 }

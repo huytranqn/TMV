@@ -75,6 +75,8 @@
     <Compile Include="DTO\UserSession.cs" />
     <Compile Include="EF\APP_CHITIET_SINHNHAT_KHACHHANG.cs" />
     <Compile Include="EF\APP_GIOITHIEU.cs" />
+    <Compile Include="EF\APP_KHAOSAT.cs" />
+    <Compile Include="EF\APP_KHAOSAT_TRALOI.cs" />
     <Compile Include="EF\APP_KHUYENMAI.cs" />
     <Compile Include="EF\APP_NOIBAT.cs" />
     <Compile Include="EF\APP_SINHNHAT_KHACHHANG.cs" />
@@ -104,7 +106,6 @@
     <Compile Include="EF\KH_TRAHANG.cs" />
     <Compile Include="EF\OnlineTMV.cs" />
     <Compile Include="EF\QuyenHeThong.cs" />
-    <Compile Include="EF\sysdiagram.cs" />
     <Compile Include="EF\TBL_CHI.cs" />
     <Compile Include="EF\TBL_CHITIET_DANGKY_DICHVU.cs" />
     <Compile Include="EF\TBL_CHITIET_LICHHEN.cs" />

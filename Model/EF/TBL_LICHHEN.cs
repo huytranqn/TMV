@@ -32,6 +32,8 @@ namespace Model.EF
 
         public bool? THANH_TOAN { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_CHITIET_LICHHEN> TBL_CHITIET_LICHHEN { get; set; }
 

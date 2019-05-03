@@ -37,6 +37,8 @@ namespace Model.EF
 
         public bool TRANG_THAI { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KH_CONGNO_NHACUNGCAP> KH_CONGNO_NHACUNGCAP { get; set; }
 

@@ -37,6 +37,8 @@ namespace Model.EF
 
         public bool? TRANG_THAI { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         public virtual DM_DICHVU DM_DICHVU { get; set; }
 
         public virtual TBL_DANGKY_DICHVU TBL_DANGKY_DICHVU { get; set; }

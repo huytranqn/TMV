@@ -16,6 +16,10 @@ namespace Model.EF
         [StringLength(50)]
         public string NHANVIEN_THUCHIEN { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
+        public virtual HT_NHANVIEN HT_NHANVIEN { get; set; }
+
         public virtual TBL_NHANVIEN_LICHHEN TBL_NHANVIEN_LICHHEN { get; set; }
     }
 }

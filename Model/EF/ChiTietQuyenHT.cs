@@ -18,5 +18,7 @@ namespace Model.EF
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IdQuyenHeThong { get; set; }
+
+        public DateTime? MODIFIED { get; set; }
     }
 }

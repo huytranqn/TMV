@@ -69,6 +69,7 @@ namespace Model.DAO
             if (!hasProcuct(_request))
             {
                 db.APP_GIOITHIEU.Add(_request);
+                _request.MODIFIED = DateTime.Now;
                 db.SaveChanges();
                 return true;
             }

@@ -25,6 +25,8 @@ namespace Model.EF
 
         public int? TT_THANHTOAN { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         public virtual TBL_CHITIET_DANGKY_DICHVU TBL_CHITIET_DANGKY_DICHVU { get; set; }
 
         public virtual TBL_LICHHEN TBL_LICHHEN { get; set; }

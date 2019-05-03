@@ -13,6 +13,7 @@ namespace Model.EF
         {
             KH_BANHANG = new HashSet<KH_BANHANG>();
             KH_TRAHANG = new HashSet<KH_TRAHANG>();
+            TBL_CHITIET_NHANVIEN_LICHHEN = new HashSet<TBL_CHITIET_NHANVIEN_LICHHEN>();
         }
 
         [Key]
@@ -35,6 +36,8 @@ namespace Model.EF
 
         public bool? HOAT_DONG { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         public virtual HT_BOPHAN HT_BOPHAN { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -42,5 +45,8 @@ namespace Model.EF
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KH_TRAHANG> KH_TRAHANG { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_CHITIET_NHANVIEN_LICHHEN> TBL_CHITIET_NHANVIEN_LICHHEN { get; set; }
     }
 }

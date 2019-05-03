@@ -59,6 +59,8 @@ namespace Model.EF
 
         public int? THU_TU { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KH_CHITIET_NHAPKHO> KH_CHITIET_NHAPKHO { get; set; }
 

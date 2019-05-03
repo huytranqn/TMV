@@ -20,6 +20,8 @@ namespace Model.EF
 
         public bool? DA_CHON { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         public virtual TBL_PHONG TBL_PHONG { get; set; }
     }
 }

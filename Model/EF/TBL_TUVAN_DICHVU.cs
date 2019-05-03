@@ -25,6 +25,8 @@ namespace Model.EF
         [StringLength(500)]
         public string GHI_CHU { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         public virtual TBL_KHACHHANG TBL_KHACHHANG { get; set; }
     }
 }

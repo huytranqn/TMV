@@ -49,6 +49,9 @@
                         <th>
                             Trạng thái
                         </th>
+                        <th>
+                            Ngày tạo
+                        </th>
 
                         <th>Công cụ</th>
                     </tr>
@@ -66,6 +69,10 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.MOTA_VANTAT)
                         </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MODIFIED)
+                        </td>
+
                         <td> <a href="#" data-id="@item.ID_GIOITHIEU " class="btn-status @classkh">@stringkh</a> </td>
                         <td>
                             @Html.ActionLink("Sửa", "Edit", new { id = item.ID_GIOITHIEU }) |
@@ -80,7 +87,7 @@
             <div class="box-footer clearfix">
                 <div class="row">
                     <div class="col-xs-6">
-                        <p>Tổng khuyến mãi: <span id="totalRows">@Model.Count()</span></p>
+                        <p>Tổng giới thiệu: <span id="totalRows">@Model.Count()</span></p>
                     </div>
                     <div class="col-xs-6"><ul id="pagination" class=" pagination-sm no-margin pull-right"></ul></div>
                 </div>

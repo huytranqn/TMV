@@ -21,6 +21,8 @@ namespace Model.EF
 
         public int? LOAI { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         public virtual TBL_KHACHHANG TBL_KHACHHANG { get; set; }
     }
 }

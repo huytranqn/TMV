@@ -27,6 +27,8 @@ namespace Model.EF
         [StringLength(50)]
         public string THOIGIAN_DEN { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         public virtual TBL_CHITIET_LICHHEN TBL_CHITIET_LICHHEN { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -1,4 +1,4 @@
-﻿namespace Model.EF
+namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -18,10 +18,11 @@
         public int ID_SINHNHAT { get; set; }
 
         [Column(TypeName = "ntext")]
-        [Display (Name ="Nội Dung")]
         public string NOI_DUNG { get; set; }
 
         public bool? TRANG_THAI { get; set; }
+
+        public DateTime? MODIFIED { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<APP_CHITIET_SINHNHAT_KHACHHANG> APP_CHITIET_SINHNHAT_KHACHHANG { get; set; }

@@ -41,6 +41,13 @@ namespace Model.EF
 
         public double? TIEN_MAT { get; set; }
 
+        [StringLength(250)]
+        public string NV_BANDICHVU { get; set; }
+
+        public DateTime? MODIFIED { get; set; }
+
+        public bool? LOAI_DANGKY { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_CHITIET_DANGKY_DICHVU> TBL_CHITIET_DANGKY_DICHVU { get; set; }
 

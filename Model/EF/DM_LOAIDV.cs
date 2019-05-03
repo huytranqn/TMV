@@ -27,6 +27,11 @@ namespace Model.EF
 
         public bool? HOAT_DONG { get; set; }
 
+        [StringLength(50)]
+        public string HINH_ANH { get; set; }
+
+        public DateTime? MODIFIED { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DM_DICHVU> DM_DICHVU { get; set; }
 

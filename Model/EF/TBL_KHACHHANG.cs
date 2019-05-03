@@ -12,6 +12,7 @@ namespace Model.EF
         public TBL_KHACHHANG()
         {
             APP_CHITIET_SINHNHAT_KHACHHANG = new HashSet<APP_CHITIET_SINHNHAT_KHACHHANG>();
+            APP_KHAOSAT_TRALOI = new HashSet<APP_KHAOSAT_TRALOI>();
             KH_BANHANG = new HashSet<KH_BANHANG>();
             KH_HINH_ANH = new HashSet<KH_HINH_ANH>();
             KH_PHANLOAI_KHACHHANG = new HashSet<KH_PHANLOAI_KHACHHANG>();
@@ -27,7 +28,6 @@ namespace Model.EF
         public string MA_KHACHHANG { get; set; }
 
         [StringLength(500)]
-        [Display(Name ="Tên Khách Hàng")]
         public string HO_TEN { get; set; }
 
         [StringLength(500)]
@@ -71,8 +71,13 @@ namespace Model.EF
         [StringLength(250)]
         public string MAT_KHAU { get; set; }
 
+        public DateTime? MODIFIED { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<APP_CHITIET_SINHNHAT_KHACHHANG> APP_CHITIET_SINHNHAT_KHACHHANG { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<APP_KHAOSAT_TRALOI> APP_KHAOSAT_TRALOI { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KH_BANHANG> KH_BANHANG { get; set; }

@@ -8,12 +8,14 @@ namespace Model.EF
     public partial class OnlineTMV : DbContext
     {
         public OnlineTMV()
-            : base("name=OnlineTMV4")
+            : base("name=OnlineTMV5")
         {
         }
 
         public virtual DbSet<APP_CHITIET_SINHNHAT_KHACHHANG> APP_CHITIET_SINHNHAT_KHACHHANG { get; set; }
         public virtual DbSet<APP_GIOITHIEU> APP_GIOITHIEU { get; set; }
+        public virtual DbSet<APP_KHAOSAT> APP_KHAOSAT { get; set; }
+        public virtual DbSet<APP_KHAOSAT_TRALOI> APP_KHAOSAT_TRALOI { get; set; }
         public virtual DbSet<APP_KHUYENMAI> APP_KHUYENMAI { get; set; }
         public virtual DbSet<APP_NOIBAT> APP_NOIBAT { get; set; }
         public virtual DbSet<APP_SINHNHAT_KHACHHANG> APP_SINHNHAT_KHACHHANG { get; set; }
@@ -42,7 +44,6 @@ namespace Model.EF
         public virtual DbSet<KH_TONKHO> KH_TONKHO { get; set; }
         public virtual DbSet<KH_TRAHANG> KH_TRAHANG { get; set; }
         public virtual DbSet<QuyenHeThong> QuyenHeThongs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TBL_CHI> TBL_CHI { get; set; }
         public virtual DbSet<TBL_CHITIET_DANGKY_DICHVU> TBL_CHITIET_DANGKY_DICHVU { get; set; }
         public virtual DbSet<TBL_CHITIET_LICHHEN> TBL_CHITIET_LICHHEN { get; set; }
@@ -63,6 +64,11 @@ namespace Model.EF
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<APP_KHAOSAT>()
+                .HasMany(e => e.APP_KHAOSAT_TRALOI)
+                .WithOptional(e => e.APP_KHAOSAT)
+                .WillCascadeOnDelete();
+
             modelBuilder.Entity<APP_SINHNHAT_KHACHHANG>()
                 .HasMany(e => e.APP_CHITIET_SINHNHAT_KHACHHANG)
                 .WithOptional(e => e.APP_SINHNHAT_KHACHHANG)
@@ -86,6 +92,12 @@ namespace Model.EF
                 .HasMany(e => e.KH_TRAHANG)
                 .WithRequired(e => e.HT_NHANVIEN)
                 .HasForeignKey(e => e.NHANVIEN_TRA);
+
+            modelBuilder.Entity<HT_NHANVIEN>()
+                .HasMany(e => e.TBL_CHITIET_NHANVIEN_LICHHEN)
+                .WithOptional(e => e.HT_NHANVIEN)
+                .HasForeignKey(e => e.NHANVIEN_THUCHIEN)
+                .WillCascadeOnDelete();
 
             modelBuilder.Entity<KH_HANGHOA>()
                 .HasMany(e => e.KH_CHITIET_TRAHANG)
@@ -141,6 +153,11 @@ namespace Model.EF
 
             modelBuilder.Entity<TBL_KHACHHANG>()
                 .HasMany(e => e.APP_CHITIET_SINHNHAT_KHACHHANG)
+                .WithOptional(e => e.TBL_KHACHHANG)
+                .WillCascadeOnDelete();
+
+            modelBuilder.Entity<TBL_KHACHHANG>()
+                .HasMany(e => e.APP_KHAOSAT_TRALOI)
                 .WithOptional(e => e.TBL_KHACHHANG)
                 .WillCascadeOnDelete();
 

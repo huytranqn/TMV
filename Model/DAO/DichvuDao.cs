@@ -81,6 +81,7 @@ namespace Model.DAO
             if (!hasProcuct(_request))
             {
                 db.DM_DICHVU.Add(_request);
+                _request.MODIFIED = DateTime.Now;
                 db.SaveChanges();
                 return true;
             }
