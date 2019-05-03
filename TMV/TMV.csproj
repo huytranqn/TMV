@@ -339,6 +339,7 @@
     <Compile Include="Areas\Admin\Controllers\GioithieuController.cs" />
     <Compile Include="Areas\Admin\Controllers\HanghoaController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KhaosatController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhomDVController.cs" />
     <Compile Include="Areas\Admin\Controllers\NoibatController.cs" />
@@ -6643,6 +6644,7 @@
     <Content Include="Assets\admin\js\JSDichvuController.js" />
     <Content Include="Assets\admin\js\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Assets\admin\js\JSHanghoaController.js" />
+    <Content Include="Assets\admin\js\JSKhaosatController.js" />
     <Content Include="Assets\admin\js\JSNhomdichvuController.js" />
     <Content Include="Assets\admin\js\JSPromotionController.js" />
     <Content Include="Assets\admin\js\NoibatController.js" />
@@ -8633,6 +8635,9 @@
     <Content Include="Areas\Admin\Views\TBL_KHACHHANG\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Noibat\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Noibat\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Khaosat\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Khaosat\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Khaosat\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

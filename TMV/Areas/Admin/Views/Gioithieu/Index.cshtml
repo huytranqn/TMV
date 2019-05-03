@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Model.EF.APP_GIOITHIEU>
+﻿@model PagedList.IPagedList<Model.EF.APP_GIOITHIEU>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Index";
@@ -62,26 +63,27 @@
                         if (item.TRANG_THAI) { classkh = "label label-success"; } else { classkh = "label label-danger"; }
                         string stringkh = "";
                         if (item.TRANG_THAI) { stringkh = "Kích hoạt"; } else { stringkh = "Khóa"; }
-                    <tr id="row_@item.ID_GIOITHIEU">
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ID_GIOITHIEU)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.MOTA_VANTAT)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.MODIFIED)
-                        </td>
+                        <tr id="row_@item.ID_GIOITHIEU">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ID_GIOITHIEU)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MOTA_VANTAT)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MODIFIED)
+                            </td>
 
-                        <td> <a href="#" data-id="@item.ID_GIOITHIEU " class="btn-status @classkh">@stringkh</a> </td>
-                        <td>
-                            @Html.ActionLink("Sửa", "Edit", new { id = item.ID_GIOITHIEU }) |
-                            <a href="#" data-id="@item.ID_GIOITHIEU " class="btn-delete">Xóa</a>
-                        </td>
-                    </tr>
+                            <td> <a href="#" data-id="@item.ID_GIOITHIEU " class="btn-status @classkh">@stringkh</a> </td>
+                            <td>
+                                @Html.ActionLink("Sửa", "Edit", new { id = item.ID_GIOITHIEU }) |
+                                <a href="#" data-id="@item.ID_GIOITHIEU " class="btn-delete">Xóa</a>
+                            </td>
+                        </tr>
                     }
 
                 </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">

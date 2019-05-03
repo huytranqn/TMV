@@ -74,34 +74,34 @@
                         if (item.NGUNG_KINHDOANH) { classkh = "label label-success"; } else { classkh = "label label-danger"; }
                         string stringkh = "";
                         if (item.NGUNG_KINHDOANH) { stringkh = "Kích hoạt"; } else { stringkh = "Khóa"; }
-                    <tr id="row_@item.MA_DICHVU">
-                        <td>
-                            @Html.DisplayFor(modelItem => item.MA_DICHVU)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TEN_DICHVU)
-                        </td>
-                        <td>
-                            <img src="@Html.DisplayFor(modelItem => item.HINH_ANH)" width="100px" height="100px" />
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.GIA_DICHVU)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.GIA_KHUYENMAI)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.THOIGIAN_LAMVIEC)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.MODIFIED)
-                        </td>
-                        <td> <a href="#" data-id="@item.MA_DICHVU " class="btn-status @classkh">@stringkh</a> </td>
-                        <td>
-                            @Html.ActionLink("Sửa", "Edit", new { id = item.MA_DICHVU }) |
-                            <a href="#" data-id="@item.MA_DICHVU " class="btn-delete">Xóa</a>
-                        </td>
-                    </tr>
+                        <tr id="row_@item.MA_DICHVU">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MA_DICHVU)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TEN_DICHVU)
+                            </td>
+                            <td>
+                                <img src="@Html.DisplayFor(modelItem => item.HINH_ANH)" width="100px" height="100px" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GIA_DICHVU)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GIA_KHUYENMAI)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.THOIGIAN_LAMVIEC)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MODIFIED)
+                            </td>
+                            <td> <a href="#" data-id="@item.MA_DICHVU " class="btn-status @classkh">@stringkh</a> </td>
+                            <td>
+                                @Html.ActionLink("Sửa", "Edit", new { id = item.MA_DICHVU }) |
+                                <a href="#" data-id="@item.MA_DICHVU " class="btn-delete">Xóa</a>
+                            </td>
+                        </tr>
                     }
 
                 </table>
