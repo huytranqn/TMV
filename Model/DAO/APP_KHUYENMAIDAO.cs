@@ -117,15 +117,6 @@ namespace Model.DAO
             db.SaveChanges();
             return true;
         }
-        //public bool UpdateWantity(Promotion _request)
-        //{
-        //    var product = getByID(_request.ProID);
-        //    product.UpdatedAt = DateTime.Now;
-        //    product.isActive = _request.isActive;
-        //    product.Wantity = _request.Wantity;
-        //    db.SaveChanges();
-        //    return true;
-        //}
 
 
         public IEnumerable<APP_KHUYENMAI> ListAllPaging(string searchString, int page)
@@ -160,54 +151,6 @@ namespace Model.DAO
                         .Take(Constants.PageSize);
         }
 
-        /**
-         * @private
-         * @description -- check the existence of image
-         * @param imagefilePath: string -- is the path of the image file
-         */
-
-
-        //public List<Promotion> ListNewPromotion(int top, string _keysearch)
-        //{
-        //    return db.PROMOTION.OrderByDescending(x => x.CreateAt).Where(x => x.ProdName.Contains(_keysearch)).Take(top).ToList();
-        //    //return db.Promotion.OrderByDescending(x => x.CreatedAt).Take(top).ToList();
-        //}
-
-        //private bool hasReference(int _key)
-        //{
-        //    var promotion = getByID(_key);
-        //    if (promotion != default(Promotion))
-        //    {
-        //        object count_one = db.Order.Where(obj => obj.ProID == _key).ToList().Count;
-        //        return count_one > Constants.zeroNumber;
-        //    }
-        //    return Constants.falseValue;
-        //}
-        //public List<Promotion> ListRelatePromotion(int productID)
-        //{
-        //    var product = db.PROMOTION.Find(productID);
-        //    return db.PROMOTION.Where(x => x.ProID != productID && x.CateID == product.CateID).ToList();
-        //}
-
-        //public List<Promotion> ListByCategoryId(ref int totalRecord, int pageIndex = 1, string key_search = "")
-        //{
-        //    var model = db.PROMOTION.OrderBy(x => x.ProID).Where(x => x.ProdName.Contains(key_search)).ToList();
-        //    totalRecord = model.Count();//nghi nó bằng 0 chỗ này
-        //    model = model.Skip((pageIndex - 1) * Constants.PageSize).Take(Constants.PageSize).ToList();
-        //    return model;
-        //}
-
-        public List<string> ListName(string keyword)
-        {
-            return db.APP_KHUYENMAI.Where(x => x.MOTA_VANTAT.Contains(keyword)).Select(x => x.MOTA_VANTAT).ToList();
-        }
-        public List<APP_KHUYENMAI> Search(string search_kw, ref int totalRecord, int pageIndex = 1)
-        {
-            var model = db.APP_KHUYENMAI.Where(x => x.MOTA_VANTAT.Contains(search_kw)).ToList();
-            totalRecord = db.APP_KHUYENMAI.Where(x => x.MOTA_VANTAT.Contains(search_kw)).Count();//nghi nó bằng 0 chỗ này
-            model = model.Skip((pageIndex - 1) * Constants.PageSize).Take(Constants.PageSize).ToList();
-            return model;
-        }
     }
 }
 

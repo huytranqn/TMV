@@ -344,6 +344,7 @@
     <Compile Include="Areas\Admin\Controllers\NhomDVController.cs" />
     <Compile Include="Areas\Admin\Controllers\NoibatController.cs" />
     <Compile Include="Areas\Admin\Controllers\TBL_KHACHHANGController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TuvanDVController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -7843,6 +7844,10 @@
     <Content Include="Assets\admin\plugins\pace\pace.js" />
     <Content Include="Assets\admin\plugins\pace\pace.min.css" />
     <Content Include="Assets\admin\plugins\pace\pace.min.js" />
+    <Content Include="Assets\admin\plugins\stcombobox\jquery-1.11.2.min.js" />
+    <Content Include="Assets\admin\plugins\stcombobox\stcombobox.css" />
+    <Content Include="Assets\admin\plugins\stcombobox\stcombobox.js" />
+    <Content Include="Assets\admin\plugins\stcombobox\stcombobox.min.js" />
     <Content Include="Assets\admin\plugins\timepicker\bootstrap-timepicker.css" />
     <Content Include="Assets\admin\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Assets\admin\plugins\timepicker\bootstrap-timepicker.min.css" />
@@ -8638,6 +8643,8 @@
     <Content Include="Areas\Admin\Views\Khaosat\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Khaosat\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Khaosat\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TuvanDV\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TuvanDV\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

@@ -60,6 +60,7 @@
     <Compile Include="Common\Encode\Encrypt.cs" />
     <Compile Include="DAO\APP_KHUYENMAIDAO.cs" />
     <Compile Include="DAO\KhaosatDao.cs" />
+    <Compile Include="DAO\NhanvienDao.cs" />
     <Compile Include="DAO\NoibatDao.cs" />
     <Compile Include="DAO\ChitietSNKHDao.cs" />
     <Compile Include="DAO\DichvuDao.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="DAO\NhomdichvuDao.cs" />
     <Compile Include="DAO\NhomhanghoaDao.cs" />
     <Compile Include="DAO\SinhnhatKHDao.cs" />
+    <Compile Include="DAO\TuvanDVDao.cs" />
     <Compile Include="DAO\UserDao.cs" />
     <Compile Include="DTO\UserSession.cs" />
     <Compile Include="EF\APP_CHITIET_SINHNHAT_KHACHHANG.cs" />

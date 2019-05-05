@@ -14,14 +14,6 @@
 }
 @section Script_footer{
     <script>
-        $('#btnSelectImage').on('click', function (e) {
-            e.preventDefault();
-            var finder = new CKFinder();
-            finder.selectActionFunction = function (url) {
-                $('#txtImage').val(url);
-            };
-            finder.popup();
-        });
         var editor = CKEDITOR.replace("txtContent", {
             customConfig: '/assets/admin/plugins/ckeditor/config.js',
         });

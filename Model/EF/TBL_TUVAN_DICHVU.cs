@@ -34,6 +34,9 @@
         [Display(Name = "Ngày tạo")]
         public DateTime? MODIFIED { get; set; }
 
+        [Display(Name = "Trạng thái")]
+        public bool APPROVE { get; set; }
+
         public virtual TBL_KHACHHANG TBL_KHACHHANG { get; set; }
     }
 }

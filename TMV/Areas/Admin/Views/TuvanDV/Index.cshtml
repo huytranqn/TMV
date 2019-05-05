@@ -1,0 +1,126 @@
+﻿@model PagedList.IPagedList<Model.EF.TBL_TUVAN_DICHVU>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Script_footer{
+    <script src="~/Assets/admin/js/JSTuvanDVController.js"></script>
+}
+
+@section header{
+    <h1>Quản lý tư vấn dịch vụ</h1>
+    <ol class="breadcrumb">
+        <li><a href="/Admin"><i class="fa fa-dashboard"></i>Trang chủ</a></li>
+        <li><a href="/Admin/TuvanDV">Tư vấn dịch Vụ</a></li>
+        <li class="active">Danh sách tư vấn dịch vụ</li>
+    </ol>
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Danh sách tư vấn dịch vụ</h3>
+                @using (Html.BeginForm("Index", "TuvanDV", FormMethod.Get))
+                {
+                <div class="box-tools pull-right">
+                    <div class="input-group input-group-sm col-md-4 pull-right col-xs-offset-1">
+                        <input type="text" class="form-control pull-right" value="@ViewBag.SearchString" name="searchString" placeholder="Tìm kiếm" />
+                        <div class="input-group-btn">
+                            <button type="submit" id="btn-search" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="pull-right">
+                        <a href="/Admin/TuvanDV/Create" class="btn btn-info btn-sm"> <i class="fa  fa-plus"></i> Thêm mới</a>
+                    </div>
+                </div>
+                }
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <th>
+                            STT
+                        </th>
+                        <th>
+                            Mã khách hàng
+                        </th>
+                        <th>
+                            Ngày tư vấn
+                        </th>
+                        <th>
+                            Nhân viên
+                        </th>
+                        <th>
+                            Nội dung
+                        </th>
+                        <th>
+                            Ghi chú
+                        </th>
+                        <th>
+                            Ngày Tạo
+                        </th>
+                        <th>
+                            Trạng thái
+                        </th>
+
+                        <th>Công cụ</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        string classkh = "";
+                        if (item.APPROVE) { classkh = "label label-success"; } else { classkh = "label label-danger"; }
+                        string stringkh = "";
+                        if (item.APPROVE) { stringkh = "Kích hoạt"; } else { stringkh = "Khóa"; }
+                        <tr id="row_@item.ID_TUVAN">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ID_TUVAN)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MA_KHACHHANG)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NGAY_TUVAN)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NHANVIEN_TUVAN)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NOIDUNG_TUVAN)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GHI_CHU)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MODIFIED)
+                            </td>
+                            <td> <a href="#" data-id="@item.ID_TUVAN " class="btn-status @classkh">@stringkh</a> </td>
+                            <td>
+                                @Html.ActionLink("Sửa", "Edit", new { id = item.ID_TUVAN }) |
+                                <a href="#" data-id="@item.ID_TUVAN " class="btn-delete">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = @ViewBag.SearchString }))
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <p>Tổng tư vấn dịch vụ: <span id="totalRows">@Model.Count()</span></p>
+                    </div>
+                    <div class="col-xs-6"><ul id="pagination" class=" pagination-sm no-margin pull-right"></ul></div>
+                </div>
+            </div>
+            <!-- /.box-footer -->
+        </div>
+    </div>
+    <!-- /.box -->
+</div>

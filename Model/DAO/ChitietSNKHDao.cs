@@ -114,7 +114,7 @@ namespace Model.DAO
         public IEnumerable<TBL_KHACHHANG> Khachhang()
         {
             var model = from kh in db.TBL_KHACHHANG
-                        where kh.NGAY_SINH.Value.Month==DateTimeOffset.Now.Month
+                        where kh.NGAY_SINH.Value.Month == DateTimeOffset.Now.Month
                         select kh;
             return model.ToList();
 
