@@ -13,7 +13,7 @@
         public int ID_NOIBAT { get; set; }
 
         [StringLength(250)]
-        [Display(Name = "hình ảnh/ Video")]
+        [Display(Name = "Hình ảnh/ Video")]
         public string HINHANH_VIDEO { get; set; }
 
         [Display(Name = "Loại")]

@@ -57,7 +57,7 @@ namespace TMV.Areas.Admin.Controllers
         {
             var dao = new TuvanDVDao();
             var list = dao.Khachhang();
-            ViewBag.KHACHHANG = new SelectList(list,"HO_TEN","MA_KHACHHANG", mkh);
+            ViewBag.KHACHHANG = new SelectList(list,"KH","MKH", mkh);
         }
 
         public void SetCategoryViewBagNV(string manv = null)

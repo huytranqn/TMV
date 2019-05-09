@@ -76,25 +76,6 @@ namespace Model.DAO
             return false;
         }
 
-        /**
-         * @description -- delete a product
-         * @param _key: int -- is field ProdID
-         */
-
-        //public bool Delete(int cateID)
-        //{
-        //    try
-        //    {
-        //        var cate = db.DM_NHOMDV.Find(cateID);
-        //        db.DM_NHOMDV.Remove(cate);
-        //        db.SaveChanges();
-        //        return true;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return false;
-        //    }
-        //}
 
         public bool Delete(int _key)
         {
@@ -104,11 +85,6 @@ namespace Model.DAO
             db.SaveChanges();
             return true;
         }
-
-        /**
-         * @description -- change status active
-         * @param _key: int -- is field ProdID
-         */
 
         /**
          * @description -- update info product has image
@@ -165,12 +141,6 @@ namespace Model.DAO
          */
 
 
-        //public List<Promotion> ListNewPromotion(int top, string _keysearch)
-        //{
-        //    return db.PROMOTION.OrderByDescending(x => x.CreateAt).Where(x => x.ProdName.Contains(_keysearch)).Take(top).ToList();
-        //    //return db.Promotion.OrderByDescending(x => x.CreatedAt).Take(top).ToList();
-        //}
-
         private bool hasReference(int _key)
         {
             var nhomdichvu = getByID(_key);
@@ -181,30 +151,31 @@ namespace Model.DAO
             }
             return false;
         }
-        //public List<Promotion> ListRelatePromotion(int productID)
-        //{
-        //    var product = db.PROMOTION.Find(productID);
-        //    return db.PROMOTION.Where(x => x.ProID != productID && x.CateID == product.CateID).ToList();
-        //}
 
-        //public List<Promotion> ListByCategoryId(ref int totalRecord, int pageIndex = 1, string key_search = "")
-        //{
-        //    var model = db.PROMOTION.OrderBy(x => x.ProID).Where(x => x.ProdName.Contains(key_search)).ToList();
-        //    totalRecord = model.Count();//nghi nó bằng 0 chỗ này
-        //    model = model.Skip((pageIndex - 1) * Constants.PageSize).Take(Constants.PageSize).ToList();
-        //    return model;
-        //}
-
-        public List<string> ListName(string keyword)
-        {
-            return db.DM_NHOMDV.Where(x => x.TEN_NHOMDV.Contains(keyword)).Select(x => x.TEN_NHOMDV).ToList();
-        }
         public List<DM_NHOMDV> Search(string search_kw, ref int totalRecord, int pageIndex = 1)
         {
             var model = db.DM_NHOMDV.Where(x => x.TEN_NHOMDV.Contains(search_kw)).ToList();
             totalRecord = db.DM_NHOMDV.Where(x => x.TEN_NHOMDV.Contains(search_kw)).Count();//nghi nó bằng 0 chỗ này
             model = model.Skip((pageIndex - 1) * Constants.PageSize).Take(Constants.PageSize).ToList();
             return model;
+        }
+
+        public List<DM_NHOMDV> GetAllNhomDV(int? NhomDV)
+        {
+            if(NhomDV!=null)
+            {
+                return db.DM_NHOMDV.Where(x => x.MA_NHOMDV == NhomDV).OrderBy(x => x.TEN_NHOMDV).OrderByDescending(x => x.MA_NHOMDV).ToList();
+            }
+            else
+            {
+                return db.DM_NHOMDV.OrderBy(x => x.TEN_NHOMDV).OrderByDescending(x => x.MA_NHOMDV).ToList();
+            }
+            
+        }
+
+        public List<DM_NHOMDV> GetListActive()
+        {
+            return db.DM_NHOMDV.OrderByDescending(x => x.MA_NHOMDV).ToList();
         }
     }
 }

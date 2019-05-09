@@ -102,37 +102,44 @@
             // Khai báo tham số
             var checkbox = document.getElementsByName('ma');
             var result = [];
-
-            // Lặp qua từng checkbox để lấy giá trị cho vào mảng
-            for (var i = 0; i < checkbox.length; i++) {
-                if (checkbox[i].checked === true) {
-                    result.unshift(checkbox[i].value);
-                }
+            var idselect = $('#abc').val();
+            if (idselect == null || checkbox == 0) {
+                alert("Vui lòng điền đầy đủ thông tin !")
             }
-        //lấy từ mảng ra thêm vaò csdl
-            for (var i = 0; i < result.length; i++) {
-                var idselect = $('#abc').val();
-                var mkh = result[i];
-                $.ajax({
-                    type: 'GET', //Sử dụng kiểu gửi dữ liệu POST
-                    url: '/Admin/ChitietSNKH/Add', //gửi dữ liệu
-                    data: {
-                        Select: idselect,
-                        mkh: mkh
-                    }, //dữ liệu sẽ được gửi
-                    success: function (data)  // Hàm thực thi khi nhận dữ liệu được từ server
-                    {
-                        if (response) {
-                            //alert("Thêm thành công");
-                        }
-                    },
-                    error: function (response) {
-                        alert(response.message);
+            else {
+                // Lặp qua từng checkbox để lấy giá trị cho vào mảng
+                for (var i = 0; i < checkbox.length; i++) {
+                    if (checkbox[i].checked === true) {
+                        result.unshift(checkbox[i].value);
                     }
-                });
-                if (i == result.length - 1) window.location.replace("/Admin/ChitietSNKH/");
-            }
+                }
 
+                //lấy từ mảng ra thêm vaò csdl
+                for (var i = 0; i < result.length; i++) {
+                    var idselect = $('#abc').val();
+                    var mkh = result[i];
+                    $.ajax({
+                        type: 'GET', //Sử dụng kiểu gửi dữ liệu POST
+                        url: '/Admin/ChitietSNKH/Add', //gửi dữ liệu
+                        data: {
+                            Select: idselect,
+                            mkh: mkh
+                        }, //dữ liệu sẽ được gửi
+                        success: function (data)  // Hàm thực thi khi nhận dữ liệu được từ server
+                        {
+                            if (response) {
+                                //alert("Thêm thành công");
+                            }
+                        },
+                        error: function (response) {
+                            alert(response.message);
+                        }
+                    });
+                    if (i == result.length - 1) window.location.replace("/Admin/ChitietSNKH/");
+                }
+
+            }
+            
 
         });
     </script>

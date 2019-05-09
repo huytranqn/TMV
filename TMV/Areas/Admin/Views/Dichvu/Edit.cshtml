@@ -20,56 +20,61 @@
             customConfig: '/Assets/admin/plugins/ckfinder/config.js',
         });
     </script>
+    <script src="~/Assets/admin/js/JSEditDVView.js"></script>
 }
-<div class="row">
-    <!-- left column -->
-    <div class="col-md-12 col-md-offset-0">
-        <!-- general form elements -->
-        <div class="box box-primary">
-            <div class="box-header with-border">
-                <h3 class="box-title">Thông tin sản phẩm</h3>
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12 col-md-offset-0">
+            <!-- general form elements -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Thông tin sản phẩm</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                @using (Html.BeginForm("Edit", "Dichvu", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.MA_DICHVU)
+                    @Html.HiddenFor(model => model.GIA_DICHVU)
+                    @Html.HiddenFor(model => model.GIA_KHUYENMAI)
+                    @Html.HiddenFor(model => model.THOIGIAN_LAMVIEC)
+                    @Html.HiddenFor(model => model.THU_TU)
+                    @Html.HiddenFor(model => model.NGUNG_KINHDOANH)
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label  for="MA_NHOMDV">Nhóm dịch vụ</label>
+                            <select class="form-control" data-val="true" id="MA_NHOMDV" name="TEN_NHOMDV"></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="MA_LOAIDV">Loại dịch vụ</label>
+                            <select class="form-control" data-val="true" id="MA_LOAIDV" name="TEN_LOAIDV"></select>
+                            @Html.ValidationMessageFor(model => model.MA_LOAIDV, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="MA_DICHVU">Tên dịch vụ</label>
+                            <select class="form-control" data-val="true" id="MA_DICHVU" name="TEN_DICHVU"></select>
+                            @Html.ValidationMessageFor(model => model.TEN_DICHVU, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.HINH_ANH)
+                            <input type="file" name="fileUpLoad" />
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MOTA_CHITIET)
+                            @Html.TextAreaFor(model => model.MOTA_CHITIET, new { @class = "form-control", @id = "txtContent" })
+                            @Html.ValidationMessageFor(model => model.MOTA_CHITIET, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                        @Html.ActionLink("Hủy", "Index", new object { }, new { @class = "btn btn-default col-md-offset-1" })
+                    </div>
+                }
             </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            @using (Html.BeginForm("Edit", "Dichvu", FormMethod.Post, new { @enctype = "multipart/form-data" }))
-            {
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.HiddenFor(model => model.MA_DICHVU)
-                @Html.HiddenFor(model => model.GIA_DICHVU)
-                @Html.HiddenFor(model => model.GIA_KHUYENMAI)
-                @Html.HiddenFor(model => model.THOIGIAN_LAMVIEC)
-                @Html.HiddenFor(model => model.THU_TU)
-                @Html.HiddenFor(model => model.NGUNG_KINHDOANH)
-                <div class="box-body">
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.MA_LOAIDV)
-                        @Html.DropDownListFor(model => model.MA_LOAIDV, ViewBag.CategoryID as SelectList, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.MA_LOAIDV, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.TEN_DICHVU)
-                        @Html.TextBoxFor(model => model.TEN_DICHVU, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.TEN_DICHVU, "", new { @class = "text-danger" })
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.HINH_ANH)
-                        <input type="file" name="fileUpLoad" />
-                    </div>
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.MOTA_CHITIET)
-                        @Html.TextAreaFor(model => model.MOTA_CHITIET, new { @class = "form-control", @id = "txtContent" })
-                        @Html.ValidationMessageFor(model => model.MOTA_CHITIET, "", new { @class = "text-danger" })
-                    </div>
-
-                </div>
-                <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Lưu</button>
-                    @Html.ActionLink("Hủy", "Index", new object { }, new { @class = "btn btn-default col-md-offset-1" })
-                </div>
-            }
         </div>
     </div>
-</div>

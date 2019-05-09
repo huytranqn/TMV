@@ -40,48 +40,35 @@
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="box-body">
-                    <div class="form-group" >
+
+                    <div class="form-group">
                         @Html.LabelFor(model => model.LOAI)
-                        <select class="form-control" data-val="true" id="LOAI" name="LOAI" onchange="genderChanged()" ondurationchange="">
-                            <option selected="selected" id="2" value="2" name="2">Video</option>
-                            <option id="1" value="1" name="2">Hình Ảnh</option>
+                        <select class="form-control" data-val="true" id="LOAI" name="LOAI" onchange="genderChanged(this)" >
+                            <option selected="selected" >Chọn Loại</option>
+                            <option id="2" value="2" name="2">Video</option>
+                            <option id="1" value="1" name="1">Hình Ảnh</option>
                         </select>
                     </div>
-                    <script type="text/javascript">
-                        function genderChanged() {
-                            var x = document.getElementById("LOAI").value;
-                            if (x == 1) {
-                                var p = document.createElement("p");
-                                p.innerHTML = '<input type="file" name="fileUpLoad" id="file" />';
 
-                                var parent = document.getElementById("loai");
-                                var child = document.getElementById("txtContent");
-                                //child.insertAdjacentHTML = ('afterend', '<input type="File" name="fileUpLoad"/>');
-                                //parent.removeChild(child);
-                                parent.replaceChild(p, child);
-                                //p.removeChild(child);
-                                //parent.insertAdjacentHTML = ('afterend', '<input type="File" name="fileUpLoad"/>');
-                                //p.insertAdjacentHTML = ('afterbegin', '<div class="form-group">@Html.LabelFor(model => model.HINHANH_VIDEO)<input type="file" name="fileUpLoad" /></div>');
-                            }
-                            @*if(x==2) {
-                                var p = document.createElement("p");
-                                p.innerHTML = '@Html.TextAreaFor(model => model.HINHANH_VIDEO, new { @class = "form-control", @id = "txtContent" })';
-                                var parent = document.getElementById("loai");
-                                var child = document.getElementById("file");
-                                parent.replaceChild(p, child);
-                            }*@
-                        };
+
+                    <script type="text/javascript">
+                            function genderChanged(obj)
+                            {
+                                var message = document.getElementById('show_message');
+                                var value = obj.value;
+                                if (value === '2'){
+                                    message.innerHTML = '<textarea class="form-control" cols="20" data-val="true" data-val-length="The field hình ảnh/ Video must be a string with a maximum length of 250." data-val-length-max="250" id="txtContent" name="HINHANH_VIDEO" rows="2"></textarea>';
+                                }
+                                else if (value === '1'){
+                                    message.innerHTML = '<input type="File" name="fileUpLoad"/>';
+                                }
+                            }        
                     </script>
-                    <div class="form-group" id = "loai">
-                        @Html.LabelFor(model => model.HINHANH_VIDEO)
-                        @Html.TextAreaFor(model => model.HINHANH_VIDEO, new { @class = "form-control", @id = "txtContent" })
+                    <div class="form-group">
+                        <label for="HINHANH_VIDEO" class="image">Video/Hình Ảnh</label>
+                        <p id="show_message"></p>
                         @Html.ValidationMessageFor(model => model.HINHANH_VIDEO, "", new { @class = "text-danger" })
                     </div>
-                    @*<div class="form-group">
-                        @Html.LabelFor(model => model.HINHANH_VIDEO)
-                        <input type="file" name="fileUpLoad" />
-                    </div>*@
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.TRANG_THAI)
                         <div class="checkbox">
@@ -92,15 +79,15 @@
                             @Html.ValidationMessageFor(model => model.TRANG_THAI, "", new { @class = "text-danger" })
                         </div>
                     </div>
-            </div>
+                </div>
                 <!-- /.box-body -->
 
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Lưu</button>
                     @Html.ActionLink("Hủy", "Index", new object { }, new { @class = "btn btn-default col-md-offset-1" })
                 </div>
-            }
-        </div>
+                }
+            </div>
         <!-- /.box -->
     </div>
 </div>

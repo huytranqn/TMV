@@ -6644,6 +6644,7 @@
     <Content Include="Assets\admin\js\JSChitetSNKHController.js" />
     <Content Include="Assets\admin\js\JSDichvuController.js" />
     <Content Include="Assets\admin\js\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Assets\admin\js\JSEditDVView.js" />
     <Content Include="Assets\admin\js\JSHanghoaController.js" />
     <Content Include="Assets\admin\js\JSKhaosatController.js" />
     <Content Include="Assets\admin\js\JSNhomdichvuController.js" />

@@ -49,17 +49,7 @@ namespace Model.DAO
             return db.DM_DICHVU.SingleOrDefault(obj => obj.MA_DICHVU == _key);
         }
 
-        //public DM_DICHVU getByForeign(int _key1)
-        //{
-        //    return db.DM_DICHVU.(obj => obj.MA_LOAIDV == _key1);
-        //}
 
-        //public bool deleteForeign(int _key1)
-        //{
-        //    db.DM_DICHVU.Remove(getByForeign(_key1));
-        //    db.SaveChanges();
-        //    return true;
-        //}
         /**
          * @description -- check exits product in table Promotion
          * @param _prod: Promotion -- is a transion object
@@ -138,15 +128,6 @@ namespace Model.DAO
             db.SaveChanges();
             return true;
         }
-        //public bool UpdateWantity(Promotion _request)
-        //{
-        //    var product = getByID(_request.ProID);
-        //    product.UpdatedAt = DateTime.Now;
-        //    product.isActive = _request.isActive;
-        //    product.Wantity = _request.Wantity;
-        //    db.SaveChanges();
-        //    return true;
-        //}
 
 
         public IEnumerable<DM_DICHVU> ListAllPaging(string searchString, int page)
@@ -187,13 +168,6 @@ namespace Model.DAO
          * @param imagefilePath: string -- is the path of the image file
          */
 
-
-        //public List<Promotion> ListNewPromotion(int top, string _keysearch)
-        //{
-        //    return db.PROMOTION.OrderByDescending(x => x.CreateAt).Where(x => x.ProdName.Contains(_keysearch)).Take(top).ToList();
-        //    //return db.Promotion.OrderByDescending(x => x.CreatedAt).Take(top).ToList();
-        //}
-
         private bool hasReference(int _key)
         {
             var dichvu = getByID(_key);
@@ -204,19 +178,7 @@ namespace Model.DAO
             }
             return Constants.falseValue;
         }
-        //public List<Promotion> ListRelatePromotion(int productID)
-        //{
-        //    var product = db.PROMOTION.Find(productID);
-        //    return db.PROMOTION.Where(x => x.ProID != productID && x.CateID == product.CateID).ToList();
-        //}
 
-        //public List<Promotion> ListByCategoryId(ref int totalRecord, int pageIndex = 1, string key_search = "")
-        //{
-        //    var model = db.PROMOTION.OrderBy(x => x.ProID).Where(x => x.ProdName.Contains(key_search)).ToList();
-        //    totalRecord = model.Count();//nghi nó bằng 0 chỗ này
-        //    model = model.Skip((pageIndex - 1) * Constants.PageSize).Take(Constants.PageSize).ToList();
-        //    return model;
-        //}
 
         public List<string> ListName(string keyword)
         {
@@ -230,16 +192,16 @@ namespace Model.DAO
             return model;
         }
 
-        //public DM_DICHVU getByForeign(int _key)
-        //{
-        //    return db.DM_DICHVU.SingleOrDefault(obj => obj.MA_LOAIDV == _key);
-        //}
 
-        //public bool deleteForeign(int _key)
-        //{
-        //    db.DM_DICHVU.Remove(getByForeign(_key));
-        //    db.SaveChanges();
-        //    return true;
-        //}
+        public List<DM_DICHVU> GetAllDV(int? LoaiDV)
+        {
+            return db.DM_DICHVU.Where(x=>x.MA_LOAIDV==LoaiDV).OrderBy(x => x.TEN_DICHVU).OrderByDescending(x => x.MA_DICHVU).ToList();
+        }
+
+        public List<DM_DICHVU> GetListActive()
+        {
+            return db.DM_DICHVU.OrderByDescending(x => x.MA_DICHVU).ToList();
+        }
+
     }
 }

@@ -175,29 +175,38 @@ namespace Model.DAO
             return Constants.falseValue;
         }
 
-        public List<string> Khachhang()
-        {   
-            //return model.ToList();
-            //from k in db.TBL_KHACHHANG
-            //where k.NGUNG_HOATDONG == true
-            //select k.MA_KHACHHANG.Concat(k.HO_TEN,'-',k.DIEN_THOAI);
-
-            //IEnumerable<TBL_KHACHHANG> model = db.TBL_KHACHHANG;
-            
-             var model= (((from kh in db.TBL_KHACHHANG
-              where kh.NGUNG_HOATDONG == true
-              select kh.HO_TEN).Concat(from kh in db.TBL_KHACHHANG
-                                       where kh.NGUNG_HOATDONG == true
-                                       select kh.DIEN_THOAI)).Concat(from kh in db.TBL_KHACHHANG
-                                                                     where kh.NGUNG_HOATDONG == true
-                                                                     select kh.MA_KHACHHANG));
-
+        public IQueryable<TBL_TUVAN_DICHVU> Khachhang()
+        {
+            //var lstItem = from s in db.TBL_KHACHHANG
+            //              where s.NGUNG_HOATDONG == true
+            //select new { s.MA_KHACHHANG, string.Format("{0} +'-'+ {1}", s.HO_TEN, s.DIEN_THOAI);
             var query = from cust in db.TBL_KHACHHANG
                         where cust.NGUNG_HOATDONG == true
-                        select cust.MA_KHACHHANG;
-                        //CONCAT(cust.HO_TEN, '-', cust.DIEN_THOAI);
+                        select new 
+                        {
+                            MKH = cust.MA_KHACHHANG,
+                            KH = string.Concat(cust.HO_TEN, '-', cust.DIEN_THOAI)
+                        };
+            return query.ToList();
 
-            return model.ToList();
+            //var model =  from s in db.TBL_KHACHHANG where s.NGUNG_HOATDONG == true select new { s.MA_KHACHHANG, s.HO_TEN + "-" + s.DIEN_THOAI};
+
+            //var model= from kh in db.TBL_KHACHHANG.where(kh => kh.NGUNG_HOATDONG == true).select(kh => new { kh.ma_khachhang, kh.ho_ten + "-" + s.dien_thoai });
+
+            //var model= (((from kh in db.TBL_KHACHHANG
+            //  where kh.NGUNG_HOATDONG == true
+            //  select kh.HO_TEN).Concat(from kh in db.TBL_KHACHHANG
+            //                           where kh.NGUNG_HOATDONG == true
+            //                           select kh.DIEN_THOAI)).Concat(from kh in db.TBL_KHACHHANG
+            //                                                         where kh.NGUNG_HOATDONG == true
+            //                                                         select kh.MA_KHACHHANG));
+
+            //var query = from cust in db.TBL_KHACHHANG
+            //            where cust.NGUNG_HOATDONG == true
+            //            select cust.MA_KHACHHANG;
+            //CONCAT(cust.HO_TEN, '-', cust.DIEN_THOAI);
+
+
         }
     }
 }

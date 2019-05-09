@@ -48,7 +48,6 @@ namespace Model.DAO
         public DM_LOAIDV getByForeign(int _key)
         {
             return db.DM_LOAIDV.SingleOrDefault(obj => obj.MA_NHOMDV == _key);
-            //db.DM_DICHVU.Find(x.DM_LOAIDV = _key).;
         }
 
 
@@ -58,6 +57,12 @@ namespace Model.DAO
             db.DM_LOAIDV.Remove(getByForeign(_key));
             db.SaveChanges();
             return true;
+        }
+
+
+        public List<DM_LOAIDV> GetAllLoai(int? NhomDV)
+        {
+            return db.DM_LOAIDV.Where(x => x.MA_NHOMDV == NhomDV).OrderBy(x=>x.TEN_LOAIDV).OrderByDescending(x => x.MA_LOAIDV).ToList();
         }
     }
 }
