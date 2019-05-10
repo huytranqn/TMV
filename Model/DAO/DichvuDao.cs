@@ -195,7 +195,8 @@ namespace Model.DAO
 
         public List<DM_DICHVU> GetAllDV(int? LoaiDV)
         {
-            return db.DM_DICHVU.Where(x=>x.MA_LOAIDV==LoaiDV).OrderBy(x => x.TEN_DICHVU).OrderByDescending(x => x.MA_DICHVU).ToList();
+            db.Configuration.ProxyCreationEnabled = false;
+            return db.DM_DICHVU.Where(x=>x.MA_LOAIDV==LoaiDV).OrderByDescending(x => x.MA_DICHVU).ToList();
         }
 
         public List<DM_DICHVU> GetListActive()

@@ -45,17 +45,23 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label  for="MA_NHOMDV">Nhóm dịch vụ</label>
-                            <select class="form-control" data-val="true" id="MA_NHOMDV" name="TEN_NHOMDV"></select>
+                            <select class="form-control" data-val="true" id="MA_NHOMDV" name="TEN_NHOMDV" onchange="genderChanged(this)">
+                                <option selected="selected">Chọn nhóm dịch vụ</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="MA_LOAIDV">Loại dịch vụ</label>
-                            <select class="form-control" data-val="true" id="MA_LOAIDV" name="TEN_LOAIDV"></select>
+                            <select class="form-control" data-val="true" id="MA_LOAIDV" name="TEN_LOAIDV">
+                                <option selected="selected">Chọn loại dịch vụ</option>
+                            </select>
                             @Html.ValidationMessageFor(model => model.MA_LOAIDV, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             <label for="MA_DICHVU">Tên dịch vụ</label>
-                            <select class="form-control" data-val="true" id="MA_DICHVU" name="TEN_DICHVU"></select>
-                            @Html.ValidationMessageFor(model => model.TEN_DICHVU, "", new { @class = "text-danger" })
+                            <select class="form-control" data-val="true" id="MA_DICHVU" name="TEN_DICHVU">
+                                <option selected="selected">Chọn dịch vụ</option>
+                            </select>
+                            @Html.ValidationMessageFor(model => model.MA_DICHVU, "", new { @class = "text-danger" })
                         </div>
 
                         <div class="form-group">

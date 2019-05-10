@@ -31,12 +31,10 @@ namespace TMV.Areas.Admin.Controllers
         public ActionResult Edit(int id)
         {
             var dichvu = DichvuDao.Instance.getByID(id);
-            var nhomdv = LoaidichvuDao.Instance.getByForeign(dichvu.MA_LOAIDV);
-            var ndv = NhomdichvuDao.Instance.getByID(nhomdv.MA_NHOMDV);
-            GetAllNhomDV(ndv.MA_NHOMDV);
-            GetAllLoai(dichvu.MA_LOAIDV);
-            GetAllDV(dichvu.MA_LOAIDV);
-            //SetCategoryViewBag(dichvu.MA_LOAIDV);
+            GetAllNhomDV();
+            GetAllLoai();
+            GetAllDV();
+            
             return View(dichvu);
         }
 
@@ -66,44 +64,19 @@ namespace TMV.Areas.Admin.Controllers
             return View(model);
         }
 
-        public void SetCategoryViewBagLDV(int? selectedID = null)
+        public JsonResult GetAllNhomDV()
         {
-            var dao = new LoaidichvuDao();
-            var listCategory = dao.GetListActive();
-            ViewBag.MA_LOAIDV = new SelectList(listCategory, "MA_LOAIDV", "TEN_LOAIDV", selectedID);
-        }
-
-        public void SetCategoryViewBagNDV(int? selectedID = null)
-        {
-            var dao = new NhomdichvuDao();
-            var listCategory = dao.GetListActive();
-            ViewBag.MA_LOAIDV = new SelectList(listCategory, "MA_NHOMDV", "TEN_NHOMDV", selectedID);
-        }
-
-        public void SetCategoryViewBagDV(int? selectedID = null)
-        {
-            var dao = new DichvuDao();
-            var listCategory = dao.GetListActive();
-            ViewBag.MA_LOAIDV = new SelectList(listCategory, "MA_NHOMDV", "TEN_NHOMDV", selectedID);
-        }
-
-        public JsonResult test()
-        {
-            OnlineTMV db = new OnlineTMV();
-            var data = db.DM_NHOMDV.ToList();
-           return Json(data, JsonRequestBehavior.AllowGet);
-        }
-        public JsonResult GetAllNhomDV(int? NhomDV)
-        {
-            var data = NhomdichvuDao.Instance.GetAllNhomDV(NhomDV);
+            
+            var data = NhomdichvuDao.Instance.GetAllNhomDV();
             return Json(data, JsonRequestBehavior.AllowGet);
         }
-        public JsonResult GetAllLoai(int? NhomDV)
+
+        public JsonResult GetAllLoai(int? NhomDV=null)
         {
             var data = LoaidichvuDao.Instance.GetAllLoai(NhomDV);
             return Json(data, JsonRequestBehavior.AllowGet);
         }
-        public JsonResult GetAllDV(int? LoaiDV)
+        public JsonResult GetAllDV(int? LoaiDV=null)
         {
             var data = DichvuDao.Instance.GetAllDV(LoaiDV);
             return Json(data, JsonRequestBehavior.AllowGet);

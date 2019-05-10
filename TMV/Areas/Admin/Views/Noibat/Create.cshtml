@@ -52,17 +52,16 @@
 
 
                     <script type="text/javascript">
-                            function genderChanged(obj)
-                            {
-                                var message = document.getElementById('show_message');
-                                var value = obj.value;
-                                if (value === '2'){
-                                    message.innerHTML = '<textarea class="form-control" cols="20" data-val="true" data-val-length="The field hình ảnh/ Video must be a string with a maximum length of 250." data-val-length-max="250" id="txtContent" name="HINHANH_VIDEO" rows="2"></textarea>';
-                                }
-                                else if (value === '1'){
-                                    message.innerHTML = '<input type="File" name="fileUpLoad"/>';
-                                }
-                            }        
+                        function genderChanged(obj) {
+                            var message = document.getElementById('show_message');
+                            var value = obj.value;
+                            if (value === '2') {
+                                message.innerHTML = '<textarea class="form-control" cols="20" data-val="true" data-val-length="The field hình ảnh/ Video must be a string with a maximum length of 250." data-val-length-max="250" id="txtContent" name="HINHANH_VIDEO" rows="2"></textarea>';
+                            }
+                            else if (value === '1') {
+                                message.innerHTML = '<input type="File" name="fileUpLoad"/>';
+                            }
+                        }
                     </script>
                     <div class="form-group">
                         <label for="HINHANH_VIDEO" class="image">Video/Hình Ảnh</label>

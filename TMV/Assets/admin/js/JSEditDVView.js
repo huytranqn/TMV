@@ -5,6 +5,27 @@ var NDV = DV +"/GetAllNhomDV";
 $(document).ready(function () {
     _getNhomDV();
 
+
+    function genderChanged(obj) {
+        var value = obj.value;
+        if (id != undefined && id != '') {
+            _getLoaiDV(id);
+        }
+    }
+
+    $("#MA_NHOMDV").on('change', function () {
+        var id = $("#MA_NHOMDV").val();
+        if (id != undefined && id != '') {
+            _getLoaiDV(id);
+        }
+    });
+    $("#MA_LOAIDV").on('change', function () {
+        var id = $("#MA_LOAIDV").val();
+        if (id != undefined && id != '') {
+            _getDV(id);
+        }
+    }); 
+
 });
 function _getNhomDV() {
     $.get(NDV, function (data) {
@@ -34,7 +55,7 @@ function _getDV(id) {
         if (data != null && data != undefined && data.length) {
             var html = '';
             $.each(data, function (key, item) {
-                html += '<option value=' + item.MA_LOAIDV + '>' + item.TEN_LOAIDV + '</option>'
+                html += '<option value=' + item.MA_DICHVU + '>' + item.TEN_DICHVU + '</option>'
             });
             $("#MA_LOAIDV").html(html);
         }

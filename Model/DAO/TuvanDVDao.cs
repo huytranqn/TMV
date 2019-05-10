@@ -85,8 +85,8 @@ namespace Model.DAO
 
         public bool delete(int _key)
         {
-            if (hasReference(_key))
-                return false;
+            //if (hasReference(_key))
+            //    return false;
             db.TBL_TUVAN_DICHVU.Remove(getByID(_key));
             db.SaveChanges();
             return true;
@@ -125,7 +125,7 @@ namespace Model.DAO
             db.SaveChanges();
             return true;
         }
-       
+
         public IEnumerable<TBL_TUVAN_DICHVU> ListAllPaging(string searchString, int page)
         {
             IQueryable<TBL_TUVAN_DICHVU> model = db.TBL_TUVAN_DICHVU;
@@ -148,7 +148,7 @@ namespace Model.DAO
 
             if (_search != null)
             {
-                model = model.Where(obj => obj.MA_KHACHHANG.Contains(_search)|| obj.NHANVIEN_TUVAN.Contains(_search)||obj.NOIDUNG_TUVAN.Contains(_search)).ToList();
+                model = model.Where(obj => obj.MA_KHACHHANG.Contains(_search) || obj.NHANVIEN_TUVAN.Contains(_search) || obj.NOIDUNG_TUVAN.Contains(_search)).ToList();
             }
 
             totalRows = model.Count();
@@ -175,38 +175,12 @@ namespace Model.DAO
             return Constants.falseValue;
         }
 
-        public IQueryable<TBL_TUVAN_DICHVU> Khachhang()
+        public List<TBL_KHACHHANG> Khachhang()
         {
-            //var lstItem = from s in db.TBL_KHACHHANG
-            //              where s.NGUNG_HOATDONG == true
-            //select new { s.MA_KHACHHANG, string.Format("{0} +'-'+ {1}", s.HO_TEN, s.DIEN_THOAI);
             var query = from cust in db.TBL_KHACHHANG
                         where cust.NGUNG_HOATDONG == true
-                        select new 
-                        {
-                            MKH = cust.MA_KHACHHANG,
-                            KH = string.Concat(cust.HO_TEN, '-', cust.DIEN_THOAI)
-                        };
+                        select cust;
             return query.ToList();
-
-            //var model =  from s in db.TBL_KHACHHANG where s.NGUNG_HOATDONG == true select new { s.MA_KHACHHANG, s.HO_TEN + "-" + s.DIEN_THOAI};
-
-            //var model= from kh in db.TBL_KHACHHANG.where(kh => kh.NGUNG_HOATDONG == true).select(kh => new { kh.ma_khachhang, kh.ho_ten + "-" + s.dien_thoai });
-
-            //var model= (((from kh in db.TBL_KHACHHANG
-            //  where kh.NGUNG_HOATDONG == true
-            //  select kh.HO_TEN).Concat(from kh in db.TBL_KHACHHANG
-            //                           where kh.NGUNG_HOATDONG == true
-            //                           select kh.DIEN_THOAI)).Concat(from kh in db.TBL_KHACHHANG
-            //                                                         where kh.NGUNG_HOATDONG == true
-            //                                                         select kh.MA_KHACHHANG));
-
-            //var query = from cust in db.TBL_KHACHHANG
-            //            where cust.NGUNG_HOATDONG == true
-            //            select cust.MA_KHACHHANG;
-            //CONCAT(cust.HO_TEN, '-', cust.DIEN_THOAI);
-
-
         }
     }
 }

@@ -1,0 +1,73 @@
+﻿@model Model.EF.TBL_TUVAN_DICHVU
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    <h1>Cập nhật thông tin tư vấn dịch vụ</h1>
+    <ol class="breadcrumb">
+        <li><a href="/Admin"><i class="fa fa-dashboard"></i>Trang chủ</a></li>
+        <li><a href="/Admin/Gioithieu">Tư vấn dịch vụ</a></li>
+        <li class="active">Cập nhật</li>
+    </ol>
+}
+
+@section Script_footer{
+    <script>
+
+        var editor = CKEDITOR.replace("txtContent", {
+            customConfig: '/assets/admin/plugins/ckeditor/config.js',
+        });
+    </script>
+}
+
+
+
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12 col-md-offset-0">
+            <!-- general form elements -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Thông tin tư vấn dịch vụ</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                @using (Html.BeginForm("Edit", "TuvanDV", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.ID_TUVAN)
+                <div class="box-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MA_KHACHHANG)
+                        @Html.DropDownListFor(model => model.MA_KHACHHANG, new SelectList(ViewBag.KHACHHANG), new { @class = "form-control", @id = "MA_KHACHHANG" })
+                        @Html.ValidationMessageFor(model => model.MA_KHACHHANG, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NHANVIEN_TUVAN)
+                        @Html.DropDownListFor(model => model.NHANVIEN_TUVAN, ViewBag.NHANVIEN as SelectList, new { @class = "form-control", @id = "nhanvien" })
+                        @Html.ValidationMessageFor(model => model.NHANVIEN_TUVAN, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NOIDUNG_TUVAN) <span class="text-danger">*</span>
+                        @Html.TextAreaFor(model => model.NOIDUNG_TUVAN, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.NOIDUNG_TUVAN, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.GHI_CHU) <span class="text-danger">*</span>
+                        @Html.TextAreaFor(model => model.GHI_CHU, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.GHI_CHU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                        @Html.ActionLink("Hủy", "Index", new object { }, new { @class = "btn btn-default col-md-offset-1" })
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}

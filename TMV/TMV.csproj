@@ -6649,6 +6649,7 @@
     <Content Include="Assets\admin\js\JSKhaosatController.js" />
     <Content Include="Assets\admin\js\JSNhomdichvuController.js" />
     <Content Include="Assets\admin\js\JSPromotionController.js" />
+    <Content Include="Assets\admin\js\JSTuvanDVController.js" />
     <Content Include="Assets\admin\js\NoibatController.js" />
     <Content Include="Assets\admin\plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="Assets\admin\plugins\bootstrap-slider\slider.css" />
@@ -8646,6 +8647,7 @@
     <Content Include="Areas\Admin\Views\Khaosat\Create.cshtml" />
     <Content Include="Areas\Admin\Views\TuvanDV\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TuvanDV\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TuvanDV\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

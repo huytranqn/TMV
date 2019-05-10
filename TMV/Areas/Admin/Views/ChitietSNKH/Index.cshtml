@@ -61,14 +61,6 @@
 
                     @foreach (var item in Model)
                     {
-                        if (Model.Count() == 0)
-                        {
-                            <tr>    
-                                <td><p>Chưa có dữ liệu</p></td>
-                            </tr>
-                        }
-                        else
-                        {
                             <tr id="row_@item.ID_CHITIET_SINHNHAT">
                                 <td>
                                     @Html.DisplayFor(modelItem => item.APP_SINHNHAT_KHACHHANG.NOI_DUNG)
@@ -89,7 +81,6 @@
                                     <a href="#" data-id="@item.ID_CHITIET_SINHNHAT " class="btn-delete">Xóa</a>
                                 </td>
                             </tr>
-                        }
 
                     }
 

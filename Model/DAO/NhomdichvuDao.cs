@@ -160,16 +160,10 @@ namespace Model.DAO
             return model;
         }
 
-        public List<DM_NHOMDV> GetAllNhomDV(int? NhomDV)
+        public List<DM_NHOMDV> GetAllNhomDV()
         {
-            if(NhomDV!=null)
-            {
-                return db.DM_NHOMDV.Where(x => x.MA_NHOMDV == NhomDV).OrderBy(x => x.TEN_NHOMDV).OrderByDescending(x => x.MA_NHOMDV).ToList();
-            }
-            else
-            {
-                return db.DM_NHOMDV.OrderBy(x => x.TEN_NHOMDV).OrderByDescending(x => x.MA_NHOMDV).ToList();
-            }
+            db.Configuration.ProxyCreationEnabled = false;
+            return db.DM_NHOMDV.OrderByDescending(x => x.THU_TU).ToList();
             
         }
 

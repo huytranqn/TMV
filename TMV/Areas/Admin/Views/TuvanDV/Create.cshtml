@@ -38,7 +38,7 @@
                 <div class="box-body">
                     <div class="form-group">
                         @Html.LabelFor(model => model.MA_KHACHHANG)
-                        @Html.DropDownListFor(model => model.MA_KHACHHANG, ViewBag.KHACHHANG as SelectList, new { @class = "form-control",@id="chonnv" })
+                        @Html.DropDownListFor(model => model.MA_KHACHHANG, new SelectList(ViewBag.KHACHHANG,"Value","Text"), new { @class = "form-control", @id= "MA_KHACHHANG" })
                         @Html.ValidationMessageFor(model => model.MA_KHACHHANG, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
@@ -48,7 +48,7 @@
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(model => model.NOIDUNG_TUVAN) <span class="text-danger">*</span>
-                        @Html.TextAreaFor(model => model.NHANVIEN_TUVAN, new { @class = "form-control"})
+                        @Html.TextAreaFor(model => model.NOIDUNG_TUVAN, new { @class = "form-control"})
                         @Html.ValidationMessageFor(model => model.NOIDUNG_TUVAN, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">

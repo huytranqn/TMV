@@ -62,7 +62,8 @@ namespace Model.DAO
 
         public List<DM_LOAIDV> GetAllLoai(int? NhomDV)
         {
-            return db.DM_LOAIDV.Where(x => x.MA_NHOMDV == NhomDV).OrderBy(x=>x.TEN_LOAIDV).OrderByDescending(x => x.MA_LOAIDV).ToList();
+            db.Configuration.ProxyCreationEnabled = false;
+            return db.DM_LOAIDV.Where(x => x.MA_NHOMDV == NhomDV).OrderByDescending(x => x.MA_LOAIDV).ToList();
         }
     }
 }
