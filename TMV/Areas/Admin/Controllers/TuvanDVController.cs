@@ -99,9 +99,15 @@ namespace TMV.Areas.Admin.Controllers
         {
 
             var dao = new NhanvienDao();
-            var listCategory = dao.GetListActive();
+            var listCategory = dao.GetListActiveNV();
             ViewBag.NHANVIEN = new SelectList(listCategory,"TEN_NHANVIEN","TEN_NHANVIEN" ,manv);
             
+        }
+
+        public JsonResult getNV()
+        {
+            var data = NhanvienDao.Instance.GetListActive();
+            return Json(data, JsonRequestBehavior.AllowGet);
         }
 
         #region ActionResult

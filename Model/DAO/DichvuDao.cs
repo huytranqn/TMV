@@ -199,6 +199,12 @@ namespace Model.DAO
             return db.DM_DICHVU.Where(x=>x.MA_LOAIDV==LoaiDV).OrderByDescending(x => x.MA_DICHVU).ToList();
         }
 
+        public List<DM_DICHVU> GetDV(int? MaDV)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            return db.DM_DICHVU.Where(x => x.MA_DICHVU == MaDV).OrderByDescending(x => x.MA_DICHVU).ToList();
+        }
+
         public List<DM_DICHVU> GetListActive()
         {
             return db.DM_DICHVU.OrderByDescending(x => x.MA_DICHVU).ToList();

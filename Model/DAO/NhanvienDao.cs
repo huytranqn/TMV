@@ -37,9 +37,15 @@ namespace Model.DAO
             }
         }
 
-        public List<HT_NHANVIEN> GetListActive()
+        public List<string> GetListActive()
         {
-            return db.HT_NHANVIEN.Where(x => x.HOAT_DONG == true).OrderByDescending(x => x.MODIFIED).ToList();
+            db.Configuration.ProxyCreationEnabled = false;
+            return db.HT_NHANVIEN.Select(x=>x.TEN_NHANVIEN).ToList();
+        }
+        public List<HT_NHANVIEN> GetListActiveNV()
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            return db.HT_NHANVIEN.Where(x=>x.HOAT_DONG==true).ToList();
         }
 
         public HT_NHANVIEN getByID(String _key)

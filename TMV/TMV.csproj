@@ -6650,6 +6650,7 @@
     <Content Include="Assets\admin\js\JSNhomdichvuController.js" />
     <Content Include="Assets\admin\js\JSPromotionController.js" />
     <Content Include="Assets\admin\js\JSTuvanDVController.js" />
+    <Content Include="Assets\admin\js\JSTuvanDVCreate.js" />
     <Content Include="Assets\admin\js\NoibatController.js" />
     <Content Include="Assets\admin\plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="Assets\admin\plugins\bootstrap-slider\slider.css" />

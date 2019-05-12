@@ -19,6 +19,11 @@
             customConfig: '/assets/admin/plugins/ckeditor/config.js',
         });
     </script>
+    <script src="~/Assets/admin/plugins/stcombobox/stcombobox.min.js"></script>
+    <script src="~/Assets/admin/plugins/stcombobox/stcombobox.js"></script>
+    <script src="~/Assets/admin/plugins/stcombobox/jquery-1.11.2.min.js"></script>
+    <script src="~/Assets/admin/js/JSChitetSNKHController.js"></script>
+    <script src="~/Assets/admin/js/JSTuvanDVCreate.js"></script>
 }
 
 <div class="row">
@@ -38,22 +43,22 @@
                 <div class="box-body">
                     <div class="form-group">
                         @Html.LabelFor(model => model.MA_KHACHHANG)
-                        @Html.DropDownListFor(model => model.MA_KHACHHANG, new SelectList(ViewBag.KHACHHANG,"Value","Text"), new { @class = "form-control", @id= "MA_KHACHHANG" })
+                        @Html.DropDownListFor(model => model.MA_KHACHHANG, new SelectList(ViewBag.KHACHHANG, "Value", "Text"), new { @class = "form-control", @id = "MA_KHACHHANG" })
                         @Html.ValidationMessageFor(model => model.MA_KHACHHANG, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(model => model.NHANVIEN_TUVAN)
-                        @Html.DropDownListFor(model => model.NHANVIEN_TUVAN, ViewBag.NHANVIEN as SelectList, new { @class = "form-control", @id="nhanvien" })
+                        @Html.DropDownListFor(model => model.NHANVIEN_TUVAN, ViewBag.NHANVIEN as SelectList, new { @class = "form-control", @id = "nhanvien" })
                         @Html.ValidationMessageFor(model => model.NHANVIEN_TUVAN, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(model => model.NOIDUNG_TUVAN) <span class="text-danger">*</span>
-                        @Html.TextAreaFor(model => model.NOIDUNG_TUVAN, new { @class = "form-control"})
+                        @Html.TextAreaFor(model => model.NOIDUNG_TUVAN, new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.NOIDUNG_TUVAN, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(model => model.GHI_CHU) <span class="text-danger">*</span>
-                        @Html.TextAreaFor(model => model.GHI_CHU, new { @class = "form-control"})
+                        @Html.TextAreaFor(model => model.GHI_CHU, new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.GHI_CHU, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -68,25 +73,3 @@
         <!-- /.box -->
     </div>
 </div>
-<script src="~/Assets/admin/plugins/stcombobox/stcombobox.min.js"></script>
-<script src="~/Assets/admin/plugins/stcombobox/stcombobox.js"></script>
-<script src="~/Assets/admin/plugins/stcombobox/jquery-1.11.2.min.js"></script>
-<script>
-    $(document).ready(function () {
-        selectnv();
-    });
-    function selectnv() {
-        var combo = new STComboBox();
-        combo.Init('nhanvien');
-        var data = [];
-        var nv = Getnv();
-        for (var i = 0; i < nv.lenght; i++) {
-            data.push({ id: i, text: nv[i] });
-        }
-        combo.populateList(data);
-    }
-    function Getnv() {
-        return ViewBag.NHANVIEN;
-    }
-</script>
-
