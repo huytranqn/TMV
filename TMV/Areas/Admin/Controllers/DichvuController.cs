@@ -15,7 +15,7 @@ using System.Linq;
 
 namespace TMV.Areas.Admin.Controllers
 {
-    public class DichvuController : Controller
+    public class DichvuController : BaseController
     {
         #region ActionResult
         // GET: Admin/dichvu
