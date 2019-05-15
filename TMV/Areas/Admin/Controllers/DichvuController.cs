@@ -28,28 +28,17 @@ namespace TMV.Areas.Admin.Controllers
 
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit()
         {
-            var dichvu = DichvuDao.Instance.getByID(id);
             GetAllNhomDV();
             GetAllLoai();
-            GetAllDV();
-            
-            return View(dichvu);
+            GetAllDV();    
+            return View();
         }
 
         [HttpPost, ValidateInput(false)]
-        public ActionResult Edit(DM_DICHVU model, HttpPostedFileBase fileUpLoad,int MA_DICHVU,string TEN_DICHVU, int MA_LOAIDV, float GIA_DICHVU, float GIA_KHUYENMAI, string THOIGIAN_LAMVIEC, int THU_TU, bool NGUNG_KINHDOANH, DateTime MODIFIED)
+        public ActionResult Edit(DM_DICHVU model, HttpPostedFileBase fileUpLoad)
         {
-            model.MA_DICHVU = MA_DICHVU;
-            model.TEN_DICHVU = TEN_DICHVU;
-            model.MA_LOAIDV = MA_LOAIDV;
-            model.GIA_DICHVU = GIA_DICHVU;
-            model.GIA_KHUYENMAI = GIA_KHUYENMAI;
-            model.THOIGIAN_LAMVIEC = THOIGIAN_LAMVIEC;
-            model.THU_TU = THU_TU;
-            model.NGUNG_KINHDOANH = NGUNG_KINHDOANH;
-            model.MODIFIED = MODIFIED;
             if (fileUpLoad != null && fileUpLoad.ContentLength > 0)
             {
                 //tên file
@@ -59,7 +48,10 @@ namespace TMV.Areas.Admin.Controllers
                 fileUpLoad.SaveAs(path);
                 model.HINH_ANH = "/Assets/Data/Images/" + fileName;
             }
-            if (ModelState.IsValid)
+
+            //bool hasErrors = ViewData.ModelState.Values.Any(x => x.Errors.Count > 1);
+            //ModelState.IsValid
+            if (!(ViewData.ModelState.Values.Any(x => x.Errors.Count > 1)))
             {
                 if (DichvuDao.Instance.Update(model))
                 {

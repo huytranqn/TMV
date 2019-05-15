@@ -8618,7 +8618,6 @@
     <Content Include="Areas\Admin\Views\App_khuyenmai\Create.cshtml" />
     <Content Include="Areas\Admin\Views\App_khuyenmai\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Dichvu\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Dichvu\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Gioithieu\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Gioithieu\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Gioithieu\Edit.cshtml" />
@@ -8649,6 +8648,7 @@
     <Content Include="Areas\Admin\Views\TuvanDV\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TuvanDV\Create.cshtml" />
     <Content Include="Areas\Admin\Views\TuvanDV\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Dichvu\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

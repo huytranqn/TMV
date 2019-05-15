@@ -117,14 +117,8 @@ namespace Model.DAO
         public bool Update(DM_DICHVU _request)
         {
             var dichvu = getByID(_request.MA_DICHVU);
-            dichvu.TEN_DICHVU = _request.TEN_DICHVU;
             dichvu.MOTA_CHITIET = _request.MOTA_CHITIET;
-            dichvu.NGUNG_KINHDOANH = _request.NGUNG_KINHDOANH;
-            dichvu.GIA_DICHVU = _request.GIA_DICHVU;
-            dichvu.GIA_KHUYENMAI = _request.GIA_KHUYENMAI;
             dichvu.HINH_ANH = _request.HINH_ANH;
-            dichvu.MA_DICHVU = _request.MA_DICHVU;
-            dichvu.THOIGIAN_LAMVIEC=_request.THOIGIAN_LAMVIEC;
             db.SaveChanges();
             return true;
         }

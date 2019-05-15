@@ -82,8 +82,11 @@ function _getAllDV(id) {
                 html += '<input data-val="true" id="' + item.THU_TU + '" name="' + item.THU_TU + '" type="hidden" value="' + item.THU_TU + '" />'
                 html += '<input data-val="true" id="' + item.NGUNG_KINHDOANH + '" name="' + item.NGUNG_KINHDOANH + '" type="hidden" value="' + item.NGUNG_KINHDOANH + '" />  '
                 html += '<input data-val="true" id="' + item.MODIFIED + '" name="' + item.MODIFIED + '" type="hidden" value="' + item.MODIFIED + '" />'
+
+                key.TEN_DICHVU = item.TEN_DICHVU;
             });
-            $("#hidden").append(html);
+            $("#hidden").html(html);
+            
         }
     });
 }

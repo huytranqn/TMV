@@ -26,14 +26,17 @@
                 <h3 class="box-title">Danh sách dịch vụ</h3>
                 @using (Html.BeginForm("Index", "Dichvu", FormMethod.Get))
                 {
-                    <div class="box-tools pull-right">
-                        <div class="input-group input-group-sm col-md-4 pull-right col-xs-offset-1">
-                            <input type="text" class="form-control pull-right" value="@ViewBag.SearchString" name="searchString" placeholder="Tìm kiếm" />
-                            <div class="input-group-btn">
-                                <button type="submit" id="btn-search" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                            </div>
+                <div class="box-tools pull-right">
+                    <div class="input-group input-group-sm col-md-4 pull-right col-xs-offset-1">
+                        <input type="text" class="form-control pull-right" value="@ViewBag.SearchString" name="searchString" placeholder="Tìm kiếm" />
+                        <div class="input-group-btn">
+                            <button type="submit" id="btn-search" class="btn btn-primary"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
+                    <div class="pull-right">
+                        <a href="/Admin/Dichvu/Edit" class="btn btn-info btn-sm"> <i class="fa  fa-plus"></i> Sửa</a>
+                    </div>
+                </div>
                 }
             </div>
             <!-- /.box-header -->
@@ -98,7 +101,7 @@
                             </td>
                             <td> <a href="#" data-id="@item.MA_DICHVU " class="btn-status @classkh">@stringkh</a> </td>
                             <td>
-                                @Html.ActionLink("Sửa", "Edit", new { id = item.MA_DICHVU }) |
+                                @*@Html.ActionLink("Sửa", "Edit", new { id = item.MA_DICHVU }) |*@
                                 <a href="#" data-id="@item.MA_DICHVU " class="btn-delete">Xóa</a>
                             </td>
                         </tr>
