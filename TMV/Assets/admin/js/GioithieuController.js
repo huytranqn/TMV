@@ -54,6 +54,7 @@ var GioithieuController = {
                     success: function (response) {
                         if (response) {
                             $('#row_' + id).remove();
+
                         }
                     },
                     error: function (response) {

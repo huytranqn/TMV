@@ -43,7 +43,7 @@
                 <div class="box-body">
                     <div class="form-group">
                         @Html.LabelFor(model => model.MA_KHACHHANG)
-                        @Html.DropDownListFor(model => model.MA_KHACHHANG, new SelectList(ViewBag.KHACHHANG), new { @class = "form-control", @id = "MA_KHACHHANG" })
+                        @Html.DropDownListFor(model => model.MA_KHACHHANG, (ViewBag.KHACHHANG) as SelectList, new { @class = "form-control", @id = "MA_KHACHHANG" })
                         @Html.ValidationMessageFor(model => model.MA_KHACHHANG, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
