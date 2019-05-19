@@ -47,18 +47,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\Autofac.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\AWSSDK.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.S3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\AWSSDK.S3.dll</HintPath>
-    </Reference>
     <Reference Include="CKFinder, Version=2.6.0.2792, Culture=neutral, PublicKeyToken=579e7adc719a1423, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\TMV\TMV\Assets\admin\plugins\ckfinder\bin\Release\CKFinder.dll</HintPath>
@@ -75,58 +63,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\TMV\TMV\Assets\admin\plugins\ckfinder\bin\Release\CKFinder_Watermark.dll</HintPath>
     </Reference>
-    <Reference Include="CKSource.CKFinder.Connector.Config, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\CKSource.CKFinder.Connector.Config.dll</HintPath>
-    </Reference>
-    <Reference Include="CKSource.CKFinder.Connector.Core, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\CKSource.CKFinder.Connector.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="CKSource.CKFinder.Connector.Host.Owin, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\CKSource.CKFinder.Connector.Host.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="CKSource.CKFinder.Connector.KeyValue.FileSystem, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\CKSource.CKFinder.Connector.KeyValue.FileSystem.dll</HintPath>
-    </Reference>
-    <Reference Include="CKSource.CKFinder.Connector.Logs.NLog, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\CKSource.CKFinder.Connector.Logs.NLog.dll</HintPath>
-    </Reference>
-    <Reference Include="CKSource.CKFinder.Connector.WebApp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\CKSource.CKFinder.Connector.WebApp.dll</HintPath>
-    </Reference>
-    <Reference Include="CKSource.FileSystem, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\CKSource.FileSystem.dll</HintPath>
-    </Reference>
-    <Reference Include="CKSource.FileSystem.Amazon, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\CKSource.FileSystem.Amazon.dll</HintPath>
-    </Reference>
-    <Reference Include="CKSource.FileSystem.Azure, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\CKSource.FileSystem.Azure.dll</HintPath>
-    </Reference>
-    <Reference Include="CKSource.FileSystem.Dropbox, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\CKSource.FileSystem.Dropbox.dll</HintPath>
-    </Reference>
-    <Reference Include="CKSource.FileSystem.Ftp, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\CKSource.FileSystem.Ftp.dll</HintPath>
-    </Reference>
-    <Reference Include="CKSource.FileSystem.Local, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\CKSource.FileSystem.Local.dll</HintPath>
-    </Reference>
-    <Reference Include="Dropbox.Api, Version=0.1.5960.22395, Culture=neutral, PublicKeyToken=310f0e82fbb45d01, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\Dropbox.Api.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -136,92 +72,31 @@
     <Reference Include="Gobln.Pager, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Gobln.Pager.1.0.3\lib\net45\Gobln.Pager.dll</HintPath>
     </Reference>
-    <Reference Include="ImageProcessor, Version=2.6.2.25, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\ImageProcessor.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\Microsoft.Azure.KeyVault.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.Edm, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Assets\admin\plugins\ckfinder\bin\Microsoft.Data.Edm.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Data.Edm.resources, Version=5.7.0.0, Culture=de, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\de\Microsoft.Data.Edm.resources.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Data.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Assets\admin\plugins\ckfinder\bin\Microsoft.Data.OData.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Data.OData.resources, Version=5.7.0.0, Culture=de, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\de\Microsoft.Data.OData.resources.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Data.Services.Client, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Assets\admin\plugins\ckfinder\bin\Microsoft.Data.Services.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Data.Services.Client.resources, Version=5.7.0.0, Culture=de, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\de\Microsoft.Data.Services.Client.resources.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\Microsoft.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\Microsoft.Owin.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\Microsoft.Owin.Security.Cookies.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\Microsoft.Threading.Tasks.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Storage, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Assets\admin\plugins\ckfinder\bin\Microsoft.WindowsAzure.Storage.dll</HintPath>
-    </Reference>
-    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\NLog.dll</HintPath>
-    </Reference>
-    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\Owin.dll</HintPath>
     </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="Pri.LongPath, Version=2.0.45.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\Pri.LongPath.dll</HintPath>
-    </Reference>
-    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -230,29 +105,9 @@
       <HintPath>Assets\admin\plugins\ckfinder\bin\System.Data.SqlServerCe.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.FtpClient, Version=1.0.5824.34026, Culture=neutral, PublicKeyToken=fa4be07daa57c2b7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\System.Net.FtpClient.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\System.Net.Http.Extensions.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Assets\admin\plugins\ckfinder\bin\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\System.Net.Http.Primitives.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Spatial, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\System.Spatial.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Spatial.resources, Version=5.7.0.0, Culture=de, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Assets\admin\plugins\ckfinder\bin\de\System.Spatial.resources.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -346,62 +201,6 @@
     <Compile Include="Areas\Admin\Controllers\TBL_KHACHHANGController.cs" />
     <Compile Include="Areas\Admin\Controllers\TuvanDVController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\AccessControlRules.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\AssemblyInfo.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CKFinderEvent.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CKFinderEventArgs.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CKFinderPlugin.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\CommandHandlerBase.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\CopyFilesCommandHandler.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\CreateFolderCommandHandler.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\DeleteFilesCommandHandler.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\DeleteFolderCommandHandler.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\DownloadFileCommandHandler.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\ErrorCommandHandler.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\FileUploadCommandHandler.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\GetFilesCommandHandler.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\GetFoldersCommandHandler.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\InitCommandHandler.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\LoadCookiesCommandHandler.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\MoveFilesCommandHandler.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\QuickUploadCommandHandler.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\RenameFileCommandHandler.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\RenameFolderCommandHandler.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\ThumbnailCommandHandler.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\CommandHandlers\XmlCommandHandlerBase.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\Config.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\Connector.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\ConnectorException.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\Errors.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\FolderHandler.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\ImageTools.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\Lang.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\OctreeQuantizer.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\Quantizer.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\RegexLib.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\RestartModule.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\Util.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Connector\XmlUtil.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\FileBrowser.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\FileBrowserDesigner.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Resources\Plugins\FileEditor\Properties\AssemblyInfo.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Resources\Plugins\FileEditor\SaveFile.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Resources\Plugins\ImageResize\ImageResize.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Resources\Plugins\ImageResize\Properties\AssemblyInfo.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Resources\Plugins\Watermark\Properties\AssemblyInfo.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Resources\Plugins\Watermark\Watermark.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Settings\AccessControl.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Settings\AccessControlManager.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Settings\ConfigFile.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Settings\Images.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Settings\ResourceType.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Settings\ResourceTypeManager.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\Settings\Thumbnails.cs" />
-    <Compile Include="Assets\admin\plugins\ckfinder\_source\TriStateBool.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -7133,6 +6932,8 @@
     <Content Include="Assets\admin\plugins\ckfinder\ckfinder_v1.js" />
     <Content Include="Assets\admin\plugins\ckfinder\config.ascx" />
     <Content Include="Assets\admin\plugins\ckfinder\config.js" />
+    <Content Include="Assets\admin\plugins\ckfinder\core\connector\aspx\assets\Data\Images\images\logo.png" />
+    <Content Include="Assets\admin\plugins\ckfinder\core\connector\aspx\assets\Data\Images\_thumbs\Images\logo.png" />
     <Content Include="Assets\admin\plugins\ckfinder\core\connector\aspx\connector.aspx" />
     <Content Include="Assets\admin\plugins\ckfinder\core\connector\aspx\lang\bg.xml" />
     <Content Include="Assets\admin\plugins\ckfinder\core\connector\aspx\lang\ca.xml" />
@@ -7770,18 +7571,6 @@
     <Content Include="Assets\admin\plugins\ckfinder\_samples\skin_v1.html" />
     <Content Include="Assets\admin\plugins\ckfinder\_samples\standalone.html" />
     <Content Include="Assets\admin\plugins\ckfinder\_samples\standalone_v1.html" />
-    <Content Include="Assets\admin\plugins\ckfinder\_source\CKFinder.ico" />
-    <Content Include="Assets\admin\plugins\ckfinder\_source\CKFinder.Net.csproj" />
-    <Content Include="Assets\admin\plugins\ckfinder\_source\CKFinder.Net.sln" />
-    <Content Include="Assets\admin\plugins\ckfinder\_source\Resources\Plugins\FileEditor\CKFinder.ico" />
-    <Content Include="Assets\admin\plugins\ckfinder\_source\Resources\Plugins\FileEditor\FileEditor.csproj" />
-    <Content Include="Assets\admin\plugins\ckfinder\_source\Resources\Plugins\FileEditor\FileEditor.sln" />
-    <Content Include="Assets\admin\plugins\ckfinder\_source\Resources\Plugins\ImageResize\CKFinder.ico" />
-    <Content Include="Assets\admin\plugins\ckfinder\_source\Resources\Plugins\ImageResize\ImageResize.csproj" />
-    <Content Include="Assets\admin\plugins\ckfinder\_source\Resources\Plugins\ImageResize\ImageResize.sln" />
-    <Content Include="Assets\admin\plugins\ckfinder\_source\Resources\Plugins\Watermark\CKFinder.ico" />
-    <Content Include="Assets\admin\plugins\ckfinder\_source\Resources\Plugins\Watermark\Watermark.csproj" />
-    <Content Include="Assets\admin\plugins\ckfinder\_source\Resources\Plugins\Watermark\Watermark.sln" />
     <Content Include="Assets\admin\plugins\iCheck\all.css" />
     <Content Include="Assets\admin\plugins\iCheck\flat\aero%402x.png" />
     <Content Include="Assets\admin\plugins\iCheck\flat\aero.css" />
@@ -7914,6 +7703,9 @@
     <Content Include="Assets\admin\plugins\pace\pace.js" />
     <Content Include="Assets\admin\plugins\pace\pace.min.css" />
     <Content Include="Assets\admin\plugins\pace\pace.min.js" />
+    <Content Include="Assets\admin\plugins\Sreach-Drop\chosen-sprite.png" />
+    <Content Include="Assets\admin\plugins\Sreach-Drop\chosen.jquery.min.js" />
+    <Content Include="Assets\admin\plugins\Sreach-Drop\chosen.min.css" />
     <Content Include="Assets\admin\plugins\stcombobox\jquery-1.11.2.min.js" />
     <Content Include="Assets\admin\plugins\stcombobox\stcombobox.css" />
     <Content Include="Assets\admin\plugins\stcombobox\stcombobox.js" />
@@ -8716,7 +8508,6 @@
     <Content Include="Assets\admin\plugins\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Assets\admin\plugins\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Assets\admin\plugins\ckfinder\userfiles\.htaccess" />
-    <Content Include="Assets\admin\plugins\ckfinder\_source\CKFinderKey.snk" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

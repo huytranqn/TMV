@@ -19,7 +19,7 @@
         var editor = CKEDITOR.replace("txtContent", {
             customConfig: '/Assets/admin/plugins/ckfinder/config.js',
         });
-        CKFinder.setupCKEditor(null, '/ckfinder');
+        CKFinder.setupCKEditor(editor, '/Assets/Data/Images/');
     </script>
     <script src="~/Assets/admin/js/JSEditDVView.js"></script>
 }
@@ -68,7 +68,7 @@
                         @Html.TextAreaFor(model => model.MOTA_CHITIET, new { @class = "form-control", @id = "txtContent" })
                         @Html.ValidationMessageFor(model => model.MOTA_CHITIET, "", new { @class = "text-danger" })
                     </div>
-                    
+
 
                 </div>
                 <div class="box-footer">

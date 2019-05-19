@@ -19,13 +19,18 @@
             customConfig: '/assets/admin/plugins/ckeditor/config.js',
         });
     </script>
+    <script>
+        $(function () {
+            $("#NHANVIEN").chosen();
+        });
+        $(function () {
+            $("#KHACHHANG").chosen();
+        });
 
-    <script src="~/Assets/admin/plugins/stcombobox/stcombobox.min.js"></script>
-    <script src="~/Assets/admin/plugins/stcombobox/stcombobox.js"></script>
-    <script src="~/Assets/admin/plugins/stcombobox/jquery-1.11.2.min.js"></script>
-    <script src="~/Assets/admin/js/JSTuvanDVCreate.js"></script>
+    </script>
+    @*<script src="~/Assets/admin/js/JSTuvanDVCreate.js"></script>*@
 
-    
+
 }
 
 <div class="row">
@@ -45,18 +50,17 @@
                 <div class="box-body">
                     <div class="form-group">
                         @Html.LabelFor(model => model.MA_KHACHHANG)
-                        @Html.DropDownListFor(model => model.MA_KHACHHANG, new SelectList(ViewBag.KHACHHANG, "Value", "Text"), new { @class = "form-control", @id = "MA_KHACHHANG" })
+                        @Html.DropDownListFor(model => model.MA_KHACHHANG, new SelectList(ViewBag.KHACHHANG, "Value", "Text"), new { @class = "form-control", @id = "KHACHHANG" })
                         @Html.ValidationMessageFor(model => model.MA_KHACHHANG, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(model => model.NHANVIEN_TUVAN)
-                        @*@Html.DropDownListFor(model => model.NHANVIEN_TUVAN, ViewBag.NHANVIEN as SelectList, new { @class = "form-control", @id = "nhanvien" })*@
-                        <span id="nhanvien"></span>
+                        @Html.DropDownListFor(model => model.NHANVIEN_TUVAN, ViewBag.NHANVIEN as SelectList, new { @class = "form-control", @id = "NHANVIEN" })
                         @Html.ValidationMessageFor(model => model.NHANVIEN_TUVAN, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(model => model.NOIDUNG_TUVAN) <span class="text-danger">*</span>
-                        @Html.TextAreaFor(model => model.NOIDUNG_TUVAN, new { @class = "form-control",@id= "txtContent" })
+                        @Html.TextAreaFor(model => model.NOIDUNG_TUVAN, new { @class = "form-control", @id = "txtContent" })
                         @Html.ValidationMessageFor(model => model.NOIDUNG_TUVAN, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">

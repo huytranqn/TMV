@@ -1,11 +1,11 @@
 ﻿
+
 @{
     Layout = null;
     var session = new Model.DTO.UserSession();
     if (Session[Models.Common.Constants.USER_SESSION] != null) { session = (Model.DTO.UserSession)Session[Models.Common.Constants.USER_SESSION]; }
 
 }
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="~/Assets/admin/bower_components/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="~/Assets/admin/dist/css/AdminLTE.min.css">
+
+    <link href="~/Assets/admin/plugins/Sreach-Drop/chosen.min.css" rel="stylesheet" />
 
     <link href="~/Assets/admin/plugins/stcombobox/stcombobox.css" rel="stylesheet" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -290,15 +292,16 @@
     <script src="~/Assets/admin/bower_components/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
     <script src="~/Assets/admin/dist/js/adminlte.min.js"></script>
+
+    <script src="/Assets/display/js/jquery-3.2.1.min.js"></script>
     <script src="/Assets/admin/plugins/ckfinder/ckfinder.js"></script>
     <script src="/Assets/admin/plugins/ckeditor/ckeditor.js"></script>
 
+    <script src="~/Assets/admin/plugins/Sreach-Drop/chosen.jquery.min.js"></script>
     <!--twbs-pagination-->
     <!-- AdminLTE for demo purposes -->
     <script src="~/Assets/admin/dist/js/demo.js"></script>
     @RenderSection("Script_footer", false)
 </body>
 </html>
-
-
 
