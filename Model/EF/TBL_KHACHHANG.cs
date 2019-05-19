@@ -63,7 +63,7 @@ namespace Model.EF
         [StringLength(500)]
         public string GHI_CHU { get; set; }
 
-        public bool? NGUNG_HOATDONG { get; set; }
+        public bool NGUNG_HOATDONG { get; set; }
 
         [StringLength(10)]
         public string SO_CMND { get; set; }
@@ -72,6 +72,7 @@ namespace Model.EF
         public string MAT_KHAU { get; set; }
 
         public DateTime? MODIFIED { get; set; }
+        public bool? BIRTHDAY { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<APP_CHITIET_SINHNHAT_KHACHHANG> APP_CHITIET_SINHNHAT_KHACHHANG { get; set; }

@@ -47,5 +47,13 @@ namespace Model.DAO
         {
             return db.TBL_KHACHHANG.SingleOrDefault(obj => obj.MA_KHACHHANG == _key);
         }
+
+        public bool Update(APP_CHITIET_SINHNHAT_KHACHHANG _request)
+        {
+            var kh = getByID(_request.MA_KHACHHANG);
+            kh.BIRTHDAY = true ;
+            db.SaveChanges();
+            return true;
+        }
     }
 }

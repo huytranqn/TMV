@@ -1,9 +1,11 @@
 ﻿using Model.EF;
+using Model.DAO;
 using Models.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using PagedList;
+using System.Activities.Expressions;
 
 namespace Model.DAO
 {
@@ -65,12 +67,12 @@ namespace Model.DAO
             {
                 db.APP_CHITIET_SINHNHAT_KHACHHANG.Add(_request);
                 _request.MODIFIED = DateTime.Now;
+                KhachhangDao.Instance.Update(_request);
                 db.SaveChanges();
                 return true;
             }
             return false;
         }
-
         /**
          * @description -- delete a product
          * @param _key: int -- is field ProdID
@@ -114,7 +116,7 @@ namespace Model.DAO
         public IEnumerable<TBL_KHACHHANG> Khachhang()
         {
             var model = from kh in db.TBL_KHACHHANG
-                        where kh.NGAY_SINH.Value.Month == DateTimeOffset.Now.Month
+                        where  kh.BIRTHDAY == null && kh.NGAY_SINH.Value.Month == DateTimeOffset.Now.Month 
                         select kh;
             return model.ToList();
 
