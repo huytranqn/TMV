@@ -55,5 +55,13 @@ namespace Model.DAO
             db.SaveChanges();
             return true;
         }
+
+        public bool delect(string  _request)
+        {
+            var kh = getByID(_request);
+            kh.BIRTHDAY = null;
+            db.SaveChanges();
+            return true;
+        }
     }
 }

@@ -82,6 +82,8 @@ namespace Model.DAO
         {
             //if (hasReference(_key))
             //    return false;
+            var dao = ChitietSNKHDao.Instance.getByID(_key);
+            KhachhangDao.Instance.delect(dao.MA_KHACHHANG);
             db.APP_CHITIET_SINHNHAT_KHACHHANG.Remove(getByID(_key));
             db.SaveChanges();
             return true;
@@ -97,7 +99,6 @@ namespace Model.DAO
             var chitiet = getByID(_request.ID_CHITIET_SINHNHAT);
             chitiet.ID_SINHNHAT = _request.ID_SINHNHAT;
             chitiet.MA_KHACHHANG = _request.MA_KHACHHANG;
-            //chitiet.GHI_CHU = _request.GHI_CHU;
             db.SaveChanges();
             return true;
         }
