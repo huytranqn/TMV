@@ -25,13 +25,13 @@ namespace TMV.Areas.Admin.Controllers
             ViewBag.SearchString = searchString;
             return View(model);
         }
-
-        
+       
         public void KhachHang()
         {
             var dao = new ChitietSNKHDao();
             var model = dao.Khachhang();
             ViewBag.Khachhang = model;
+            ViewBag.Toatal = model.Count();
         }
 
        
@@ -83,11 +83,16 @@ namespace TMV.Areas.Admin.Controllers
 
         public JsonResult Add(string mkh, int Select)
         {
+            int _month = DateTime.Now.Month;
+            int _year = DateTime.Now.Year;
             APP_CHITIET_SINHNHAT_KHACHHANG model = new APP_CHITIET_SINHNHAT_KHACHHANG();
             model.MA_KHACHHANG = mkh;
             model.ID_SINHNHAT = Select;
-            Noidung();
-            KhachHang();
+            model.THANG_SINHNHAT = _month;
+            model.NAM_SINHNHAT = _year;
+            model.MODIFIED = DateTime.Now;
+            //Noidung();
+            //KhachHang();
             var result = ChitietSNKHDao.Instance.insert(model);
             return Json(result, JsonRequestBehavior.AllowGet);
         }

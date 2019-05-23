@@ -72,7 +72,6 @@ namespace Model.EF
         public string MAT_KHAU { get; set; }
 
         public DateTime? MODIFIED { get; set; }
-        public bool? BIRTHDAY { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<APP_CHITIET_SINHNHAT_KHACHHANG> APP_CHITIET_SINHNHAT_KHACHHANG { get; set; }
